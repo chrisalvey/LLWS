@@ -124,9 +124,9 @@
             color: white;
         }
         
-        .status-competing { background-color: #17a2b8; }
-        .status-out { background-color: #dc3545; }
-        .status-waiting { background-color: #ffc107; color: #212529; }
+        .status-teams-2-active { background-color: #17a2b8; color: white; }
+        .status-team-1-active { background-color: #ffc107; color: #212529; }
+        .status-eliminated-participant { background-color: #dc3545; color: white; }
         
         .tournament-info {
             display: grid;
@@ -150,10 +150,6 @@
             font-size: 1.1em;
             font-weight: bold;
             color: #333;
-        }
-        
-        .bracket-section {
-            margin-top: 20px;
         }
         
         .bracket-note {
@@ -182,10 +178,6 @@
             justify-content: space-between;
             align-items: center;
             border-left: 4px solid #28a745;
-        }
-        
-        .game-result.elimination {
-            border-left-color: #dc3545;
         }
         
         .game-info {
@@ -367,7 +359,7 @@
         <!-- Tournament Status -->
         <div class="tournament-status">
             <h2>🎯 Current Competition Status</h2>
-            <p style="font-size: 1.2em; margin: 10px 0;">All participants have qualified teams ready to compete!</p>
+            <p style="font-size: 1.2em; margin: 10px 0;">All participants have teams ready to compete!</p>
             <p>Tournament begins in <strong>3 weeks</strong> on August 13, 2025</p>
         </div>
     </div>
@@ -386,21 +378,6 @@
             { name: 'Randy', usTeam: 'SOUTHWEST', intlTeam: 'JAPAN' },
             { name: 'Ryan', usTeam: 'MOUNTAIN', intlTeam: 'CANADA' }
         ];
-
-        // Create lookup objects for team to participant mapping
-        const usTeamToParticipant = {};
-        const intlTeamToParticipant = {};
-        
-        participants.forEach(p => {
-            usTeamToParticipant[p.usTeam] = p.name;
-            intlTeamToParticipant[p.intlTeam] = p.name;
-        });
-
-        // Function to get team name with participant
-        function getTeamWithParticipant(teamName, isUS = true) {
-            const participant = isUS ? usTeamToParticipant[teamName] : intlTeamToParticipant[teamName];
-            return participant ? `${teamName} (${participant})` : teamName;
-        }
 
         // Sample recent games data (fake data for demonstration)
         const recentGames = [
@@ -495,9 +472,17 @@
             return 'ACTIVE'; // All teams are qualified and ready to play
         }
 
-        function getParticipantStatus(participant) {
-            // Since tournament hasn't started, all participants are competing
-            return 'COMPETING';
+        function getParticipantStatusInfo(participant) {
+            const usStatus = getTeamStatus(participant.usTeam);
+            const intlStatus = getTeamStatus(participant.intlTeam);
+            
+            let activeTeams = 0;
+            if (usStatus === 'ACTIVE') activeTeams++;
+            if (intlStatus === 'ACTIVE') activeTeams++;
+            
+            if (activeTeams === 2) return { text: '2 Teams Active', cssClass: 'teams-2-active' };
+            if (activeTeams === 1) return { text: '1 Team Active', cssClass: 'team-1-active' };
+            return { text: 'Eliminated', cssClass: 'eliminated-participant' };
         }
 
         function generateParticipantCards() {
@@ -509,24 +494,24 @@
                 
                 const usStatus = getTeamStatus(participant.usTeam);
                 const intlStatus = getTeamStatus(participant.intlTeam);
-                const participantStatus = getParticipantStatus(participant);
+                const participantStatus = getParticipantStatusInfo(participant);
                 
                 card.innerHTML = `
                     <div class="participant-name">${participant.name}</div>
                     <div class="team-assignment">
                         <span class="team-type">🇺🇸 US:</span>
-                        <span class="team-name status-${usStatus.toLowerCase().replace(' ', '-')}">
+                        <span class="team-name status-active">
                             ${getStatusIcon(usStatus)} ${participant.usTeam}
                         </span>
                     </div>
                     <div class="team-assignment">
                         <span class="team-type">🌍 Intl:</span>
-                        <span class="team-name status-${intlStatus.toLowerCase().replace(' ', '-')}">
+                        <span class="team-name status-active">
                             ${getStatusIcon(intlStatus)} ${participant.intlTeam}
                         </span>
                     </div>
-                    <div class="participant-status status-${participantStatus.toLowerCase()}">
-                        ${participantStatus === 'COMPETING' ? '⚾ Ready to Compete' : participantStatus}
+                    <div class="participant-status status-${participantStatus.cssClass}">
+                        ${participantStatus.text}
                     </div>
                 `;
                 
