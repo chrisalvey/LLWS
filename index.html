@@ -303,7 +303,7 @@
             </div>
             
             <div class="bracket-note">
-                <strong>📋 Current Status:</strong> The tournament bracket is set and ready! All 20 teams (10 US regional champions and 10 international representatives) are qualified and will compete starting August 13th.
+                <strong>📋 Current Status:</strong> The tournament bracket is complete! All 20 teams (10 US regional champions and 10 international representatives) are qualified and ready to compete. Opening day begins August 13th with pool play games.
             </div>
         </div>
         
@@ -328,31 +328,12 @@
         
         <!-- Upcoming Games -->
         <div class="section">
-            <h2>📅 Upcoming Games - First Round</h2>
+            <h2>📅 Upcoming Games - Opening Day</h2>
             <div class="bracket-note">
                 <strong>Opening Day Schedule - Wednesday, August 13, 2025</strong>
             </div>
-            <div class="upcoming-games">
-                <div class="game-item">
-                    <div class="game-date">Wed, Aug 13 - 1:00 PM ET</div>
-                    <div class="game-matchup">Game 1: TBD vs TBD</div>
-                    <div>International Pool Play</div>
-                </div>
-                <div class="game-item">
-                    <div class="game-date">Wed, Aug 13 - 3:00 PM ET</div>
-                    <div class="game-matchup">Game 2: Southeast (Lindsey) vs New England (Judy)</div>
-                    <div>US Pool Play</div>
-                </div>
-                <div class="game-item">
-                    <div class="game-date">Wed, Aug 13 - 5:00 PM ET</div>
-                    <div class="game-matchup">Game 3: TBD vs TBD</div>
-                    <div>International Pool Play</div>
-                </div>
-                <div class="game-item">
-                    <div class="game-date">Wed, Aug 13 - 7:00 PM ET</div>
-                    <div class="game-matchup">Game 4: Southwest (Randy) vs Metro (Kelly)</div>
-                    <div>US Pool Play</div>
-                </div>
+            <div class="upcoming-games" id="upcomingGamesContainer">
+                <!-- Upcoming games will be populated here -->
             </div>
         </div>
         
@@ -360,7 +341,8 @@
         <div class="tournament-status">
             <h2>🎯 Current Competition Status</h2>
             <p style="font-size: 1.2em; margin: 10px 0;">All participants have teams ready to compete!</p>
-            <p>Tournament begins in <strong>3 weeks</strong> on August 13, 2025</p>
+            <p>Tournament begins in <strong>2 days</strong> on August 13, 2025</p>
+            <p style="margin-top: 15px; font-size: 1.1em;">First games feature Ryan vs Lucy, Lindsey vs Judy, Chris vs Ellie, and Randy vs Kelly!</p>
         </div>
     </div>
 
@@ -430,6 +412,99 @@
                 winner: 'NORTHWEST'
             }
         ];
+
+        // Opening day upcoming games based on the bracket
+        const upcomingGames = [
+            {
+                date: 'Wed, Aug 13 - 1:00 PM ET',
+                game: 'Game 1',
+                team1: 'CANADA',
+                team1Participant: 'Ryan',
+                team2: 'PUERTO RICO',
+                team2Participant: 'Lucy',
+                gameType: 'International Pool Play'
+            },
+            {
+                date: 'Wed, Aug 13 - 3:00 PM ET',
+                game: 'Game 2',
+                team1: 'SOUTHEAST',
+                team1Participant: 'Lindsey',
+                team2: 'NEW ENGLAND',
+                team2Participant: 'Judy',
+                gameType: 'US Pool Play'
+            },
+            {
+                date: 'Wed, Aug 13 - 5:00 PM ET',
+                game: 'Game 3',
+                team1: 'CARIBBEAN',
+                team1Participant: 'Chris',
+                team2: 'PANAMA',
+                team2Participant: 'Ellie',
+                gameType: 'International Pool Play'
+            },
+            {
+                date: 'Wed, Aug 13 - 7:00 PM ET',
+                game: 'Game 4',
+                team1: 'SOUTHWEST',
+                team1Participant: 'Randy',
+                team2: 'METRO',
+                team2Participant: 'Kelly',
+                gameType: 'US Pool Play'
+            },
+            {
+                date: 'Thu, Aug 14 - 1:00 PM ET',
+                game: 'Game 5',
+                team1: 'MEXICO',
+                team1Participant: 'Julie',
+                team2: 'ASIA-PACIFIC',
+                team2Participant: 'Kelly',
+                gameType: 'International Pool Play'
+            },
+            {
+                date: 'Thu, Aug 14 - 3:00 PM ET',
+                game: 'Game 6',
+                team1: 'MOUNTAIN',
+                team1Participant: 'Ryan',
+                team2: 'GREAT LAKES',
+                team2Participant: 'Lucy',
+                gameType: 'US Pool Play'
+            },
+            {
+                date: 'Thu, Aug 14 - 5:00 PM ET',
+                game: 'Game 7',
+                team1: 'JAPAN',
+                team1Participant: 'Randy',
+                team2: 'EUROPE-AFRICA',
+                team2Participant: 'Lindsey',
+                gameType: 'International Pool Play'
+            },
+            {
+                date: 'Thu, Aug 14 - 7:00 PM ET',
+                game: 'Game 8',
+                team1: 'NORTHWEST',
+                team1Participant: 'Ellie',
+                team2: 'WEST',
+                team2Participant: 'Chris',
+                gameType: 'US Pool Play'
+            }
+        ];
+
+        function generateUpcomingGames() {
+            const container = document.getElementById('upcomingGamesContainer');
+            
+            upcomingGames.forEach(game => {
+                const gameDiv = document.createElement('div');
+                gameDiv.className = 'game-item';
+                
+                gameDiv.innerHTML = `
+                    <div class="game-date">${game.date}</div>
+                    <div class="game-matchup">${game.game}: ${game.team1} (${game.team1Participant}) vs ${game.team2} (${game.team2Participant})</div>
+                    <div>${game.gameType}</div>
+                `;
+                
+                container.appendChild(gameDiv);
+            });
+        }
 
         function generateRecentGames() {
             const container = document.getElementById('recentGamesContainer');
@@ -523,6 +598,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             generateParticipantCards();
             generateRecentGames();
+            generateUpcomingGames();
         });
     </script>
 </body>
