@@ -394,38 +394,29 @@
                 const card = document.createElement('div');
                 card.className = 'participant-card';
                 
-                // Determine team statuses based on game results
-                let usTeamStatus = 'ACTIVE';
-                let intlTeamStatus = 'ACTIVE';
-                let participantStatus = '2 Teams Active';
-                let statusClass = 'participant-status';
+                // ALL teams are still active - single loss doesn't eliminate in double elimination
+                const usTeamStatus = 'ACTIVE';
+                const intlTeamStatus = 'ACTIVE';
+                const participantStatus = '2 Teams Active';
                 
-                // Lucy's Puerto Rico team was eliminated
-                if (participant.name === 'Lucy') {
-                    intlTeamStatus = 'ELIMINATED';
-                    participantStatus = '1 Team Active';
-                }
-                
-                const usIcon = usTeamStatus === 'ACTIVE' ? '🟢' : '🔴';
-                const intlIcon = intlTeamStatus === 'ACTIVE' ? '🟢' : '🔴';
-                const usTeamClass = usTeamStatus === 'ACTIVE' ? 'team-name' : 'team-name-eliminated';
-                const intlTeamClass = intlTeamStatus === 'ACTIVE' ? 'team-name' : 'team-name-eliminated';
+                const usIcon = '🟢';
+                const intlIcon = '🟢';
                 
                 card.innerHTML = `
                     <div class="participant-name">${participant.name}</div>
                     <div class="team-assignment">
                         <span class="team-type">🇺🇸 US:</span>
-                        <span class="${usTeamClass}">
+                        <span class="team-name">
                             ${usIcon} ${participant.usTeam}
                         </span>
                     </div>
                     <div class="team-assignment">
                         <span class="team-type">🌍 Intl:</span>
-                        <span class="${intlTeamClass}">
+                        <span class="team-name">
                             ${intlIcon} ${participant.intlTeam}
                         </span>
                     </div>
-                    <div class="${statusClass}">
+                    <div class="participant-status">
                         ${participantStatus}
                     </div>
                 `;
