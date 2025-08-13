@@ -239,7 +239,7 @@
             <p><strong>Williamsport, PA | August 13-24, 2025</strong></p>
             <p>Participant Competition Tracker</p>
             <p style="font-size: 0.9em; color: #888; margin-top: 10px;">
-                <em>Last updated: Tuesday, August 13, 2025 at 3:30 PM CT</em>
+                <em>Last updated: Tuesday, August 13, 2025 at 4:36 PM CT</em>
             </p>
         </div>
         
@@ -253,13 +253,21 @@
         
         <!-- Today's Games -->
         <div class="section">
-            <h2>📅 Today's Games - Opening Day</h2>
+            <h2>📅 Today's Remaining Games - Wednesday, August 13</h2>
             <div class="bracket-note">
                 <strong>🏆 Tournament Day 1 - Wednesday, August 13, 2025</strong><br>
-                Pool play has begun! Game 1 completed, more games in progress.
+                2 games completed, 2 games remaining today. Tomorrow brings 4 more games!
             </div>
             <div class="games-container" id="todaysGamesContainer">
-                <!-- Today's games will be populated here -->
+                <!-- Today's remaining games will be populated here -->
+            </div>
+            
+            <div class="bracket-note" style="margin-top: 20px; background: #e8f5e8;">
+                <strong>🎯 Fun Observations:</strong><br>
+                • <strong>Lucy had a tough day</strong> - both teams lost (Puerto Rico 0-5, Great Lakes 1-16)<br>
+                • <strong>Ryan's Mountain dominated</strong> with a 16-1 victory!<br>
+                • <strong>Tomorrow: Lindsey and Julie each play twice</strong><br>
+                • <strong>Friday: Chris plays twice</strong> (Caribbean AND West)
             </div>
         </div>
         
@@ -290,18 +298,8 @@
             { name: 'Ryan', usTeam: 'MOUNTAIN', intlTeam: 'CANADA' }
         ];
 
-        // Today's remaining games schedule  
+        // Today's remaining games (Wednesday, August 13)
         const todaysGames = [
-            {
-                date: 'Wed, Aug 13 - 2:00 PM CT',
-                game: 'Game 2',
-                team1: 'SOUTHEAST',
-                team1Participant: 'Lindsey',
-                team2: 'NEW ENGLAND',
-                team2Participant: 'Judy',
-                gameType: 'US Pool Play',
-                status: 'In Progress'
-            },
             {
                 date: 'Wed, Aug 13 - 4:00 PM CT',
                 game: 'Game 3',
@@ -310,22 +308,35 @@
                 team2: 'AUSTRALIA',
                 team2Participant: 'Joe',
                 gameType: 'International Pool Play',
-                status: 'Upcoming'
+                status: 'In Progress/Upcoming'
             },
             {
                 date: 'Wed, Aug 13 - 6:00 PM CT',
                 game: 'Game 4',
-                team1: 'SOUTHWEST',
-                team1Participant: 'Randy',
-                team2: 'METRO',
-                team2Participant: 'Kelly',
+                team1: 'METRO',
+                team1Participant: 'Kelly',
+                team2: 'SOUTHWEST',
+                team2Participant: 'Randy',
                 gameType: 'US Pool Play',
                 status: 'Upcoming'
             }
         ];
 
-        // Completed games (real results)
+        // Completed games (real results from today)
         const recentGames = [
+            {
+                date: 'Wed, Aug 13 - 2:00 PM CT',
+                game: 'Game 2',
+                team1: 'MOUNTAIN',
+                team1Participant: 'Ryan',
+                team1Score: 16,
+                team2: 'GREAT LAKES',
+                team2Participant: 'Lucy',
+                team2Score: 1,
+                gameType: 'US Pool Play',
+                winner: 'MOUNTAIN',
+                status: 'FINAL'
+            },
             {
                 date: 'Wed, Aug 13 - 12:00 PM CT',
                 game: 'Game 1',
@@ -348,8 +359,7 @@
                 const gameDiv = document.createElement('div');
                 gameDiv.className = 'game-item';
                 
-                const statusText = game.status === 'In Progress' ? ' - IN PROGRESS' : 
-                                 game.status === 'Upcoming' ? ' - UPCOMING' : '';
+                const statusText = game.status ? ` - ${game.status}` : '';
                 
                 gameDiv.innerHTML = `
                     <div class="game-date">${game.date}${statusText}</div>
