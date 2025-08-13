@@ -111,6 +111,14 @@
             background-color: #28a745;
         }
         
+        .team-name-eliminated {
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 20px;
+            color: white;
+            background-color: #6c757d;
+        }
+        
         .participant-status {
             text-align: center;
             margin-top: 15px;
@@ -231,7 +239,7 @@
             <p><strong>Williamsport, PA | August 13-24, 2025</strong></p>
             <p>Participant Competition Tracker</p>
             <p style="font-size: 0.9em; color: #888; margin-top: 10px;">
-                <em>Last updated: Wednesday, August 13, 2025 at 9:15 AM CT</em>
+                <em>Last updated: Tuesday, August 13, 2025 at 3:30 PM CT</em>
             </p>
         </div>
         
@@ -248,7 +256,7 @@
             <h2>📅 Today's Games - Opening Day</h2>
             <div class="bracket-note">
                 <strong>🏆 Tournament Day 1 - Wednesday, August 13, 2025</strong><br>
-                Pool play begins today! First games start at 12:00 PM CT.
+                Pool play has begun! Game 1 completed, more games in progress.
             </div>
             <div class="games-container" id="todaysGamesContainer">
                 <!-- Today's games will be populated here -->
@@ -259,7 +267,7 @@
         <div class="section">
             <h2>📊 Recent Games</h2>
             <div class="bracket-note">
-                <strong>⚠️ Sample Data:</strong> These are example games with fake scores to demonstrate the layout. Real game results will be updated once games are played.
+                <strong>✅ Live Results:</strong> Real game results from today's play updated as games complete.
             </div>
             <div class="games-container" id="recentGamesContainer">
                 <!-- Recent games will be populated here -->
@@ -282,17 +290,8 @@
             { name: 'Ryan', usTeam: 'MOUNTAIN', intlTeam: 'CANADA' }
         ];
 
-        // Today's games schedule
+        // Today's remaining games schedule  
         const todaysGames = [
-            {
-                date: 'Wed, Aug 13 - 12:00 PM CT',
-                game: 'Game 1',
-                team1: 'CANADA',
-                team1Participant: 'Ryan',
-                team2: 'PUERTO RICO',
-                team2Participant: 'Lucy',
-                gameType: 'International Pool Play'
-            },
             {
                 date: 'Wed, Aug 13 - 2:00 PM CT',
                 game: 'Game 2',
@@ -300,16 +299,18 @@
                 team1Participant: 'Lindsey',
                 team2: 'NEW ENGLAND',
                 team2Participant: 'Judy',
-                gameType: 'US Pool Play'
+                gameType: 'US Pool Play',
+                status: 'In Progress'
             },
             {
                 date: 'Wed, Aug 13 - 4:00 PM CT',
                 game: 'Game 3',
-                team1: 'CARIBBEAN',
-                team1Participant: 'Chris',
-                team2: 'PANAMA',
-                team2Participant: 'Ellie',
-                gameType: 'International Pool Play'
+                team1: 'PANAMA',
+                team1Participant: 'Ellie',
+                team2: 'AUSTRALIA',
+                team2Participant: 'Joe',
+                gameType: 'International Pool Play',
+                status: 'Upcoming'
             },
             {
                 date: 'Wed, Aug 13 - 6:00 PM CT',
@@ -318,33 +319,25 @@
                 team1Participant: 'Randy',
                 team2: 'METRO',
                 team2Participant: 'Kelly',
-                gameType: 'US Pool Play'
+                gameType: 'US Pool Play',
+                status: 'Upcoming'
             }
         ];
 
-        // Sample recent games data
+        // Completed games (real results)
         const recentGames = [
             {
-                date: 'Sun, Aug 18 - 2:00 PM CT',
-                team1: 'JAPAN',
-                team1Participant: 'Randy',
-                team1Score: 8,
-                team2: 'CARIBBEAN',
-                team2Participant: 'Chris',
-                team2Score: 3,
+                date: 'Wed, Aug 13 - 12:00 PM CT',
+                game: 'Game 1',
+                team1: 'PUERTO RICO',
+                team1Participant: 'Lucy',
+                team1Score: 0,
+                team2: 'LATIN AMERICA',
+                team2Participant: 'Judy',
+                team2Score: 5,
                 gameType: 'International Pool Play',
-                winner: 'JAPAN'
-            },
-            {
-                date: 'Sat, Aug 17 - 6:00 PM CT',
-                team1: 'SOUTHWEST',
-                team1Participant: 'Randy',
-                team1Score: 5,
-                team2: 'GREAT LAKES',
-                team2Participant: 'Lucy',
-                team2Score: 2,
-                gameType: 'US Pool Play',
-                winner: 'SOUTHWEST'
+                winner: 'LATIN AMERICA',
+                status: 'FINAL'
             }
         ];
 
@@ -355,8 +348,11 @@
                 const gameDiv = document.createElement('div');
                 gameDiv.className = 'game-item';
                 
+                const statusText = game.status === 'In Progress' ? ' - IN PROGRESS' : 
+                                 game.status === 'Upcoming' ? ' - UPCOMING' : '';
+                
                 gameDiv.innerHTML = `
-                    <div class="game-date">${game.date}</div>
+                    <div class="game-date">${game.date}${statusText}</div>
                     <div class="game-matchup">${game.game}: ${game.team1} (${game.team1Participant}) vs ${game.team2} (${game.team2Participant})</div>
                     <div>${game.gameType}</div>
                 `;
@@ -398,22 +394,39 @@
                 const card = document.createElement('div');
                 card.className = 'participant-card';
                 
+                // Determine team statuses based on game results
+                let usTeamStatus = 'ACTIVE';
+                let intlTeamStatus = 'ACTIVE';
+                let participantStatus = '2 Teams Active';
+                let statusClass = 'participant-status';
+                
+                // Lucy's Puerto Rico team was eliminated
+                if (participant.name === 'Lucy') {
+                    intlTeamStatus = 'ELIMINATED';
+                    participantStatus = '1 Team Active';
+                }
+                
+                const usIcon = usTeamStatus === 'ACTIVE' ? '🟢' : '🔴';
+                const intlIcon = intlTeamStatus === 'ACTIVE' ? '🟢' : '🔴';
+                const usTeamClass = usTeamStatus === 'ACTIVE' ? 'team-name' : 'team-name-eliminated';
+                const intlTeamClass = intlTeamStatus === 'ACTIVE' ? 'team-name' : 'team-name-eliminated';
+                
                 card.innerHTML = `
                     <div class="participant-name">${participant.name}</div>
                     <div class="team-assignment">
                         <span class="team-type">🇺🇸 US:</span>
-                        <span class="team-name">
-                            🟢 ${participant.usTeam}
+                        <span class="${usTeamClass}">
+                            ${usIcon} ${participant.usTeam}
                         </span>
                     </div>
                     <div class="team-assignment">
                         <span class="team-type">🌍 Intl:</span>
-                        <span class="team-name">
-                            🟢 ${participant.intlTeam}
+                        <span class="${intlTeamClass}">
+                            ${intlIcon} ${participant.intlTeam}
                         </span>
                     </div>
-                    <div class="participant-status">
-                        2 Teams Active
+                    <div class="${statusClass}">
+                        ${participantStatus}
                     </div>
                 `;
                 
