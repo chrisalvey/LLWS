@@ -111,11 +111,7 @@
             background-color: #28a745;
         }
         
-        .team-name-elimination {
-            font-weight: bold;
-            padding: 5px 10px;
-            border-radius: 20px;
-            color: white;
+        .team-elimination {
             background-color: #fd7e14;
         }
         
@@ -139,7 +135,7 @@
         }
         
         .games-container {
-            background: #e8f5e8;
+            background: #f8f9fa;
             border-radius: 10px;
             padding: 20px;
         }
@@ -239,7 +235,7 @@
             <p><strong>Williamsport, PA | August 13-24, 2025</strong></p>
             <p>Participant Competition Tracker</p>
             <p style="font-size: 0.9em; color: #888; margin-top: 10px;">
-                <em>Last updated: Thursday, August 15, 2025 at 8:15 AM CT</em>
+                <em>Last updated: Wednesday, August 14, 2025 at 3:50 PM CT</em>
             </p>
         </div>
         
@@ -253,22 +249,21 @@
         
         <!-- Today's Games -->
         <div class="section">
-            <h2>📅 Today's Games - Thursday, August 14</h2>
+            <h2>📅 Today's Remaining Games - Thursday, August 14</h2>
             <div class="bracket-note">
                 <strong>🏆 Tournament Day 2 - Thursday, August 14, 2025</strong><br>
-                Wednesday's games complete! 4 games scheduled for today.
+                6 games complete, 2 games remaining today.
             </div>
             <div class="games-container" id="todaysGamesContainer">
-                <!-- Today's games will be populated here -->
+                <!-- Today's remaining games will be populated here -->
             </div>
             
             <div class="bracket-note" style="margin-top: 20px; background: #e8f5e8;">
-                <strong>🎯 Tournament Highlights:</strong><br>
-                • <strong>Lucy's tough start</strong> - both teams lost (Puerto Rico 0-5, Great Lakes 1-16)<br>
-                • <strong>Ryan's Mountain dominated</strong> with a 16-1 victory!<br>
-                • <strong>Ellie's Panama won big</strong> beating Australia 7-2<br>
-                • <strong>Kelly's Metro edged Randy's Southwest</strong> in a tight 1-0 game<br>
-                • <strong>Today: Lindsey and Julie each play twice</strong>
+                <strong>🎯 Today's Big Story:</strong><br>
+                • <strong>Lindsey's wild day:</strong> Southeast dominated 13-0, Europe-Africa lost 0-12<br>
+                • <strong>Blowout Thursday:</strong> Japan 12-0 and Southeast 13-0 wins<br>
+                • <strong>Judy & Randy:</strong> Each have one winner, one in elimination bracket<br>
+                • <strong>Coming up:</strong> Kelly and Julie play their second teams today
             </div>
         </div>
         
@@ -276,7 +271,7 @@
         <div class="section">
             <h2>📊 Recent Games</h2>
             <div class="bracket-note">
-                <strong>✅ Live Results:</strong> Real game results from today's play updated as games complete.
+                <strong>📋 Tournament Results:</strong> Game results updated after completion.
             </div>
             <div class="games-container" id="recentGamesContainer">
                 <!-- Recent games will be populated here -->
@@ -299,26 +294,32 @@
             { name: 'Ryan', usTeam: 'MOUNTAIN', intlTeam: 'CANADA' }
         ];
 
-        // Today's games (Thursday, August 14)
+        // Current team status based on completed games
+        const teamStatus = {
+            'WEST': { record: '0-0', bracket: 'Winner' },
+            'NORTHWEST': { record: '0-0', bracket: 'Winner' },
+            'MIDWEST': { record: '0-0', bracket: 'Winner' },
+            'NEW ENGLAND': { record: '0-1', bracket: 'Elimination' },
+            'MID-ATLANTIC': { record: '0-0', bracket: 'Winner' },
+            'METRO': { record: '1-0', bracket: 'Winner' },
+            'SOUTHEAST': { record: '1-0', bracket: 'Winner' },
+            'GREAT LAKES': { record: '0-1', bracket: 'Elimination' },
+            'SOUTHWEST': { record: '0-1', bracket: 'Elimination' },
+            'MOUNTAIN': { record: '1-0', bracket: 'Winner' },
+            'CARIBBEAN': { record: '0-0', bracket: 'Winner' },
+            'PANAMA': { record: '1-0', bracket: 'Winner' },
+            'AUSTRALIA': { record: '0-1', bracket: 'Elimination' },
+            'LATIN AMERICA': { record: '1-0', bracket: 'Winner' },
+            'MEXICO': { record: '0-0', bracket: 'Winner' },
+            'ASIA-PACIFIC': { record: '0-0', bracket: 'Winner' },
+            'EUROPE-AFRICA': { record: '0-1', bracket: 'Elimination' },
+            'PUERTO RICO': { record: '0-1', bracket: 'Elimination' },
+            'JAPAN': { record: '1-0', bracket: 'Winner' },
+            'CANADA': { record: '0-0', bracket: 'Winner' }
+        };
+
+        // Today's remaining games
         const todaysGames = [
-            {
-                date: 'Thu, Aug 14 - 12:00 PM CT',
-                game: 'Game 5',
-                team1: 'EUROPE-AFRICA',
-                team1Participant: 'Lindsey',
-                team2: 'JAPAN',
-                team2Participant: 'Randy',
-                gameType: 'International Pool Play'
-            },
-            {
-                date: 'Thu, Aug 14 - 2:00 PM CT',
-                game: 'Game 6',
-                team1: 'NEW ENGLAND',
-                team1Participant: 'Judy',
-                team2: 'SOUTHEAST',
-                team2Participant: 'Lindsey',
-                gameType: 'US Pool Play'
-            },
             {
                 date: 'Thu, Aug 14 - 4:00 PM CT',
                 game: 'Game 7',
@@ -339,8 +340,32 @@
             }
         ];
 
-        // All completed games from Wednesday
+        // All completed games
         const recentGames = [
+            {
+                date: 'Thu, Aug 14 - 2:00 PM CT',
+                game: 'Game 6',
+                team1: 'NEW ENGLAND',
+                team1Participant: 'Judy',
+                team1Score: 0,
+                team2: 'SOUTHEAST',
+                team2Participant: 'Lindsey',
+                team2Score: 13,
+                gameType: 'US Pool Play',
+                winner: 'SOUTHEAST'
+            },
+            {
+                date: 'Thu, Aug 14 - 12:00 PM CT',
+                game: 'Game 5',
+                team1: 'EUROPE-AFRICA',
+                team1Participant: 'Lindsey',
+                team1Score: 0,
+                team2: 'JAPAN',
+                team2Participant: 'Randy',
+                team2Score: 12,
+                gameType: 'International Pool Play',
+                winner: 'JAPAN'
+            },
             {
                 date: 'Wed, Aug 13 - 6:00 PM CT',
                 game: 'Game 4',
@@ -351,8 +376,7 @@
                 team2Participant: 'Randy',
                 team2Score: 0,
                 gameType: 'US Pool Play',
-                winner: 'METRO',
-                status: 'FINAL'
+                winner: 'METRO'
             },
             {
                 date: 'Wed, Aug 13 - 4:00 PM CT',
@@ -364,8 +388,7 @@
                 team2Participant: 'Joe',
                 team2Score: 2,
                 gameType: 'International Pool Play',
-                winner: 'PANAMA',
-                status: 'FINAL'
+                winner: 'PANAMA'
             },
             {
                 date: 'Wed, Aug 13 - 2:00 PM CT',
@@ -377,8 +400,7 @@
                 team2Participant: 'Lucy',
                 team2Score: 1,
                 gameType: 'US Pool Play',
-                winner: 'MOUNTAIN',
-                status: 'FINAL'
+                winner: 'MOUNTAIN'
             },
             {
                 date: 'Wed, Aug 13 - 12:00 PM CT',
@@ -390,10 +412,47 @@
                 team2Participant: 'Judy',
                 team2Score: 5,
                 gameType: 'International Pool Play',
-                winner: 'LATIN AMERICA',
-                status: 'FINAL'
+                winner: 'LATIN AMERICA'
             }
         ];
+
+        function generateParticipantCards() {
+            const grid = document.getElementById('participantGrid');
+            
+            participants.forEach(participant => {
+                const card = document.createElement('div');
+                card.className = 'participant-card';
+                
+                const usTeam = teamStatus[participant.usTeam];
+                const intlTeam = teamStatus[participant.intlTeam];
+                
+                const usIcon = usTeam.bracket === 'Winner' ? '🟢' : '🟡';
+                const intlIcon = intlTeam.bracket === 'Winner' ? '🟢' : '🟡';
+                const usClass = usTeam.bracket === 'Winner' ? 'team-name' : 'team-name team-elimination';
+                const intlClass = intlTeam.bracket === 'Winner' ? 'team-name' : 'team-name team-elimination';
+                
+                card.innerHTML = `
+                    <div class="participant-name">${participant.name}</div>
+                    <div class="team-assignment">
+                        <span class="team-type">🇺🇸 US:</span>
+                        <span class="${usClass}">
+                            ${usIcon} ${participant.usTeam} (${usTeam.record})
+                        </span>
+                    </div>
+                    <div class="team-assignment">
+                        <span class="team-type">🌍 Intl:</span>
+                        <span class="${intlClass}">
+                            ${intlIcon} ${participant.intlTeam} (${intlTeam.record})
+                        </span>
+                    </div>
+                    <div class="participant-status">
+                        2 Teams Active
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+        }
 
         function generateTodaysGames() {
             const container = document.getElementById('todaysGamesContainer');
@@ -435,68 +494,6 @@
                 `;
                 
                 container.appendChild(gameDiv);
-            });
-        }
-
-        function generateParticipantCards() {
-            const grid = document.getElementById('participantGrid');
-            
-            // Team status from tournament data
-            const teamStatus = {
-                'MOUNTAIN': { record: '1-0', bracket: 'Winner', active: true },
-                'GREAT LAKES': { record: '0-1', bracket: 'Elimination', active: true },
-                'SOUTHEAST': { record: '0-0', bracket: 'Winner', active: true },
-                'NEW ENGLAND': { record: '0-0', bracket: 'Winner', active: true },
-                'SOUTHWEST': { record: '0-1', bracket: 'Elimination', active: true },
-                'METRO': { record: '1-0', bracket: 'Winner', active: true },
-                'WEST': { record: '0-0', bracket: 'Winner', active: true },
-                'NORTHWEST': { record: '0-0', bracket: 'Winner', active: true },
-                'MIDWEST': { record: '0-0', bracket: 'Winner', active: true },
-                'MID-ATLANTIC': { record: '0-0', bracket: 'Winner', active: true },
-                'LATIN AMERICA': { record: '1-0', bracket: 'Winner', active: true },
-                'PUERTO RICO': { record: '0-1', bracket: 'Elimination', active: true },
-                'JAPAN': { record: '0-0', bracket: 'Winner', active: true },
-                'EUROPE-AFRICA': { record: '0-0', bracket: 'Winner', active: true },
-                'MEXICO': { record: '0-0', bracket: 'Winner', active: true },
-                'ASIA-PACIFIC': { record: '0-0', bracket: 'Winner', active: true },
-                'CANADA': { record: '0-0', bracket: 'Winner', active: true },
-                'CARIBBEAN': { record: '0-0', bracket: 'Winner', active: true },
-                'PANAMA': { record: '1-0', bracket: 'Winner', active: true },
-                'AUSTRALIA': { record: '0-1', bracket: 'Elimination', active: true }
-            };
-            
-            participants.forEach(participant => {
-                const card = document.createElement('div');
-                card.className = 'participant-card';
-                
-                const usTeam = teamStatus[participant.usTeam];
-                const intlTeam = teamStatus[participant.intlTeam];
-                
-                const usIcon = usTeam.bracket === 'Winner' ? '🟢' : '🟡';
-                const intlIcon = intlTeam.bracket === 'Winner' ? '🟢' : '🟡';
-                const usClass = usTeam.bracket === 'Winner' ? 'team-name' : 'team-name-elimination';
-                const intlClass = intlTeam.bracket === 'Winner' ? 'team-name' : 'team-name-elimination';
-                
-                card.innerHTML = `
-                    <div class="participant-name">${participant.name}</div>
-                    <div class="team-assignment">
-                        <span class="team-type">🇺🇸 US:</span>
-                        <span class="${usClass}">
-                            ${usIcon} ${participant.usTeam} (${usTeam.record})
-                        </span>
-                    </div>
-                    <div class="team-assignment">
-                        <span class="team-type">🌍 Intl:</span>
-                        <span class="${intlClass}">
-                            ${intlIcon} ${participant.intlTeam} (${intlTeam.record})
-                        </span>
-                    </div>
-                    <div class="participant-status">
-                        2 Teams Active
-                    </div>
-                `;
-                
-                grid.appendChild(card);
             });
         }
 
