@@ -111,12 +111,12 @@
             background-color: #28a745;
         }
         
-        .team-name-eliminated {
+        .team-name-elimination {
             font-weight: bold;
             padding: 5px 10px;
             border-radius: 20px;
             color: white;
-            background-color: #6c757d;
+            background-color: #fd7e14;
         }
         
         .participant-status {
@@ -239,7 +239,7 @@
             <p><strong>Williamsport, PA | August 13-24, 2025</strong></p>
             <p>Participant Competition Tracker</p>
             <p style="font-size: 0.9em; color: #888; margin-top: 10px;">
-                <em>Last updated: Tuesday, August 13, 2025 at 4:36 PM CT</em>
+                <em>Last updated: Thursday, August 15, 2025 at 8:15 AM CT</em>
             </p>
         </div>
         
@@ -253,21 +253,22 @@
         
         <!-- Today's Games -->
         <div class="section">
-            <h2>📅 Today's Remaining Games - Wednesday, August 13</h2>
+            <h2>📅 Today's Games - Thursday, August 14</h2>
             <div class="bracket-note">
-                <strong>🏆 Tournament Day 1 - Wednesday, August 13, 2025</strong><br>
-                2 games completed, 2 games remaining today. Tomorrow brings 4 more games!
+                <strong>🏆 Tournament Day 2 - Thursday, August 14, 2025</strong><br>
+                Wednesday's games complete! 4 games scheduled for today.
             </div>
             <div class="games-container" id="todaysGamesContainer">
-                <!-- Today's remaining games will be populated here -->
+                <!-- Today's games will be populated here -->
             </div>
             
             <div class="bracket-note" style="margin-top: 20px; background: #e8f5e8;">
-                <strong>🎯 Fun Observations:</strong><br>
-                • <strong>Lucy had a tough day</strong> - both teams lost (Puerto Rico 0-5, Great Lakes 1-16)<br>
+                <strong>🎯 Tournament Highlights:</strong><br>
+                • <strong>Lucy's tough start</strong> - both teams lost (Puerto Rico 0-5, Great Lakes 1-16)<br>
                 • <strong>Ryan's Mountain dominated</strong> with a 16-1 victory!<br>
-                • <strong>Tomorrow: Lindsey and Julie each play twice</strong><br>
-                • <strong>Friday: Chris plays twice</strong> (Caribbean AND West)
+                • <strong>Ellie's Panama won big</strong> beating Australia 7-2<br>
+                • <strong>Kelly's Metro edged Randy's Southwest</strong> in a tight 1-0 game<br>
+                • <strong>Today: Lindsey and Julie each play twice</strong>
             </div>
         </div>
         
@@ -298,32 +299,74 @@
             { name: 'Ryan', usTeam: 'MOUNTAIN', intlTeam: 'CANADA' }
         ];
 
-        // Today's remaining games (Wednesday, August 13)
+        // Today's games (Thursday, August 14)
         const todaysGames = [
             {
-                date: 'Wed, Aug 13 - 4:00 PM CT',
-                game: 'Game 3',
-                team1: 'PANAMA',
-                team1Participant: 'Ellie',
-                team2: 'AUSTRALIA',
-                team2Participant: 'Joe',
-                gameType: 'International Pool Play',
-                status: 'In Progress/Upcoming'
+                date: 'Thu, Aug 14 - 12:00 PM CT',
+                game: 'Game 5',
+                team1: 'EUROPE-AFRICA',
+                team1Participant: 'Lindsey',
+                team2: 'JAPAN',
+                team2Participant: 'Randy',
+                gameType: 'International Pool Play'
             },
+            {
+                date: 'Thu, Aug 14 - 2:00 PM CT',
+                game: 'Game 6',
+                team1: 'NEW ENGLAND',
+                team1Participant: 'Judy',
+                team2: 'SOUTHEAST',
+                team2Participant: 'Lindsey',
+                gameType: 'US Pool Play'
+            },
+            {
+                date: 'Thu, Aug 14 - 4:00 PM CT',
+                game: 'Game 7',
+                team1: 'ASIA-PACIFIC',
+                team1Participant: 'Kelly',
+                team2: 'MEXICO',
+                team2Participant: 'Julie',
+                gameType: 'International Pool Play'
+            },
+            {
+                date: 'Thu, Aug 14 - 6:00 PM CT',
+                game: 'Game 8',
+                team1: 'MIDWEST',
+                team1Participant: 'Joe',
+                team2: 'MID-ATLANTIC',
+                team2Participant: 'Julie',
+                gameType: 'US Pool Play'
+            }
+        ];
+
+        // All completed games from Wednesday
+        const recentGames = [
             {
                 date: 'Wed, Aug 13 - 6:00 PM CT',
                 game: 'Game 4',
                 team1: 'METRO',
                 team1Participant: 'Kelly',
+                team1Score: 1,
                 team2: 'SOUTHWEST',
                 team2Participant: 'Randy',
+                team2Score: 0,
                 gameType: 'US Pool Play',
-                status: 'Upcoming'
-            }
-        ];
-
-        // Completed games (real results from today)
-        const recentGames = [
+                winner: 'METRO',
+                status: 'FINAL'
+            },
+            {
+                date: 'Wed, Aug 13 - 4:00 PM CT',
+                game: 'Game 3',
+                team1: 'PANAMA',
+                team1Participant: 'Ellie',
+                team1Score: 7,
+                team2: 'AUSTRALIA',
+                team2Participant: 'Joe',
+                team2Score: 2,
+                gameType: 'International Pool Play',
+                winner: 'PANAMA',
+                status: 'FINAL'
+            },
             {
                 date: 'Wed, Aug 13 - 2:00 PM CT',
                 game: 'Game 2',
@@ -359,10 +402,8 @@
                 const gameDiv = document.createElement('div');
                 gameDiv.className = 'game-item';
                 
-                const statusText = game.status ? ` - ${game.status}` : '';
-                
                 gameDiv.innerHTML = `
-                    <div class="game-date">${game.date}${statusText}</div>
+                    <div class="game-date">${game.date}</div>
                     <div class="game-matchup">${game.game}: ${game.team1} (${game.team1Participant}) vs ${game.team2} (${game.team2Participant})</div>
                     <div>${game.gameType}</div>
                 `;
@@ -400,34 +441,58 @@
         function generateParticipantCards() {
             const grid = document.getElementById('participantGrid');
             
+            // Team status from tournament data
+            const teamStatus = {
+                'MOUNTAIN': { record: '1-0', bracket: 'Winner', active: true },
+                'GREAT LAKES': { record: '0-1', bracket: 'Elimination', active: true },
+                'SOUTHEAST': { record: '0-0', bracket: 'Winner', active: true },
+                'NEW ENGLAND': { record: '0-0', bracket: 'Winner', active: true },
+                'SOUTHWEST': { record: '0-1', bracket: 'Elimination', active: true },
+                'METRO': { record: '1-0', bracket: 'Winner', active: true },
+                'WEST': { record: '0-0', bracket: 'Winner', active: true },
+                'NORTHWEST': { record: '0-0', bracket: 'Winner', active: true },
+                'MIDWEST': { record: '0-0', bracket: 'Winner', active: true },
+                'MID-ATLANTIC': { record: '0-0', bracket: 'Winner', active: true },
+                'LATIN AMERICA': { record: '1-0', bracket: 'Winner', active: true },
+                'PUERTO RICO': { record: '0-1', bracket: 'Elimination', active: true },
+                'JAPAN': { record: '0-0', bracket: 'Winner', active: true },
+                'EUROPE-AFRICA': { record: '0-0', bracket: 'Winner', active: true },
+                'MEXICO': { record: '0-0', bracket: 'Winner', active: true },
+                'ASIA-PACIFIC': { record: '0-0', bracket: 'Winner', active: true },
+                'CANADA': { record: '0-0', bracket: 'Winner', active: true },
+                'CARIBBEAN': { record: '0-0', bracket: 'Winner', active: true },
+                'PANAMA': { record: '1-0', bracket: 'Winner', active: true },
+                'AUSTRALIA': { record: '0-1', bracket: 'Elimination', active: true }
+            };
+            
             participants.forEach(participant => {
                 const card = document.createElement('div');
                 card.className = 'participant-card';
                 
-                // ALL teams are still active - single loss doesn't eliminate in double elimination
-                const usTeamStatus = 'ACTIVE';
-                const intlTeamStatus = 'ACTIVE';
-                const participantStatus = '2 Teams Active';
+                const usTeam = teamStatus[participant.usTeam];
+                const intlTeam = teamStatus[participant.intlTeam];
                 
-                const usIcon = '🟢';
-                const intlIcon = '🟢';
+                const usIcon = usTeam.bracket === 'Winner' ? '🟢' : '🟡';
+                const intlIcon = intlTeam.bracket === 'Winner' ? '🟢' : '🟡';
+                const usClass = usTeam.bracket === 'Winner' ? 'team-name' : 'team-name-elimination';
+                const intlClass = intlTeam.bracket === 'Winner' ? 'team-name' : 'team-name-elimination';
                 
                 card.innerHTML = `
                     <div class="participant-name">${participant.name}</div>
                     <div class="team-assignment">
                         <span class="team-type">🇺🇸 US:</span>
-                        <span class="team-name">
-                            ${usIcon} ${participant.usTeam}
+                        <span class="${usClass}">
+                            ${usIcon} ${participant.usTeam} (${usTeam.record})
                         </span>
                     </div>
                     <div class="team-assignment">
                         <span class="team-type">🌍 Intl:</span>
-                        <span class="team-name">
-                            ${intlIcon} ${participant.intlTeam}
+                        <span class="${intlClass}">
+                            ${intlIcon} ${participant.intlTeam} (${intlTeam.record})
                         </span>
                     </div>
                     <div class="participant-status">
-                        ${participantStatus}
+                        2 Teams Active
                     </div>
                 `;
                 
