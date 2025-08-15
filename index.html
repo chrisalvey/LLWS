@@ -235,7 +235,7 @@
             <p><strong>Williamsport, PA | August 13-24, 2025</strong></p>
             <p>Participant Competition Tracker</p>
             <p style="font-size: 0.9em; color: #888; margin-top: 10px;">
-                <em>Last updated: Friday, August 15, 2025 at 8:10 AM CT</em>
+                <em>Last updated: Friday, August 15, 2025 at 11:20 AM CT</em>
             </p>
         </div>
         
@@ -260,11 +260,10 @@
             
             <div class="bracket-note" style="margin-top: 20px; background: #e8f5e8;">
                 <strong>🎯 Pool Play Complete - Key Results:</strong><br>
-                • <strong>Thursday night finishes:</strong> Mexico beat Asia-Pacific 7-3, Midwest beat Mid-Atlantic 2-0<br>
-                • <strong>Julie's split day:</strong> Mexico won 7-3, Mid-Atlantic lost 0-2<br>
-                • <strong>Kelly's split day:</strong> Metro still undefeated, Asia-Pacific to elimination<br>
-                • <strong>Joe's big win:</strong> Midwest won 2-0, Australia still in elimination<br>
-                • <strong>Friday brings winners vs winners!</strong> All undefeated teams face off
+                • <strong>Kelly's perfect Thursday:</strong> Both teams won! Metro 1-0, Asia-Pacific beat Mexico 3-0<br>
+                • <strong>Julie's tough day:</strong> Mid-Atlantic lost 0-2, Mexico lost 0-3 (both teams in elimination)<br>
+                • <strong>Joe's split:</strong> Midwest won 2-0, Australia still in elimination bracket<br>
+                • <strong>Friday brings winners vs winners!</strong> All undefeated teams face off today
             </div>
         </div>
         
@@ -295,7 +294,7 @@
             { name: 'Ryan', usTeam: 'MOUNTAIN', intlTeam: 'CANADA' }
         ];
 
-        // Current team status after all 8 pool play games
+        // Corrected team status after all 8 pool play games
         const teamStatus = {
             'WEST': { record: '0-0', bracket: 'Winner' },
             'NORTHWEST': { record: '0-0', bracket: 'Winner' },
@@ -311,8 +310,8 @@
             'PANAMA': { record: '1-0', bracket: 'Winner' },
             'AUSTRALIA': { record: '0-1', bracket: 'Elimination' },
             'LATIN AMERICA': { record: '1-0', bracket: 'Winner' },
-            'MEXICO': { record: '1-0', bracket: 'Winner' },
-            'ASIA-PACIFIC': { record: '0-1', bracket: 'Elimination' },
+            'MEXICO': { record: '0-1', bracket: 'Elimination' },
+            'ASIA-PACIFIC': { record: '1-0', bracket: 'Winner' },
             'EUROPE-AFRICA': { record: '0-1', bracket: 'Elimination' },
             'PUERTO RICO': { record: '0-1', bracket: 'Elimination' },
             'JAPAN': { record: '1-0', bracket: 'Winner' },
@@ -381,9 +380,9 @@
                 team1Score: 3,
                 team2: 'MEXICO',
                 team2Participant: 'Julie',
-                team2Score: 7,
+                team2Score: 0,
                 gameType: 'International Pool Play',
-                winner: 'MEXICO'
+                winner: 'ASIA-PACIFIC'
             },
             {
                 date: 'Thu, Aug 14 - 2:00 PM CT',
