@@ -235,7 +235,7 @@
             <p><strong>Williamsport, PA | August 13-24, 2025</strong></p>
             <p>Participant Competition Tracker</p>
             <p style="font-size: 0.9em; color: #888; margin-top: 10px;">
-                <em>Last updated: Wednesday, August 14, 2025 at 3:50 PM CT</em>
+                <em>Last updated: Friday, August 15, 2025 at 8:10 AM CT</em>
             </p>
         </div>
         
@@ -249,21 +249,22 @@
         
         <!-- Today's Games -->
         <div class="section">
-            <h2>📅 Today's Remaining Games - Thursday, August 14</h2>
+            <h2>📅 Friday's Games - August 15</h2>
             <div class="bracket-note">
-                <strong>🏆 Tournament Day 2 - Thursday, August 14, 2025</strong><br>
-                6 games complete, 2 games remaining today.
+                <strong>🏆 Tournament Day 3 - Friday, August 15, 2025</strong><br>
+                All pool play complete! Friday features winner vs winner matchups.
             </div>
             <div class="games-container" id="todaysGamesContainer">
-                <!-- Today's remaining games will be populated here -->
+                <!-- Friday's games will be populated here -->
             </div>
             
             <div class="bracket-note" style="margin-top: 20px; background: #e8f5e8;">
-                <strong>🎯 Today's Big Story:</strong><br>
-                • <strong>Lindsey's wild day:</strong> Southeast dominated 13-0, Europe-Africa lost 0-12<br>
-                • <strong>Blowout Thursday:</strong> Japan 12-0 and Southeast 13-0 wins<br>
-                • <strong>Judy & Randy:</strong> Each have one winner, one in elimination bracket<br>
-                • <strong>Coming up:</strong> Kelly and Julie play their second teams today
+                <strong>🎯 Pool Play Complete - Key Results:</strong><br>
+                • <strong>Thursday night finishes:</strong> Mexico beat Asia-Pacific 7-3, Midwest beat Mid-Atlantic 2-0<br>
+                • <strong>Julie's split day:</strong> Mexico won 7-3, Mid-Atlantic lost 0-2<br>
+                • <strong>Kelly's split day:</strong> Metro still undefeated, Asia-Pacific to elimination<br>
+                • <strong>Joe's big win:</strong> Midwest won 2-0, Australia still in elimination<br>
+                • <strong>Friday brings winners vs winners!</strong> All undefeated teams face off
             </div>
         </div>
         
@@ -294,13 +295,13 @@
             { name: 'Ryan', usTeam: 'MOUNTAIN', intlTeam: 'CANADA' }
         ];
 
-        // Current team status based on completed games
+        // Current team status after all 8 pool play games
         const teamStatus = {
             'WEST': { record: '0-0', bracket: 'Winner' },
             'NORTHWEST': { record: '0-0', bracket: 'Winner' },
-            'MIDWEST': { record: '0-0', bracket: 'Winner' },
+            'MIDWEST': { record: '1-0', bracket: 'Winner' },
             'NEW ENGLAND': { record: '0-1', bracket: 'Elimination' },
-            'MID-ATLANTIC': { record: '0-0', bracket: 'Winner' },
+            'MID-ATLANTIC': { record: '0-1', bracket: 'Elimination' },
             'METRO': { record: '1-0', bracket: 'Winner' },
             'SOUTHEAST': { record: '1-0', bracket: 'Winner' },
             'GREAT LAKES': { record: '0-1', bracket: 'Elimination' },
@@ -310,38 +311,80 @@
             'PANAMA': { record: '1-0', bracket: 'Winner' },
             'AUSTRALIA': { record: '0-1', bracket: 'Elimination' },
             'LATIN AMERICA': { record: '1-0', bracket: 'Winner' },
-            'MEXICO': { record: '0-0', bracket: 'Winner' },
-            'ASIA-PACIFIC': { record: '0-0', bracket: 'Winner' },
+            'MEXICO': { record: '1-0', bracket: 'Winner' },
+            'ASIA-PACIFIC': { record: '0-1', bracket: 'Elimination' },
             'EUROPE-AFRICA': { record: '0-1', bracket: 'Elimination' },
             'PUERTO RICO': { record: '0-1', bracket: 'Elimination' },
             'JAPAN': { record: '1-0', bracket: 'Winner' },
             'CANADA': { record: '0-0', bracket: 'Winner' }
         };
 
-        // Today's remaining games
+        // Friday's winner vs winner games
         const todaysGames = [
             {
-                date: 'Thu, Aug 14 - 4:00 PM CT',
-                game: 'Game 7',
-                team1: 'ASIA-PACIFIC',
-                team1Participant: 'Kelly',
-                team2: 'MEXICO',
-                team2Participant: 'Julie',
-                gameType: 'International Pool Play'
+                date: 'Fri, Aug 15 - 12:00 PM CT',
+                game: 'Game 9',
+                team1: 'CANADA',
+                team1Participant: 'Ryan',
+                team2: 'LATIN AMERICA',
+                team2Participant: 'Judy',
+                gameType: 'International Winner vs Winner'
             },
+            {
+                date: 'Fri, Aug 15 - 2:00 PM CT',
+                game: 'Game 10',
+                team1: 'NORTHWEST',
+                team1Participant: 'Ellie',
+                team2: 'MOUNTAIN',
+                team2Participant: 'Ryan',
+                gameType: 'US Winner vs Winner'
+            },
+            {
+                date: 'Fri, Aug 15 - 4:00 PM CT',
+                game: 'Game 11',
+                team1: 'CARIBBEAN',
+                team1Participant: 'Chris',
+                team2: 'PANAMA',
+                team2Participant: 'Ellie',
+                gameType: 'International Winner vs Winner'
+            },
+            {
+                date: 'Fri, Aug 15 - 6:00 PM CT',
+                game: 'Game 12',
+                team1: 'WEST',
+                team1Participant: 'Chris',
+                team2: 'METRO',
+                team2Participant: 'Kelly',
+                gameType: 'US Winner vs Winner'
+            }
+        ];
+
+        // All completed games through Thursday
+        const recentGames = [
             {
                 date: 'Thu, Aug 14 - 6:00 PM CT',
                 game: 'Game 8',
                 team1: 'MIDWEST',
                 team1Participant: 'Joe',
+                team1Score: 2,
                 team2: 'MID-ATLANTIC',
                 team2Participant: 'Julie',
-                gameType: 'US Pool Play'
-            }
-        ];
-
-        // All completed games
-        const recentGames = [
+                team2Score: 0,
+                gameType: 'US Pool Play',
+                winner: 'MIDWEST'
+            },
+            {
+                date: 'Thu, Aug 14 - 4:00 PM CT',
+                game: 'Game 7',
+                team1: 'ASIA-PACIFIC',
+                team1Participant: 'Kelly',
+                team1Score: 3,
+                team2: 'MEXICO',
+                team2Participant: 'Julie',
+                team2Score: 7,
+                gameType: 'International Pool Play',
+                winner: 'MEXICO'
+            },
             {
                 date: 'Thu, Aug 14 - 2:00 PM CT',
                 game: 'Game 6',
@@ -389,30 +432,6 @@
                 team2Score: 2,
                 gameType: 'International Pool Play',
                 winner: 'PANAMA'
-            },
-            {
-                date: 'Wed, Aug 13 - 2:00 PM CT',
-                game: 'Game 2',
-                team1: 'MOUNTAIN',
-                team1Participant: 'Ryan',
-                team1Score: 16,
-                team2: 'GREAT LAKES',
-                team2Participant: 'Lucy',
-                team2Score: 1,
-                gameType: 'US Pool Play',
-                winner: 'MOUNTAIN'
-            },
-            {
-                date: 'Wed, Aug 13 - 12:00 PM CT',
-                game: 'Game 1',
-                team1: 'PUERTO RICO',
-                team1Participant: 'Lucy',
-                team1Score: 0,
-                team2: 'LATIN AMERICA',
-                team2Participant: 'Judy',
-                team2Score: 5,
-                gameType: 'International Pool Play',
-                winner: 'LATIN AMERICA'
             }
         ];
 
