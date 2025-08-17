@@ -120,6 +120,11 @@
             color: #212529;
         }
         
+        .participant-status-eliminated {
+            background-color: #dc3545;
+            color: white;
+        }
+        
         .participant-status {
             text-align: center;
             margin-top: 15px;
@@ -240,7 +245,7 @@
             <p><strong>Williamsport, PA | August 13-24, 2025</strong></p>
             <p>Participant Competition Tracker</p>
             <p style="font-size: 0.9em; color: #888; margin-top: 10px;">
-                <em>Last updated: Sunday, August 17, 2025 at 9:00 AM CT</em>
+                <em>Last updated: Saturday, August 17, 2025 at 3:15 PM CT</em>
             </p>
         </div>
         
@@ -252,7 +257,7 @@
                 <strong>Seattle Mariners vs New York Mets</strong> at Historic Bowman Field, Williamsport<br>
                 <strong>Game Time:</strong> 6:00 PM CT<br>
                 <strong>Annual MLB Game:</strong> Major League players compete at the home of Little League Baseball!<br>
-                <a href="https://www.mlb.com/events/little-league-classic" style="color: #1e3c72; text-decoration: underline;">More info available here</a>
+                <a href="#" style="color: #1e3c72; text-decoration: underline;">More info available here</a>
             </div>
         </div>
         
@@ -266,21 +271,22 @@
         
         <!-- Today's Games -->
         <div class="section">
-            <h2>📅 Today's Games - Sunday, August 17</h2>
+            <h2>📅 Tomorrow's Games - Monday, August 18</h2>
             <div class="bracket-note">
-                <strong>🏆 Tournament Day 5 - Sunday, August 17, 2025</strong><br>
-                Saturday elimination complete! Sunday features more elimination games - teams fighting to stay alive.
+                <strong>🏆 Tournament Day 6 - Monday, August 18, 2025</strong><br>
+                Sunday elimination complete! Monday features winner's bracket semifinals - the final 8 teams.
             </div>
             <div class="games-container" id="todaysGamesContainer">
-                <!-- Sunday's elimination games will be populated here -->
+                <!-- Monday's winner's bracket games will be populated here -->
             </div>
             
             <div class="bracket-note" style="margin-top: 20px; background: #ffe8e8;">
-                <strong>🚨 Saturday's Elimination Results - First Teams Eliminated!</strong><br>
-                • <strong>ELIMINATED (2 losses):</strong> Europe-Africa (Lindsey), Southwest (Randy), Puerto Rico (Lucy), Mid-Atlantic (Julie)<br>
-                • <strong>Participants with eliminated teams:</strong> Lindsey, Randy, Lucy, Julie now have only 1 active team<br>
-                • <strong>Advancement wins:</strong> Australia (Joe), New England (Judy), Mexico (Julie), Great Lakes (Lucy)<br>
-                • <strong>Sunday stakes:</strong> More eliminations coming - losers go home!<br><br>
+                <strong>🚨 Sunday's Elimination Results - More Participants Fall!</strong><br>
+                • <strong>NEWLY ELIMINATED:</strong> New England (Judy), Australia (Joe), Great Lakes (Lucy), Panama (Ellie)<br>
+                • <strong>LUCY IS OUT:</strong> Both teams eliminated - first participant completely out of tournament! 😢<br>
+                • <strong>Participants with 1 team left:</strong> Ellie (Northwest), Joe (Midwest), Judy (Latin America), Julie (Mexico), Lindsey (Southeast), Randy (Japan)<br>
+                • <strong>Participants with 2 teams:</strong> Kelly (both undefeated!), Chris, Ryan<br>
+                • <strong>Monday's winner's bracket:</strong> Top 8 teams battle for championship spots<br><br>
                 <strong>🎥 Tournament Fun:</strong> <a href="https://youtube.com/shorts/hl5oMU_Dw3M?si=nsXoETCdWTcNFgVT" target="_blank" style="color: #1e3c72; text-decoration: underline;">Watch "Snooze ya Lose" kid interview!</a>
             </div>
         </div>
@@ -312,72 +318,120 @@
             { name: 'Ryan', usTeam: 'MOUNTAIN', intlTeam: 'CANADA' }
         ];
 
-        // Updated team status after Saturday's elimination games
+        // Updated team status after Sunday's elimination games
         const teamStatus = {
-            'WEST': { record: '0-1', bracket: 'Elimination' },
-            'NORTHWEST': { record: '0-1', bracket: 'Elimination' },
+            'WEST': { record: '1-1', bracket: 'Elimination' },
+            'NORTHWEST': { record: '1-1', bracket: 'Elimination' },
             'MIDWEST': { record: '1-0', bracket: 'Winner' },
-            'NEW ENGLAND': { record: '1-1', bracket: 'Elimination' },
+            'NEW ENGLAND': { record: '1-2', bracket: 'ELIMINATED' },
             'MID-ATLANTIC': { record: '0-2', bracket: 'ELIMINATED' },
             'METRO': { record: '2-0', bracket: 'Winner' },
             'SOUTHEAST': { record: '1-0', bracket: 'Winner' },
-            'GREAT LAKES': { record: '1-1', bracket: 'Elimination' },
+            'GREAT LAKES': { record: '1-2', bracket: 'ELIMINATED' },
             'SOUTHWEST': { record: '0-2', bracket: 'ELIMINATED' },
             'MOUNTAIN': { record: '2-0', bracket: 'Winner' },
             'CARIBBEAN': { record: '1-0', bracket: 'Winner' },
-            'PANAMA': { record: '1-1', bracket: 'Elimination' },
-            'AUSTRALIA': { record: '1-1', bracket: 'Elimination' },
+            'PANAMA': { record: '1-2', bracket: 'ELIMINATED' },
+            'AUSTRALIA': { record: '1-2', bracket: 'ELIMINATED' },
             'LATIN AMERICA': { record: '2-0', bracket: 'Winner' },
-            'MEXICO': { record: '1-1', bracket: 'Elimination' },
+            'MEXICO': { record: '2-1', bracket: 'Elimination' },
             'ASIA-PACIFIC': { record: '1-0', bracket: 'Winner' },
             'EUROPE-AFRICA': { record: '0-2', bracket: 'ELIMINATED' },
             'PUERTO RICO': { record: '0-2', bracket: 'ELIMINATED' },
             'JAPAN': { record: '1-0', bracket: 'Winner' },
-            'CANADA': { record: '0-1', bracket: 'Elimination' }
+            'CANADA': { record: '1-1', bracket: 'Elimination' }
         };
 
-        // Sunday's elimination bracket games
+        // Monday's winner's bracket semifinal games
         const todaysGames = [
             {
-                date: 'Sun, Aug 17 - 8:00 AM CT',
-                game: 'Game 17',
-                team1: 'NORTHWEST',
-                team1Participant: 'Ellie',
-                team2: 'NEW ENGLAND',
+                date: 'Mon, Aug 18 - 12:00 PM CT',
+                game: 'Game 21',
+                team1: 'JAPAN',
+                team1Participant: 'Randy',
+                team2: 'LATIN AMERICA',
                 team2Participant: 'Judy',
-                gameType: 'US Elimination - Loser Eliminated'
+                gameType: 'International Winner\'s Bracket Semifinal'
             },
             {
-                date: 'Sun, Aug 17 - 10:00 AM CT',
-                game: 'Game 18',
-                team1: 'CANADA',
-                team1Participant: 'Ryan',
-                team2: 'AUSTRALIA',
+                date: 'Mon, Aug 18 - 2:00 PM CT',
+                game: 'Game 22',
+                team1: 'SOUTHEAST',
+                team1Participant: 'Lindsey',
+                team2: 'MOUNTAIN',
+                team2Participant: 'Ryan',
+                gameType: 'US Winner\'s Bracket Semifinal'
+            },
+            {
+                date: 'Mon, Aug 18 - 3:00 PM CT',
+                game: 'Game 23',
+                team1: 'CARIBBEAN',
+                team1Participant: 'Chris',
+                team2: 'ASIA-PACIFIC',
+                team2Participant: 'Kelly',
+                gameType: 'International Winner\'s Bracket Semifinal'
+            },
+            {
+                date: 'Mon, Aug 18 - 6:00 PM CT',
+                game: 'Game 24',
+                team1: 'METRO',
+                team1Participant: 'Kelly',
+                team2: 'MIDWEST',
                 team2Participant: 'Joe',
-                gameType: 'International Elimination - Loser Eliminated'
+                gameType: 'US Winner\'s Bracket Semifinal'
+            }
+        ];
+
+        // Recent completed games (showing Sunday's elimination results)
+        const recentGames = [
+            {
+                date: 'Sun, Aug 17 - 1:00 PM CT',
+                game: 'Game 20',
+                team1: 'PANAMA',
+                team1Participant: 'Ellie',
+                team1Score: 1,
+                team2: 'MEXICO',
+                team2Participant: 'Julie',
+                team2Score: 2,
+                gameType: 'International Elimination',
+                winner: 'MEXICO'
             },
             {
                 date: 'Sun, Aug 17 - 12:00 PM CT',
                 game: 'Game 19',
                 team1: 'WEST',
                 team1Participant: 'Chris',
+                team1Score: 9,
                 team2: 'GREAT LAKES',
                 team2Participant: 'Lucy',
-                gameType: 'US Elimination - Loser Eliminated'
+                team2Score: 1,
+                gameType: 'US Elimination',
+                winner: 'WEST'
             },
             {
-                date: 'Sun, Aug 17 - 1:00 PM CT',
-                game: 'Game 20',
-                team1: 'PANAMA',
+                date: 'Sun, Aug 17 - 10:00 AM CT',
+                game: 'Game 18',
+                team1: 'CANADA',
+                team1Participant: 'Ryan',
+                team1Score: 12,
+                team2: 'AUSTRALIA',
+                team2Participant: 'Joe',
+                team2Score: 0,
+                gameType: 'International Elimination',
+                winner: 'CANADA'
+            },
+            {
+                date: 'Sun, Aug 17 - 8:00 AM CT',
+                game: 'Game 17',
+                team1: 'NORTHWEST',
                 team1Participant: 'Ellie',
-                team2: 'MEXICO',
-                team2Participant: 'Julie',
-                gameType: 'International Elimination - Loser Eliminated'
-            }
-        ];
-
-        // Recent completed games (showing Saturday's elimination results)
-        const recentGames = [
+                team1Score: 3,
+                team2: 'NEW ENGLAND',
+                team2Participant: 'Judy',
+                team2Score: 2,
+                gameType: 'US Elimination',
+                winner: 'NORTHWEST'
+            },
             {
                 date: 'Sat, Aug 16 - 6:00 PM CT',
                 game: 'Game 16',
@@ -401,54 +455,6 @@
                 team2Score: 11,
                 gameType: 'International Elimination',
                 winner: 'MEXICO'
-            },
-            {
-                date: 'Sat, Aug 16 - 2:00 PM CT',
-                game: 'Game 14',
-                team1: 'SOUTHWEST',
-                team1Participant: 'Randy',
-                team1Score: 3,
-                team2: 'NEW ENGLAND',
-                team2Participant: 'Judy',
-                team2Score: 7,
-                gameType: 'US Elimination',
-                winner: 'NEW ENGLAND'
-            },
-            {
-                date: 'Sat, Aug 16 - 12:00 PM CT',
-                game: 'Game 13',
-                team1: 'AUSTRALIA',
-                team1Participant: 'Joe',
-                team1Score: 5,
-                team2: 'EUROPE-AFRICA',
-                team2Participant: 'Lindsey',
-                team2Score: 3,
-                gameType: 'International Elimination',
-                winner: 'AUSTRALIA'
-            },
-            {
-                date: 'Fri, Aug 15 - 6:00 PM CT',
-                game: 'Game 12',
-                team1: 'WEST',
-                team1Participant: 'Chris',
-                team1Score: 1,
-                team2: 'METRO',
-                team2Participant: 'Kelly',
-                team2Score: 5,
-                gameType: 'US Winner vs Winner',
-                winner: 'METRO'
-            },
-            {
-                date: 'Fri, Aug 15 - 4:00 PM CT',
-                game: 'Game 11',
-                team1: 'CARIBBEAN',
-                team1Participant: 'Chris',
-                team1Score: 8,
-                team2: 'PANAMA',
-                team2Participant: 'Ellie',
-                team2Score: 2,
-                gameType: 'International Winner vs Winner',
-                winner: 'CARIBBEAN'
             }
         ];
 
@@ -474,8 +480,16 @@
                 else if (intlTeam.bracket === 'Elimination') intlClass += ' team-elimination';
                 
                 const activeTeams = (usTeam.bracket !== 'ELIMINATED' ? 1 : 0) + (intlTeam.bracket !== 'ELIMINATED' ? 1 : 0);
-                const statusClass = activeTeams === 2 ? 'participant-status' : 'participant-status participant-status-1-team';
-                const statusText = activeTeams === 2 ? '2 Teams Active' : activeTeams === 1 ? '1 Team Active' : 'ELIMINATED';
+                let statusClass = 'participant-status';
+                let statusText = '2 Teams Active';
+                
+                if (activeTeams === 0) {
+                    statusClass += ' participant-status-eliminated';
+                    statusText = 'ELIMINATED';
+                } else if (activeTeams === 1) {
+                    statusClass += ' participant-status-1-team';
+                    statusText = '1 Team Active';
+                }
                 
                 card.innerHTML = `
                     <div class="participant-name">${participant.name}</div>
@@ -551,5 +565,4 @@
         });
     </script>
 </body>
-
 </html>
