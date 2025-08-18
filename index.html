@@ -115,6 +115,11 @@
             background-color: #6c757d;
         }
         
+        .team-elimination {
+            background-color: #ffc107;
+            color: #212529;
+        }
+        
         .participant-status-1-team {
             background-color: #ffc107;
             color: #212529;
@@ -245,20 +250,8 @@
             <p><strong>Williamsport, PA | August 13-24, 2025</strong></p>
             <p>Participant Competition Tracker</p>
             <p style="font-size: 0.9em; color: #888; margin-top: 10px;">
-                <em>Last updated: Saturday, August 17, 2025 at 3:15 PM CT</em>
+                <em>Last updated: Monday, August 18, 2025 at 2:30 PM CT</em>
             </p>
-        </div>
-        
-        <!-- MLB Little League Classic -->
-        <div class="section">
-            <h2>⚾ MLB Little League Classic</h2>
-            <div class="bracket-note" style="background: #e3f2fd; border-color: #90caf9;">
-                <strong>🏟️ Special Event Today - Sunday, August 17, 2025</strong><br>
-                <strong>Seattle Mariners vs New York Mets</strong> at Historic Bowman Field, Williamsport<br>
-                <strong>Game Time:</strong> 6:00 PM CT<br>
-                <strong>Annual MLB Game:</strong> Major League players compete at the home of Little League Baseball!<br>
-                <a href="#" style="color: #1e3c72; text-decoration: underline;">More info available here</a>
-            </div>
         </div>
         
         <!-- Participant Dashboard -->
@@ -271,22 +264,22 @@
         
         <!-- Today's Games -->
         <div class="section">
-            <h2>📅 Tomorrow's Games - Monday, August 18</h2>
+            <h2>📅 Today's Remaining Games - Monday, August 18</h2>
             <div class="bracket-note">
                 <strong>🏆 Tournament Day 6 - Monday, August 18, 2025</strong><br>
-                Sunday elimination complete! Monday features winner's bracket semifinals - the final 8 teams.
+                Game 21 COMPLETE: Latin America beats Japan 4-0 in winner's bracket! Three more games today.
             </div>
             <div class="games-container" id="todaysGamesContainer">
-                <!-- Monday's winner's bracket games will be populated here -->
+                <!-- Monday's remaining games will be populated here -->
             </div>
             
             <div class="bracket-note" style="margin-top: 20px; background: #ffe8e8;">
-                <strong>🚨 Sunday's Elimination Results - Historic Day!</strong><br>
-                • <strong>NEWLY ELIMINATED TODAY:</strong> New England (Judy), Australia (Joe), Great Lakes (Lucy), Panama (Ellie)<br>
-                • <strong>LUCY IS OUT:</strong> Both teams eliminated - first participant completely out of tournament! 😢<br>
-                • <strong>Sunday's dramatic finishes:</strong> Northwest 3-2 over New England, Canada 12-0 over Australia, West 9-1 over Great Lakes, Mexico 2-1 over Panama<br>
-                • <strong>Participants now down to 1 team:</strong> Ellie, Joe, Judy, Julie, Lindsey, Randy<br>
-                • <strong>Monday's final 8:</strong> Winner's bracket semifinals determine championship contenders<br><br>
+                <strong>🚨 Major Eliminations Update!</strong><br>
+                • <strong>Game 21:</strong> Japan drops to elimination bracket after losing to Latin America 4-0<br>
+                • <strong>1 participant completely eliminated:</strong> Lucy is out! 😢<br>
+                • <strong>6 participants down to 1 team:</strong> Ellie, Joe, Judy, Julie, Lindsey, Randy<br>
+                • <strong>Only 3 participants with both teams active:</strong> Chris, Kelly, Ryan<br>
+                • <strong>Japan vs Mexico tomorrow:</strong> Randy's last chance in elimination bracket!<br><br>
                 <strong>🎥 Tournament Fun:</strong> <a href="https://youtube.com/shorts/hl5oMU_Dw3M?si=nsXoETCdWTcNFgVT" target="_blank" style="color: #1e3c72; text-decoration: underline;">Watch "Snooze ya Lose" kid interview!</a>
             </div>
         </div>
@@ -318,7 +311,7 @@
             { name: 'Ryan', usTeam: 'MOUNTAIN', intlTeam: 'CANADA' }
         ];
 
-        // Updated team status after Sunday's elimination games
+        // Updated team status after Game 21 (Monday 8/18)
         const teamStatus = {
             'WEST': { record: '1-1', bracket: 'Elimination' },
             'NORTHWEST': { record: '1-1', bracket: 'Elimination' },
@@ -333,26 +326,17 @@
             'CARIBBEAN': { record: '1-0', bracket: 'Winner' },
             'PANAMA': { record: '1-2', bracket: 'ELIMINATED' },
             'AUSTRALIA': { record: '1-2', bracket: 'ELIMINATED' },
-            'LATIN AMERICA': { record: '2-0', bracket: 'Winner' },
+            'LATIN AMERICA': { record: '3-0', bracket: 'Winner' },
             'MEXICO': { record: '2-1', bracket: 'Elimination' },
             'ASIA-PACIFIC': { record: '1-0', bracket: 'Winner' },
             'EUROPE-AFRICA': { record: '0-2', bracket: 'ELIMINATED' },
-            'PUERTO RICO': { record: '0-2', bracket: 'ELIMINATED' },
-            'JAPAN': { record: '1-0', bracket: 'Winner' },
+            'PUERTO RICO': { record: '1-2', bracket: 'ELIMINATED' },
+            'JAPAN': { record: '1-1', bracket: 'Elimination' },
             'CANADA': { record: '1-1', bracket: 'Elimination' }
         };
 
-        // Monday's winner's bracket semifinal games
+        // Monday's remaining games after Game 21
         const todaysGames = [
-            {
-                date: 'Mon, Aug 18 - 12:00 PM CT',
-                game: 'Game 21',
-                team1: 'JAPAN',
-                team1Participant: 'Randy',
-                team2: 'LATIN AMERICA',
-                team2Participant: 'Judy',
-                gameType: 'International Winner\'s Bracket Semifinal'
-            },
             {
                 date: 'Mon, Aug 18 - 2:00 PM CT',
                 game: 'Game 22',
@@ -382,8 +366,20 @@
             }
         ];
 
-        // Recent completed games (showing Sunday's elimination results)
+        // Recent completed games (updated through Game 21)
         const recentGames = [
+            {
+                date: 'Mon, Aug 18 - 12:00 PM CT',
+                game: 'Game 21',
+                team1: 'JAPAN',
+                team1Participant: 'Randy',
+                team1Score: 0,
+                team2: 'LATIN AMERICA',
+                team2Participant: 'Judy',
+                team2Score: 4,
+                gameType: 'International Winner\'s Bracket',
+                winner: 'LATIN AMERICA'
+            },
             {
                 date: 'Sun, Aug 17 - 1:00 PM CT',
                 game: 'Game 20',
@@ -443,18 +439,6 @@
                 team2Score: 2,
                 gameType: 'US Elimination',
                 winner: 'GREAT LAKES'
-            },
-            {
-                date: 'Sat, Aug 16 - 4:00 PM CT',
-                game: 'Game 15',
-                team1: 'PUERTO RICO',
-                team1Participant: 'Lucy',
-                team1Score: 5,
-                team2: 'MEXICO',
-                team2Participant: 'Julie',
-                team2Score: 11,
-                gameType: 'International Elimination',
-                winner: 'MEXICO'
             }
         ];
 
