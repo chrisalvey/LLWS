@@ -120,6 +120,11 @@
             color: #212529;
         }
         
+        .team-championship {
+            background-color: #ffd700;
+            color: #212529;
+        }
+        
         .participant-status-1-team {
             background-color: #ffc107;
             color: #212529;
@@ -250,10 +255,24 @@
             <p><strong>Williamsport, PA | August 13-24, 2025</strong></p>
             <p>Participant Competition Tracker</p>
             <p style="font-size: 0.9em; color: #888; margin-top: 10px;">
-                <em>Last updated: Wednesday, August 20, 2025 at 8:30 AM CT</em>
+                <em>Last updated: Thursday, August 21, 2025 at 8:30 AM CT</em>
             </p>
         </div>
         
+        <!-- Championship Games Section -->
+        <div class="section">
+            <h2>🏆 Championship Games Set!</h2>
+            <div class="bracket-note" style="background: #d4edda; border-color: #c3e6cb;">
+                <strong>🎯 SATURDAY'S CHAMPIONSHIP GAMES - AUGUST 23, 2025</strong><br><br>
+                <strong>🌍 Game 35 - International Championship (11:30 AM CT):</strong><br>
+                <strong>ASIA-PACIFIC (Kelly)</strong> vs Winner of Latin America (Judy) vs Caribbean (Chris)<br><br>
+                <strong>🇺🇸 Game 36 - US Championship (2:30 PM CT):</strong><br>
+                <strong>METRO (Kelly)</strong> vs Winner of Mountain (Ryan) vs Southeast (Lindsey)<br><br>
+                <strong>👑 KELLY'S HISTORIC OPPORTUNITY:</strong> Both teams guaranteed championship game spots!<br>
+                Kelly could become the first participant to win BOTH championships! 🔥
+            </div>
+        </div>
+
         <!-- Participant Dashboard -->
         <div class="section">
             <h2>👥 Participant Dashboard</h2>
@@ -264,27 +283,36 @@
         
         <!-- Today's Games -->
         <div class="section">
-            <h2>📅 Today's Games - Wednesday, August 20</h2>
+            <h2>📅 Today's Games - Thursday, August 21</h2>
             <div class="bracket-note">
-                <strong>🏆 Tournament Day 8 - Wednesday, August 20, 2025</strong><br>
-                Championship semifinals day! Final 4 teams battle for spots in Saturday's title games!
+                <strong>🏆 Tournament Day 9 - Thursday, August 21, 2025</strong><br>
+                Final elimination day! Today's winners advance to Saturday's championship games.
             </div>
             <div class="games-container" id="todaysGamesContainer">
-                <!-- Wednesday's championship semifinal games will be populated here -->
+                <!-- Thursday's final elimination games will be populated here -->
             </div>
             
             <div class="bracket-note" style="margin-top: 20px; background: #ffe8e8;">
-                <strong>💀 TUESDAY'S MASSACRE - 3 MORE PARTICIPANTS ELIMINATED!</strong><br>
-                • <strong>COMPLETELY OUT:</strong> Ellie (Northwest eliminated), Julie (Mexico eliminated) join Lucy<br>
-                • <strong>DOWN TO FINAL 7 PARTICIPANTS:</strong> Only 7 of 10 participants remain alive!<br>
-                • <strong>Chris survives by a thread:</strong> West eliminated but Caribbean advances<br>
-                • <strong>Ryan loses Canada:</strong> Down to Mountain only (but Mountain in Final 4!)<br>
-                • <strong>Randy's redemption:</strong> Japan crushes Mexico 6-0 to stay alive<br>
-                • <strong>Joe advances:</strong> Midwest destroys Northwest 9-0<br><br>
-                <strong>🎯 TODAY'S STAKES:</strong> Championship semifinals - winners advance to Saturday's title games!
+                <strong>🎊 WEDNESDAY'S CHAMPIONSHIP SEMIFINALS - KELLY DOMINATES!</strong><br>
+                • <strong>KELLY MAKES HISTORY:</strong> Both Metro (beat Mountain 7-3) and Asia-Pacific (beat Latin America 7-3) advance to championship games!<br>
+                • <strong>2 MORE ELIMINATED:</strong> Joe (Midwest) and Randy (Japan) are out - down to 5 participants!<br>
+                • <strong>Final elimination matchups:</strong> Latin America (Judy) vs Caribbean (Chris), Mountain (Ryan) vs Southeast (Lindsey)<br>
+                • <strong>Kelly guaranteed:</strong> At least one championship, possibly both! 👑<br><br>
+                <strong>🏁 FINAL 5 PARTICIPANTS:</strong> Chris, Judy, Kelly, Lindsey, Ryan
             </div>
         </div>
         
+        <!-- Run Differential Section -->
+        <div class="section">
+            <h2>📊 Team Run Differential</h2>
+            <div class="bracket-note">
+                <strong>📈 Runs Scored vs Runs Allowed:</strong> Measures offensive and defensive performance throughout tournament.
+            </div>
+            <div class="games-container" id="runDifferentialContainer">
+                <!-- Run differential stats will be populated here -->
+            </div>
+        </div>
+
         <!-- Recent Games -->
         <div class="section">
             <h2>📊 Recent Games</h2>
@@ -312,72 +340,102 @@
             { name: 'Ryan', usTeam: 'MOUNTAIN', intlTeam: 'CANADA' }
         ];
 
-        // Updated team status after Tuesday's elimination games (Games 25-28)
+        // Updated team status after Wednesday's championship semifinals (Games 29-32)
         const teamStatus = {
             'WEST': { record: '1-2', bracket: 'ELIMINATED' },
             'NORTHWEST': { record: '1-2', bracket: 'ELIMINATED' },
-            'MIDWEST': { record: '2-1', bracket: 'Elimination' },
+            'MIDWEST': { record: '2-2', bracket: 'ELIMINATED' },
             'NEW ENGLAND': { record: '1-2', bracket: 'ELIMINATED' },
             'MID-ATLANTIC': { record: '0-2', bracket: 'ELIMINATED' },
-            'METRO': { record: '3-0', bracket: 'Winner' },
-            'SOUTHEAST': { record: '2-1', bracket: 'Elimination' },
+            'METRO': { record: '4-0', bracket: 'Championship' },
+            'SOUTHEAST': { record: '3-1', bracket: 'Elimination' },
             'GREAT LAKES': { record: '1-2', bracket: 'ELIMINATED' },
             'SOUTHWEST': { record: '0-2', bracket: 'ELIMINATED' },
-            'MOUNTAIN': { record: '3-0', bracket: 'Winner' },
-            'CARIBBEAN': { record: '2-1', bracket: 'Elimination' },
+            'MOUNTAIN': { record: '3-1', bracket: 'Elimination' },
+            'CARIBBEAN': { record: '3-1', bracket: 'Elimination' },
             'PANAMA': { record: '1-2', bracket: 'ELIMINATED' },
             'AUSTRALIA': { record: '1-2', bracket: 'ELIMINATED' },
-            'LATIN AMERICA': { record: '3-0', bracket: 'Winner' },
+            'LATIN AMERICA': { record: '3-1', bracket: 'Elimination' },
             'MEXICO': { record: '2-2', bracket: 'ELIMINATED' },
-            'ASIA-PACIFIC': { record: '2-0', bracket: 'Winner' },
+            'ASIA-PACIFIC': { record: '3-0', bracket: 'Championship' },
             'EUROPE-AFRICA': { record: '0-2', bracket: 'ELIMINATED' },
             'PUERTO RICO': { record: '1-2', bracket: 'ELIMINATED' },
-            'JAPAN': { record: '2-1', bracket: 'Elimination' },
+            'JAPAN': { record: '2-2', bracket: 'ELIMINATED' },
             'CANADA': { record: '1-2', bracket: 'ELIMINATED' }
         };
 
-        // Wednesday's championship semifinal games
+        // Thursday's final elimination games
         const todaysGames = [
             {
-                date: 'Wed, Aug 20 - 12:00 PM CT',
-                game: 'Game 29',
+                date: 'Thu, Aug 21 - 2:00 PM CT',
+                game: 'Game 33',
                 team1: 'LATIN AMERICA',
                 team1Participant: 'Judy',
-                team2: 'ASIA-PACIFIC',
-                team2Participant: 'Kelly',
-                gameType: 'International Championship Semifinal'
+                team2: 'CARIBBEAN',
+                team2Participant: 'Chris',
+                gameType: 'International Elimination - Winner to Championship vs Asia-Pacific'
             },
             {
-                date: 'Wed, Aug 20 - 2:00 PM CT',
-                game: 'Game 30',
+                date: 'Thu, Aug 21 - 6:00 PM CT',
+                game: 'Game 34',
                 team1: 'MOUNTAIN',
                 team1Participant: 'Ryan',
-                team2: 'METRO',
-                team2Participant: 'Kelly',
-                gameType: 'US Championship Semifinal'
+                team2: 'SOUTHEAST',
+                team2Participant: 'Lindsey',
+                gameType: 'US Elimination - Winner to Championship vs Metro'
+            }
+        ];
+
+        // Recent completed games (updated through Wednesday's Games 29-32)
+        const recentGames = [
+            {
+                date: 'Wed, Aug 20 - 6:00 PM CT',
+                game: 'Game 32',
+                team1: 'MIDWEST',
+                team1Participant: 'Joe',
+                team1Score: 6,
+                team2: 'SOUTHEAST',
+                team2Participant: 'Lindsey',
+                team2Score: 7,
+                gameType: 'US Elimination',
+                winner: 'SOUTHEAST'
             },
             {
                 date: 'Wed, Aug 20 - 4:00 PM CT',
                 game: 'Game 31',
                 team1: 'CARIBBEAN',
                 team1Participant: 'Chris',
+                team1Score: 3,
                 team2: 'JAPAN',
                 team2Participant: 'Randy',
-                gameType: 'International Elimination - Loser Out'
+                team2Score: 0,
+                gameType: 'International Elimination',
+                winner: 'CARIBBEAN'
             },
             {
-                date: 'Wed, Aug 20 - 6:00 PM CT',
-                game: 'Game 32',
-                team1: 'MIDWEST',
-                team1Participant: 'Joe',
-                team2: 'SOUTHEAST',
-                team2Participant: 'Lindsey',
-                gameType: 'US Elimination - Loser Out'
-            }
-        ];
-
-        // Recent completed games (updated through Tuesday's Games 25-28)
-        const recentGames = [
+                date: 'Wed, Aug 20 - 2:00 PM CT',
+                game: 'Game 30',
+                team1: 'MOUNTAIN',
+                team1Participant: 'Ryan',
+                team1Score: 3,
+                team2: 'METRO',
+                team2Participant: 'Kelly',
+                team2Score: 7,
+                gameType: 'US Championship Semifinal',
+                winner: 'METRO'
+            },
+            {
+                date: 'Wed, Aug 20 - 12:00 PM CT',
+                game: 'Game 29',
+                team1: 'LATIN AMERICA',
+                team1Participant: 'Judy',
+                team1Score: 3,
+                team2: 'ASIA-PACIFIC',
+                team2Participant: 'Kelly',
+                team2Score: 7,
+                gameType: 'International Championship Semifinal',
+                winner: 'ASIA-PACIFIC'
+            },
             {
                 date: 'Tue, Aug 19 - 6:00 PM CT',
                 game: 'Game 28',
@@ -401,54 +459,6 @@
                 team2Score: 6,
                 gameType: 'International Elimination',
                 winner: 'CARIBBEAN'
-            },
-            {
-                date: 'Tue, Aug 19 - 2:00 PM CT',
-                game: 'Game 26',
-                team1: 'WEST',
-                team1Participant: 'Chris',
-                team1Score: 0,
-                team2: 'SOUTHEAST',
-                team2Participant: 'Lindsey',
-                team2Score: 3,
-                gameType: 'US Elimination',
-                winner: 'SOUTHEAST'
-            },
-            {
-                date: 'Tue, Aug 19 - 12:00 PM CT',
-                game: 'Game 25',
-                team1: 'MEXICO',
-                team1Participant: 'Julie',
-                team1Score: 0,
-                team2: 'JAPAN',
-                team2Participant: 'Randy',
-                team2Score: 6,
-                gameType: 'International Elimination',
-                winner: 'JAPAN'
-            },
-            {
-                date: 'Mon, Aug 18 - 6:00 PM CT',
-                game: 'Game 24',
-                team1: 'METRO',
-                team1Participant: 'Kelly',
-                team1Score: 13,
-                team2: 'MIDWEST',
-                team2Participant: 'Joe',
-                team2Score: 1,
-                gameType: 'US Winner\'s Bracket Semifinal',
-                winner: 'METRO'
-            },
-            {
-                date: 'Mon, Aug 18 - 4:00 PM CT',
-                game: 'Game 23',
-                team1: 'CARIBBEAN',
-                team1Participant: 'Chris',
-                team1Score: 0,
-                team2: 'ASIA-PACIFIC',
-                team2Participant: 'Kelly',
-                team2Score: 4,
-                gameType: 'International Winner\'s Bracket Semifinal',
-                winner: 'ASIA-PACIFIC'
             }
         ];
 
@@ -462,16 +472,18 @@
                 const usTeam = teamStatus[participant.usTeam];
                 const intlTeam = teamStatus[participant.intlTeam];
                 
-                const usIcon = usTeam.bracket === 'Winner' ? '🟢' : usTeam.bracket === 'ELIMINATED' ? '🔴' : '🟡';
-                const intlIcon = intlTeam.bracket === 'Winner' ? '🟢' : intlTeam.bracket === 'ELIMINATED' ? '🔴' : '🟡';
+                const usIcon = usTeam.bracket === 'Championship' ? '🏆' : usTeam.bracket === 'Winner' ? '🟢' : usTeam.bracket === 'ELIMINATED' ? '🔴' : '🟡';
+                const intlIcon = intlTeam.bracket === 'Championship' ? '🏆' : intlTeam.bracket === 'Winner' ? '🟢' : intlTeam.bracket === 'ELIMINATED' ? '🔴' : '🟡';
                 
                 let usClass = 'team-name';
                 if (usTeam.bracket === 'ELIMINATED') usClass += ' team-eliminated';
                 else if (usTeam.bracket === 'Elimination') usClass += ' team-elimination';
+                else if (usTeam.bracket === 'Championship') usClass += ' team-championship';
                 
                 let intlClass = 'team-name';
                 if (intlTeam.bracket === 'ELIMINATED') intlClass += ' team-eliminated';
                 else if (intlTeam.bracket === 'Elimination') intlClass += ' team-elimination';
+                else if (intlTeam.bracket === 'Championship') intlClass += ' team-championship';
                 
                 const activeTeams = (usTeam.bracket !== 'ELIMINATED' ? 1 : 0) + (intlTeam.bracket !== 'ELIMINATED' ? 1 : 0);
                 let statusClass = 'participant-status';
@@ -551,13 +563,65 @@
             });
         }
 
+        function generateRunDifferentialStats() {
+            const container = document.getElementById('runDifferentialContainer');
+            
+            // Run differential data (top teams)
+            const runStats = [
+                { team: 'METRO', participant: 'Kelly', scored: 26, allowed: 5, differential: 21, status: 'Championship' },
+                { team: 'SOUTHEAST', participant: 'Lindsey', scored: 23, allowed: 7, differential: 16, status: 'Elimination' },
+                { team: 'MOUNTAIN', participant: 'Ryan', scored: 25, allowed: 11, differential: 14, status: 'Elimination' },
+                { team: 'ASIA-PACIFIC', participant: 'Kelly', scored: 14, allowed: 3, differential: 11, status: 'Championship' },
+                { team: 'JAPAN', participant: 'Randy', scored: 18, allowed: 7, differential: 11, status: 'Eliminated' },
+                { team: 'CARIBBEAN', participant: 'Chris', scored: 17, allowed: 7, differential: 10, status: 'Elimination' },
+                { team: 'LATIN AMERICA', participant: 'Judy', scored: 16, allowed: 7, differential: 9, status: 'Elimination' },
+                { team: 'CANADA', participant: 'Ryan', scored: 13, allowed: 10, differential: 3, status: 'Eliminated' },
+                { team: 'WEST', participant: 'Chris', scored: 10, allowed: 9, differential: 1, status: 'Eliminated' },
+                { team: 'MIDWEST', participant: 'Joe', scored: 18, allowed: 20, differential: -2, status: 'Eliminated' }
+            ];
+            
+            runStats.forEach((stat, index) => {
+                const statDiv = document.createElement('div');
+                statDiv.className = 'game-result';
+                
+                let statusClass = '';
+                let statusIcon = '';
+                if (stat.status === 'Championship') {
+                    statusClass = 'winner';
+                    statusIcon = '🏆';
+                } else if (stat.status === 'Elimination') {
+                    statusClass = 'winner';
+                    statusIcon = '🟡';
+                } else {
+                    statusClass = 'loser';
+                    statusIcon = '🔴';
+                }
+                
+                const differentialColor = stat.differential > 0 ? '#28a745' : stat.differential < 0 ? '#dc3545' : '#6c757d';
+                
+                statDiv.innerHTML = `
+                    <div class="game-info">
+                        <div class="game-teams">
+                            <span class="${statusClass}">${statusIcon} ${stat.team} (${stat.participant})</span>
+                        </div>
+                        <div class="game-meta">Scored: ${stat.scored} | Allowed: ${stat.allowed}</div>
+                    </div>
+                    <div class="game-score" style="color: ${differentialColor}">
+                        ${stat.differential > 0 ? '+' : ''}${stat.differential}
+                    </div>
+                `;
+                
+                container.appendChild(statDiv);
+            });
+        }
+
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
             generateParticipantCards();
             generateTodaysGames();
             generateRecentGames();
+            generateRunDifferentialStats();
         });
     </script>
 </body>
-
 </html>
