@@ -222,27 +222,253 @@
             color: #666;
         }
         
+        
+        /* Championship Bracket Styles */
+        .championship-bracket {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .championship-games {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+        
+        .championship-game {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+            min-width: 280px;
+        }
+        
+        .international-game {
+            border: 3px solid #17a2b8;
+        }
+        
+        .us-game {
+            border: 3px solid #dc3545;
+        }
+        
+        .championship-game h3 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .international-game h3 {
+            color: #17a2b8;
+        }
+        
+        .us-game h3 {
+            color: #dc3545;
+        }
+        
+        .game-time {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .game-number {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        
+        .matchup {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            gap: 10px;
+        }
+        
+        .team {
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 20px;
+            flex: 1;
+            font-size: 0.9em;
+        }
+        
+        .championship-team {
+            background: #ffd700;
+            color: #212529;
+        }
+        
+        .elimination-team {
+            background: #ffc107;
+            color: #212529;
+        }
+        
+        .vs {
+            font-size: 1.2em;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .bracket-connector {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .horizontal-line {
+            width: 60%;
+            height: 2px;
+            background: #666;
+            margin-bottom: 10px;
+        }
+        
+        .vertical-line {
+            width: 2px;
+            height: 20px;
+            background: #666;
+        }
+        
+        .final-game {
+            background: white;
+            border: 4px solid #ffd700;
+            border-radius: 15px;
+            padding: 25px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .final-game h2 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .final-matchup {
+            font-size: 1.1em;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .consolation-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 15px;
+        }
+        
+        .kelly-opportunity {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            border: 2px solid #e6c200;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .kelly-opportunity h3 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+        
+        .kelly-opportunity div {
+            font-weight: bold;
+            color: #1e3c72;
+        }
+        
         @media (max-width: 768px) {
-            .container {
+            .championship-bracket {
+                padding: 15px;
+            }
+            
+            .championship-games {
+                flex-direction: column;
+                gap: 20px;
+                margin-bottom: 20px;
+            }
+            
+            .championship-game {
+                min-width: auto;
+                width: 100%;
+            }
+            
+            .matchup {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .team {
+                width: 100%;
+                text-align: center;
+                font-size: 0.9em;
                 padding: 10px;
             }
             
-            .header h1 {
-                font-size: 2em;
+            .vs {
+                font-size: 1em;
+                margin: 5px 0;
             }
             
-            .participants-grid {
-                grid-template-columns: 1fr;
+            .bracket-connector {
+                display: none;
             }
             
-            .game-item, .game-result {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .game-score {
-                margin-left: 0;
+            .final-game {
+                padding: 20px;
                 margin-top: 10px;
+            }
+            
+            .final-game h2 {
+                font-size: 1.3em;
+            }
+            
+            .kelly-opportunity {
+                padding: 15px;
+                margin-top: 20px;
+            }
+            
+            .championship-game h3 {
+                font-size: 1.1em;
+            }
+            
+            .game-time {
+                font-size: 0.8em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .championship-bracket {
+                padding: 10px;
+                margin: 10px 0;
+            }
+            
+            .championship-game {
+                padding: 15px;
+            }
+            
+            .team {
+                font-size: 0.8em;
+                padding: 8px;
+            }
+            
+            .final-game {
+                padding: 15px;
+            }
+            
+            .kelly-opportunity {
+                padding: 12px;
             }
         }
     </style>
@@ -255,7 +481,7 @@
             <p><strong>Williamsport, PA | August 13-24, 2025</strong></p>
             <p>Participant Competition Tracker</p>
             <p style="font-size: 0.9em; color: #888; margin-top: 10px;">
-                <em>Last updated: Friday, August 22, 2025 at 9:15 AM CT</em>
+                <em>Last updated: Saturday, August 23, 2025 at 12:00 PM CT</em>
             </p>
         </div>
         
@@ -268,57 +494,59 @@
             </div>
             
             <!-- Championship Bracket Visualization -->
-            <div style="display: flex; flex-direction: column; align-items: center; background: #f8f9fa; border-radius: 10px; padding: 30px; margin: 20px 0;">
+            <div class="championship-bracket">
                 
                 <!-- Saturday's Championship Games -->
-                <div style="display: flex; justify-content: space-around; width: 100%; margin-bottom: 40px;">
+                <div class="championship-games">
                     
                     <!-- International Championship -->
-                    <div style="background: white; border: 3px solid #17a2b8; border-radius: 10px; padding: 20px; width: 45%; text-align: center;">
-                        <h3 style="color: #17a2b8; margin-bottom: 15px;">🌍 INTERNATIONAL CHAMPIONSHIP</h3>
-                        <div style="font-size: 0.9em; color: #666; margin-bottom: 10px;">Saturday, August 23 - 11:30 AM CT</div>
-                        <div style="font-weight: bold; font-size: 1.1em; margin-bottom: 10px;">Game 35</div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin: 10px 0;">
-                            <div style="background: #ffd700; color: #212529; padding: 8px 12px; border-radius: 20px; font-weight: bold;">🏆 ASIA-PACIFIC (Kelly)</div>
-                            <div style="font-size: 1.2em; font-weight: bold;">VS</div>
-                            <div style="background: #ffc107; color: #212529; padding: 8px 12px; border-radius: 20px; font-weight: bold;">🟡 CARIBBEAN (Chris)</div>
+                    <div class="championship-game international-game">
+                        <h3>🌍 INTERNATIONAL CHAMPIONSHIP</h3>
+                        <div class="game-time">Saturday, August 23 - 11:30 AM CT</div>
+                        <div class="game-number">Game 35</div>
+                        <div class="matchup">
+                            <div class="team championship-team">🏆 ASIA-PACIFIC (Kelly)</div>
+                            <div class="vs">VS</div>
+                            <div class="team elimination-team">🟡 CARIBBEAN (Chris)</div>
                         </div>
                     </div>
                     
                     <!-- US Championship -->
-                    <div style="background: white; border: 3px solid #dc3545; border-radius: 10px; padding: 20px; width: 45%; text-align: center;">
-                        <h3 style="color: #dc3545; margin-bottom: 15px;">🇺🇸 US CHAMPIONSHIP</h3>
-                        <div style="font-size: 0.9em; color: #666; margin-bottom: 10px;">Saturday, August 23 - 2:30 PM CT</div>
-                        <div style="font-weight: bold; font-size: 1.1em; margin-bottom: 10px;">Game 36</div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin: 10px 0;">
-                            <div style="background: #ffd700; color: #212529; padding: 8px 12px; border-radius: 20px; font-weight: bold;">🏆 METRO (Kelly)</div>
-                            <div style="font-size: 1.2em; font-weight: bold;">VS</div>
-                            <div style="background: #ffc107; color: #212529; padding: 8px 12px; border-radius: 20px; font-weight: bold;">🟡 MOUNTAIN (Ryan)</div>
+                    <div class="championship-game us-game">
+                        <h3>🇺🇸 US CHAMPIONSHIP</h3>
+                        <div class="game-time">Saturday, August 23 - 2:30 PM CT</div>
+                        <div class="game-number">Game 36</div>
+                        <div class="matchup">
+                            <div class="team championship-team">🏆 METRO (Kelly)</div>
+                            <div class="vs">VS</div>
+                            <div class="team elimination-team">🟡 MOUNTAIN (Ryan)</div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Connecting Lines -->
-                <div style="width: 60%; height: 2px; background: #666; margin: 20px 0;"></div>
-                <div style="width: 2px; height: 30px; background: #666;"></div>
+                <!-- Connecting Lines (hidden on mobile) -->
+                <div class="bracket-connector">
+                    <div class="horizontal-line"></div>
+                    <div class="vertical-line"></div>
+                </div>
                 
                 <!-- LLBWS Championship Game -->
-                <div style="background: white; border: 4px solid #ffd700; border-radius: 15px; padding: 25px; width: 70%; text-align: center; margin-top: 20px;">
-                    <h2 style="color: #1e3c72; margin-bottom: 15px;">🏆 LLBWS CHAMPIONSHIP GAME</h2>
-                    <div style="font-size: 1.1em; color: #666; margin-bottom: 15px;">Sunday, August 24 - 2:00 PM CT</div>
-                    <div style="font-weight: bold; font-size: 1.2em; margin-bottom: 15px;">Game 38 - Winner Takes All!</div>
-                    <div style="font-size: 1.1em; background: #f8f9fa; padding: 15px; border-radius: 8px;">
+                <div class="final-game">
+                    <h2>🏆 LLBWS CHAMPIONSHIP GAME</h2>
+                    <div class="game-time">Sunday, August 24 - 2:00 PM CT</div>
+                    <div class="game-number">Game 38 - Winner Takes All!</div>
+                    <div class="final-matchup">
                         <strong>International Champion</strong> vs <strong>US Champion</strong>
                     </div>
-                    <div style="margin-top: 15px; font-size: 0.9em; color: #666;">
+                    <div class="consolation-info">
                         Consolation Game: Sunday, August 24 - 9:00 AM CT
                     </div>
                 </div>
                 
                 <!-- Kelly's Historic Opportunity -->
-                <div style="background: linear-gradient(135deg, #ffd700, #ffed4e); border: 2px solid #e6c200; border-radius: 10px; padding: 20px; margin-top: 30px; text-align: center; width: 100%;">
-                    <h3 style="color: #1e3c72; margin-bottom: 10px;">👑 KELLY'S HISTORIC OPPORTUNITY</h3>
-                    <div style="font-weight: bold; color: #1e3c72;">
+                <div class="kelly-opportunity">
+                    <h3>👑 KELLY'S HISTORIC OPPORTUNITY</h3>
+                    <div>
                         Kelly could become the FIRST participant to win BOTH championships!<br>
                         Both Metro and Asia-Pacific must win Saturday to make history! 🔥
                     </div>
