@@ -223,153 +223,7 @@
         }
         
         
-        /* Championship Bracket Styles */
-        .championship-bracket {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        
-        .championship-games {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
-            margin-bottom: 30px;
-            gap: 20px;
-        }
-        
-        .championship-game {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            flex: 1;
-            min-width: 280px;
-        }
-        
-        .international-game {
-            border: 3px solid #17a2b8;
-        }
-        
-        .us-game {
-            border: 3px solid #dc3545;
-        }
-        
-        .championship-game h3 {
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-        
-        .international-game h3 {
-            color: #17a2b8;
-        }
-        
-        .us-game h3 {
-            color: #dc3545;
-        }
-        
-        .game-time {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 10px;
-        }
-        
-        .game-number {
-            font-weight: bold;
-            font-size: 1.1em;
-            margin-bottom: 15px;
-        }
-        
-        .matchup {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 10px 0;
-            gap: 10px;
-        }
-        
-        .team {
-            font-weight: bold;
-            padding: 8px 12px;
-            border-radius: 20px;
-            flex: 1;
-            font-size: 0.9em;
-        }
-        
-        .championship-team {
-            background: #ffd700;
-            color: #212529;
-        }
-        
-        .elimination-team {
-            background: #ffc107;
-            color: #212529;
-        }
-        
-        .vs {
-            font-size: 1.2em;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-        
-        .bracket-connector {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 20px 0;
-        }
-        
-        .horizontal-line {
-            width: 60%;
-            height: 2px;
-            background: #666;
-            margin-bottom: 10px;
-        }
-        
-        .vertical-line {
-            width: 2px;
-            height: 20px;
-            background: #666;
-        }
-        
-        .final-game {
-            background: white;
-            border: 4px solid #ffd700;
-            border-radius: 15px;
-            padding: 25px;
-            width: 100%;
-            max-width: 500px;
-            text-align: center;
-            margin-top: 20px;
-        }
-        
-        .final-game h2 {
-            color: #1e3c72;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-        
-        .final-matchup {
-            font-size: 1.1em;
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-        
-        .consolation-info {
-            font-size: 0.9em;
-            color: #666;
-            margin-top: 15px;
-        }
-        
-        .kelly-opportunity {
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
+        @media (max-width: 768px) {d700, #ffed4e);
             border: 2px solid #e6c200;
             border-radius: 10px;
             padding: 20px;
@@ -388,7 +242,10 @@
             color: #1e3c72;
         }
         
-        @media (max-width: 768px) {
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
             .championship-bracket {
                 padding: 15px;
             }
@@ -481,76 +338,91 @@
             <p><strong>Williamsport, PA | August 13-24, 2025</strong></p>
             <p>Participant Competition Tracker</p>
             <p style="font-size: 0.9em; color: #888; margin-top: 10px;">
-                <em>Last updated: Saturday, August 23, 2025 at 12:00 PM CT</em>
+                <em>Last updated: Sunday, August 24, 2025 at 10:15 AM CT</em>
             </p>
         </div>
         
-        <!-- Championship Games Section -->
+        <!-- CHAMPIONSHIP GAME SHOWDOWN -->
         <div class="section">
-            <h2>🏆 CHAMPIONSHIP WEEKEND BRACKET</h2>
-            <div class="bracket-note" style="background: #d4edda; border-color: #c3e6cb;">
-                <strong>🎯 FINAL 3 PARTICIPANTS REMAIN!</strong><br>
-                Kelly vs Chris vs Ryan - Championship Weekend begins Saturday!
-            </div>
-            
-            <!-- Championship Bracket Visualization -->
-            <div class="championship-bracket">
+            <div style="background: linear-gradient(135deg, #ffd700, #ffed4e, #ffd700); border: 4px solid #e6c200; border-radius: 20px; padding: 40px; text-align: center; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);">
                 
-                <!-- Saturday's Championship Games -->
-                <div class="championship-games">
+                <div style="font-size: 3em; margin-bottom: 10px;">🏆</div>
+                <h1 style="color: #1e3c72; font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
+                    LLBWS CHAMPIONSHIP GAME
+                </h1>
+                <div style="font-size: 1.3em; color: #1e3c72; font-weight: bold; margin-bottom: 30px;">
+                    🗓️ TODAY - Sunday, August 24, 2025 at 2:00 PM CT
+                </div>
+                
+                <!-- The Epic Matchup -->
+                <div style="background: rgba(255, 255, 255, 0.9); border-radius: 15px; padding: 30px; margin: 20px 0;">
+                    <h2 style="color: #dc3545; font-size: 2em; margin-bottom: 25px;">⚔️ THE ULTIMATE SHOWDOWN ⚔️</h2>
                     
-                    <!-- International Championship -->
-                    <div class="championship-game international-game">
-                        <h3>🌍 INTERNATIONAL CHAMPIONSHIP</h3>
-                        <div class="game-time">Saturday, August 23 - 11:30 AM CT</div>
-                        <div class="game-number">Game 35</div>
-                        <div class="matchup">
-                            <div class="team championship-team">🏆 ASIA-PACIFIC (Kelly)</div>
-                            <div class="vs">VS</div>
-                            <div class="team elimination-team">🟡 CARIBBEAN (Chris)</div>
+                    <div style="display: flex; justify-content: space-around; align-items: center; margin: 30px 0; flex-wrap: wrap;">
+                        
+                        <!-- Ryan's Mountain -->
+                        <div style="text-align: center; flex: 1; min-width: 200px; margin: 10px;">
+                            <div style="font-size: 4em; margin-bottom: 10px;">🏔️</div>
+                            <div style="background: #dc3545; color: white; padding: 15px 20px; border-radius: 15px; font-size: 1.4em; font-weight: bold; margin-bottom: 10px; box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);">
+                                MOUNTAIN
+                            </div>
+                            <div style="font-size: 1.2em; font-weight: bold; color: #1e3c72;">RYAN</div>
+                            <div style="font-size: 1em; color: #666; margin-top: 5px;">🇺🇸 US CHAMPION</div>
+                            <div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 10px; margin-top: 10px; font-size: 0.9em;">
+                                <strong>Record:</strong> 5-1<br>
+                                <strong>The Upset King!</strong><br>
+                                Crushed Metro 8-2!
+                            </div>
+                        </div>
+                        
+                        <!-- VS -->
+                        <div style="font-size: 3em; font-weight: bold; color: #1e3c72; margin: 0 20px; animation: pulse 2s infinite;">
+                            ⚡ VS ⚡
+                        </div>
+                        
+                        <!-- Kelly's Asia-Pacific -->
+                        <div style="text-align: center; flex: 1; min-width: 200px; margin: 10px;">
+                            <div style="font-size: 4em; margin-bottom: 10px;">🌏</div>
+                            <div style="background: #17a2b8; color: white; padding: 15px 20px; border-radius: 15px; font-size: 1.4em; font-weight: bold; margin-bottom: 10px; box-shadow: 0 4px 15px rgba(23, 162, 184, 0.3);">
+                                ASIA-PACIFIC
+                            </div>
+                            <div style="font-size: 1.2em; font-weight: bold; color: #1e3c72;">KELLY</div>
+                            <div style="font-size: 1em; color: #666; margin-top: 5px;">🌍 INTERNATIONAL CHAMPION</div>
+                            <div style="background: #d1ecf1; border: 1px solid #bee5eb; border-radius: 8px; padding: 10px; margin-top: 10px; font-size: 0.9em;">
+                                <strong>Record:</strong> 4-0<br>
+                                <strong>The Survivor!</strong><br>
+                                Edged Caribbean 1-0!
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- US Championship -->
-                    <div class="championship-game us-game">
-                        <h3>🇺🇸 US CHAMPIONSHIP</h3>
-                        <div class="game-time">Saturday, August 23 - 2:30 PM CT</div>
-                        <div class="game-number">Game 36</div>
-                        <div class="matchup">
-                            <div class="team championship-team">🏆 METRO (Kelly)</div>
-                            <div class="vs">VS</div>
-                            <div class="team elimination-team">🟡 MOUNTAIN (Ryan)</div>
-                        </div>
+                </div>
+                
+                <!-- The Stakes -->
+                <div style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; border-radius: 15px; padding: 25px; margin: 20px 0; box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);">
+                    <h3 style="font-size: 1.8em; margin-bottom: 15px;">🔥 WINNER TAKES ALL! 🔥</h3>
+                    <div style="font-size: 1.1em; line-height: 1.6;">
+                        <strong>💰 The Final Showdown:</strong> Ryan vs Kelly - 10 participants started, only 2 remain!<br>
+                        <strong>🎯 Ryan's Revenge:</strong> Mountain upset Kelly's dominant Metro - can he complete the miracle?<br>
+                        <strong>👑 Kelly's Last Stand:</strong> Asia-Pacific survived a thriller - one win away from redemption!<br>
+                        <strong>🏆 Legacy on the Line:</strong> Who will be crowned the ultimate LLWS champion?
                     </div>
                 </div>
                 
-                <!-- Connecting Lines (hidden on mobile) -->
-                <div class="bracket-connector">
-                    <div class="horizontal-line"></div>
-                    <div class="vertical-line"></div>
-                </div>
-                
-                <!-- LLBWS Championship Game -->
-                <div class="final-game">
-                    <h2>🏆 LLBWS CHAMPIONSHIP GAME</h2>
-                    <div class="game-time">Sunday, August 24 - 2:00 PM CT</div>
-                    <div class="game-number">Game 38 - Winner Takes All!</div>
-                    <div class="final-matchup">
-                        <strong>International Champion</strong> vs <strong>US Champion</strong>
-                    </div>
-                    <div class="consolation-info">
-                        Consolation Game: Sunday, August 24 - 9:00 AM CT
+                <!-- Game Countdown -->
+                <div style="background: rgba(30, 60, 114, 0.1); border: 3px dashed #1e3c72; border-radius: 15px; padding: 20px; margin: 20px 0;">
+                    <div style="font-size: 1.5em; font-weight: bold; color: #1e3c72; margin-bottom: 10px;">⏰ GAME TIME APPROACHING!</div>
+                    <div style="font-size: 1.1em; color: #1e3c72;">
+                        Historic Bowman Field • Williamsport, PA<br>
+                        Live on ESPN • The whole world is watching! 📺
                     </div>
                 </div>
                 
-                <!-- Kelly's Historic Opportunity -->
-                <div class="kelly-opportunity">
-                    <h3>👑 KELLY'S HISTORIC OPPORTUNITY</h3>
-                    <div>
-                        Kelly could become the FIRST participant to win BOTH championships!<br>
-                        Both Metro and Asia-Pacific must win Saturday to make history! 🔥
-                    </div>
+                <!-- Epic Finishing Touch -->
+                <div style="margin-top: 30px; font-size: 1.3em; font-weight: bold; color: #1e3c72; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);">
+                    🌟 THE MOMENT OF TRUTH HAS ARRIVED! 🌟<br>
+                    <span style="font-size: 0.9em;">Ryan 🆚 Kelly • Mountain 🆚 Asia-Pacific • Dreams 🆚 Destiny</span>
                 </div>
+                
             </div>
         </div>
 
@@ -562,49 +434,93 @@
             </div>
         </div>
         
-        <!-- Today's Games -->
+        <!-- Tournament Complete -->
         <div class="section">
-            <h2>🏁 Tournament Complete - Championship Weekend Ahead!</h2>
-            <div class="bracket-note">
-                <strong>🎊 ALL ELIMINATION GAMES COMPLETE!</strong><br>
-                Championship Weekend begins Saturday with both title games!
-            </div>
-            
-            <div class="games-container" id="todaysGamesContainer">
-                <!-- No more games until championships -->
-            </div>
-            
-            <div class="bracket-note" style="margin-top: 20px; background: #ffe8e8;">
-                <strong>🔥 THURSDAY'S FINAL ELIMINATIONS - DOWN TO 3!</strong><br>
-                • <strong>Game 33:</strong> Caribbean beats Latin America 3-1 (Chris advances, Judy eliminated)<br>
-                • <strong>Game 34:</strong> Mountain beats Southeast 5-3 (Ryan advances, Lindsey eliminated)<br>
-                • <strong>FINAL 3 PARTICIPANTS:</strong> Kelly (both teams in championships!), Chris (International), Ryan (US)<br>
-                • <strong>7 participants eliminated:</strong> Ellie, Joe, Judy, Julie, Lindsey, Lucy, Randy<br><br>
-                <strong>🏆 CHAMPIONSHIP MATCHUPS SET:</strong><br>
-                International: Kelly's Asia-Pacific vs Chris's Caribbean<br>
-                US: Kelly's Metro vs Ryan's Mountain
+            <h2>🎊 Saturday's Championship Results - The Stage is Set!</h2>
+            <div class="bracket-note" style="background: #ffe8e8;">
+                <strong>🚨 SATURDAY'S SHOCKING UPSETS!</strong><br>
+                • <strong>Game 35:</strong> Asia-Pacific beats Caribbean 1-0 (Kelly advances, Chris eliminated)<br>
+                • <strong>Game 36:</strong> Mountain DESTROYS Metro 8-2 (Ryan's massive upset over Kelly's dominant team!)<br>
+                • <strong>CHRIS IS OUT:</strong> Caribbean fell just short in a defensive battle<br>
+                • <strong>RYAN'S REVENGE:</strong> Mountain crushed Kelly's undefeated Metro team in stunning fashion!<br>
+                • <strong>KELLY'S LAST HOPE:</strong> Asia-Pacific survives - one team left to save Kelly's championship dream!<br><br>
+                <strong>🏆 FINAL 2 PARTICIPANTS:</strong> Ryan (Mountain) vs Kelly (Asia-Pacific)<br>
+                <strong>⚡ THE ULTIMATE RIVALRY:</strong> Ryan got his revenge on Kelly - now it's winner takes all!
             </div>
         </div>
         
-        <!-- Run Differential Section -->
+        <!-- Tournament Statistics -->
         <div class="section">
-            <h2>📊 Team Run Differential</h2>
+            <h2>📈 Tournament Statistics & Fun Facts</h2>
             <div class="bracket-note">
-                <strong>📈 Runs Scored vs Runs Allowed:</strong> Measures offensive and defensive performance throughout tournament.
+                <strong>🔢 By the Numbers:</strong> Amazing stats from this incredible tournament!
             </div>
-            <div class="games-container" id="runDifferentialContainer">
-                <!-- Run differential stats will be populated here -->
-            </div>
-        </div>
-
-        <!-- Recent Games -->
-        <div class="section">
-            <h2>📊 Recent Games</h2>
-            <div class="bracket-note">
-                <strong>📋 Tournament Results:</strong> Game results updated after completion.
-            </div>
-            <div class="games-container" id="recentGamesContainer">
-                <!-- Recent games will be populated here -->
+            <div class="games-container">
+                
+                <div class="game-result">
+                    <div class="game-info">
+                        <div class="game-teams">🏔️ <strong>Mountain's Incredible Run</strong></div>
+                        <div class="game-meta">Ryan's team scored 39 runs in 6 games - including the massive 16-1 opening win and 8-2 championship upset!</div>
+                    </div>
+                    <div class="game-score" style="color: #28a745;">+23</div>
+                </div>
+                
+                <div class="game-result">
+                    <div class="game-info">
+                        <div class="game-teams">🌏 <strong>Asia-Pacific's Perfect Regular Season</strong></div>
+                        <div class="game-meta">Kelly's international team went 4-0 in regulation, outscoring opponents 15-3 before today's championship</div>
+                    </div>
+                    <div class="game-score" style="color: #17a2b8;">4-0</div>
+                </div>
+                
+                <div class="game-result">
+                    <div class="game-info">
+                        <div class="game-teams">⚾ <strong>Biggest Blowout</strong></div>
+                        <div class="game-meta">Mountain 16, Great Lakes 1 - Ryan's team started with a bang in the tournament opener!</div>
+                    </div>
+                    <div class="game-score" style="color: #ffc107;">15-run margin</div>
+                </div>
+                
+                <div class="game-result">
+                    <div class="game-info">
+                        <div class="game-teams">🎯 <strong>Closest Championship Game</strong></div>
+                        <div class="game-meta">Asia-Pacific 1, Caribbean 0 - Kelly barely survived Chris's challenge in a defensive masterpiece</div>
+                    </div>
+                    <div class="game-score" style="color: #dc3545;">1-0</div>
+                </div>
+                
+                <div class="game-result">
+                    <div class="game-info">
+                        <div class="game-teams">🔥 <strong>Most Shocking Upset</strong></div>
+                        <div class="game-meta">Mountain 8, Metro 2 - Ryan demolished Kelly's undefeated powerhouse in the US Championship!</div>
+                    </div>
+                    <div class="game-score" style="color: #e74c3c;">UPSET!</div>
+                </div>
+                
+                <div class="game-result">
+                    <div class="game-info">
+                        <div class="game-teams">👑 <strong>Final Two Survivor Stats</strong></div>
+                        <div class="game-meta">Ryan: Started 10th place, Mountain (5-1) • Kelly: Had both teams in Final 4, Asia-Pacific (4-0)</div>
+                    </div>
+                    <div class="game-score" style="color: #1e3c72;">EPIC</div>
+                </div>
+                
+                <div class="game-result">
+                    <div class="game-info">
+                        <div class="game-teams">💥 <strong>Tournament Elimination Count</strong></div>
+                        <div class="game-meta">8 participants eliminated: Lucy (1st), then Ellie, Julie, Joe, Randy, Judy, Lindsey, Chris</div>
+                    </div>
+                    <div class="game-score" style="color: #6c757d;">8 OUT</div>
+                </div>
+                
+                <div class="game-result">
+                    <div class="game-info">
+                        <div class="game-teams">🏆 <strong>Championship Game History</strong></div>
+                        <div class="game-meta">First time US Champion (Mountain) faces International Champion (Asia-Pacific) - Ryan vs Kelly for all the marbles!</div>
+                    </div>
+                    <div class="game-score" style="color: #ffd700;">HISTORIC</div>
+                </div>
+                
             </div>
         </div>
     </div>
@@ -624,24 +540,24 @@
             { name: 'Ryan', usTeam: 'MOUNTAIN', intlTeam: 'CANADA' }
         ];
 
-        // Updated team status after Thursday's final elimination games (Games 33-34)
+        // Updated team status after Saturday's championship games
         const teamStatus = {
             'WEST': { record: '1-2', bracket: 'ELIMINATED' },
             'NORTHWEST': { record: '1-2', bracket: 'ELIMINATED' },
             'MIDWEST': { record: '2-2', bracket: 'ELIMINATED' },
             'NEW ENGLAND': { record: '1-2', bracket: 'ELIMINATED' },
             'MID-ATLANTIC': { record: '0-2', bracket: 'ELIMINATED' },
-            'METRO': { record: '4-0', bracket: 'Championship' },
+            'METRO': { record: '4-1', bracket: 'ELIMINATED' },
             'SOUTHEAST': { record: '3-2', bracket: 'ELIMINATED' },
             'GREAT LAKES': { record: '1-2', bracket: 'ELIMINATED' },
             'SOUTHWEST': { record: '0-2', bracket: 'ELIMINATED' },
-            'MOUNTAIN': { record: '4-1', bracket: 'Championship' },
-            'CARIBBEAN': { record: '4-1', bracket: 'Championship' },
+            'MOUNTAIN': { record: '5-1', bracket: 'Championship' },
+            'CARIBBEAN': { record: '4-2', bracket: 'ELIMINATED' },
             'PANAMA': { record: '1-2', bracket: 'ELIMINATED' },
             'AUSTRALIA': { record: '1-2', bracket: 'ELIMINATED' },
             'LATIN AMERICA': { record: '3-2', bracket: 'ELIMINATED' },
             'MEXICO': { record: '2-2', bracket: 'ELIMINATED' },
-            'ASIA-PACIFIC': { record: '3-0', bracket: 'Championship' },
+            'ASIA-PACIFIC': { record: '4-0', bracket: 'Championship' },
             'EUROPE-AFRICA': { record: '0-2', bracket: 'ELIMINATED' },
             'PUERTO RICO': { record: '1-2', bracket: 'ELIMINATED' },
             'JAPAN': { record: '2-2', bracket: 'ELIMINATED' },
@@ -651,8 +567,32 @@
         // No more games until Saturday's championships!
         const todaysGames = [];
 
-        // Recent completed games (updated through Thursday's final Games 33-34)
+        // Recent completed games (updated through Saturday's championship games)
         const recentGames = [
+            {
+                date: 'Sat, Aug 23 - 2:30 PM CT',
+                game: 'Game 36',
+                team1: 'METRO',
+                team1Participant: 'Kelly',
+                team1Score: 2,
+                team2: 'MOUNTAIN',
+                team2Participant: 'Ryan',
+                team2Score: 8,
+                gameType: 'US Championship Game',
+                winner: 'MOUNTAIN'
+            },
+            {
+                date: 'Sat, Aug 23 - 11:30 AM CT',
+                game: 'Game 35',
+                team1: 'ASIA-PACIFIC',
+                team1Participant: 'Kelly',
+                team1Score: 1,
+                team2: 'CARIBBEAN',
+                team2Participant: 'Chris',
+                team2Score: 0,
+                gameType: 'International Championship Game',
+                winner: 'ASIA-PACIFIC'
+            },
             {
                 date: 'Thu, Aug 21 - 6:00 PM CT',
                 game: 'Game 34',
@@ -700,30 +640,6 @@
                 team2Score: 0,
                 gameType: 'International Elimination',
                 winner: 'CARIBBEAN'
-            },
-            {
-                date: 'Wed, Aug 20 - 2:00 PM CT',
-                game: 'Game 30',
-                team1: 'MOUNTAIN',
-                team1Participant: 'Ryan',
-                team1Score: 3,
-                team2: 'METRO',
-                team2Participant: 'Kelly',
-                team2Score: 7,
-                gameType: 'US Championship Semifinal',
-                winner: 'METRO'
-            },
-            {
-                date: 'Wed, Aug 20 - 12:00 PM CT',
-                game: 'Game 29',
-                team1: 'LATIN AMERICA',
-                team1Participant: 'Judy',
-                team1Score: 3,
-                team2: 'ASIA-PACIFIC',
-                team2Participant: 'Kelly',
-                team2Score: 7,
-                gameType: 'International Championship Semifinal',
-                winner: 'ASIA-PACIFIC'
             }
         ];
 
@@ -786,118 +702,20 @@
         }
 
         function generateTodaysGames() {
-            const container = document.getElementById('todaysGamesContainer');
-            
-            if (todaysGames.length === 0) {
-                const noGamesDiv = document.createElement('div');
-                noGamesDiv.className = 'game-item';
-                noGamesDiv.innerHTML = `
-                    <div style="text-align: center; font-style: italic; color: #666;">
-                        🏆 All tournament games complete! Championship Weekend begins Saturday! 🏆
-                    </div>
-                `;
-                container.appendChild(noGamesDiv);
-                return;
-            }
-            
-            todaysGames.forEach(game => {
-                const gameDiv = document.createElement('div');
-                gameDiv.className = 'game-item';
-                
-                gameDiv.innerHTML = `
-                    <div class="game-date">${game.date}</div>
-                    <div class="game-matchup">${game.game}: ${game.team1} (${game.team1Participant}) vs ${game.team2} (${game.team2Participant})</div>
-                    <div>${game.gameType}</div>
-                `;
-                
-                container.appendChild(gameDiv);
-            });
+            // No games function needed - championship game info is in main section
         }
 
         function generateRecentGames() {
-            const container = document.getElementById('recentGamesContainer');
-            
-            recentGames.forEach(game => {
-                const gameDiv = document.createElement('div');
-                gameDiv.className = 'game-result';
-                
-                const team1Class = game.winner === game.team1 ? 'winner' : 'loser';
-                const team2Class = game.winner === game.team2 ? 'winner' : 'loser';
-                
-                gameDiv.innerHTML = `
-                    <div class="game-info">
-                        <div class="game-teams">
-                            <span class="${team1Class}">${game.team1} (${game.team1Participant})</span>
-                            vs
-                            <span class="${team2Class}">${game.team2} (${game.team2Participant})</span>
-                        </div>
-                        <div class="game-meta">${game.date} • ${game.gameType}</div>
-                    </div>
-                    <div class="game-score">${game.team1Score} - ${game.team2Score}</div>
-                `;
-                
-                container.appendChild(gameDiv);
-            });
+            // No recent games section - replaced with statistics
         }
 
         function generateRunDifferentialStats() {
-            const container = document.getElementById('runDifferentialContainer');
-            
-            // Run differential data (top teams)
-            const runStats = [
-                { team: 'METRO', participant: 'Kelly', scored: 26, allowed: 5, differential: 21, status: 'Championship' },
-                { team: 'SOUTHEAST', participant: 'Lindsey', scored: 23, allowed: 7, differential: 16, status: 'Elimination' },
-                { team: 'MOUNTAIN', participant: 'Ryan', scored: 25, allowed: 11, differential: 14, status: 'Elimination' },
-                { team: 'ASIA-PACIFIC', participant: 'Kelly', scored: 14, allowed: 3, differential: 11, status: 'Championship' },
-                { team: 'JAPAN', participant: 'Randy', scored: 18, allowed: 7, differential: 11, status: 'Eliminated' },
-                { team: 'CARIBBEAN', participant: 'Chris', scored: 17, allowed: 7, differential: 10, status: 'Elimination' },
-                { team: 'LATIN AMERICA', participant: 'Judy', scored: 16, allowed: 7, differential: 9, status: 'Elimination' },
-                { team: 'CANADA', participant: 'Ryan', scored: 13, allowed: 10, differential: 3, status: 'Eliminated' },
-                { team: 'WEST', participant: 'Chris', scored: 10, allowed: 9, differential: 1, status: 'Eliminated' },
-                { team: 'MIDWEST', participant: 'Joe', scored: 18, allowed: 20, differential: -2, status: 'Eliminated' }
-            ];
-            
-            runStats.forEach((stat, index) => {
-                const statDiv = document.createElement('div');
-                statDiv.className = 'game-result';
-                
-                let statusClass = '';
-                let statusIcon = '';
-                if (stat.status === 'Championship') {
-                    statusClass = 'winner';
-                    statusIcon = '🏆';
-                } else if (stat.status === 'Elimination') {
-                    statusClass = 'winner';
-                    statusIcon = '🟡';
-                } else {
-                    statusClass = 'loser';
-                    statusIcon = '🔴';
-                }
-                
-                const differentialColor = stat.differential > 0 ? '#28a745' : stat.differential < 0 ? '#dc3545' : '#6c757d';
-                
-                statDiv.innerHTML = `
-                    <div class="game-info">
-                        <div class="game-teams">
-                            <span class="${statusClass}">${statusIcon} ${stat.team} (${stat.participant})</span>
-                        </div>
-                        <div class="game-meta">Scored: ${stat.scored} | Allowed: ${stat.allowed}</div>
-                    </div>
-                    <div class="game-score" style="color: ${differentialColor}">
-                        ${stat.differential > 0 ? '+' : ''}${stat.differential}
-                    </div>
-                `;
-                
-                container.appendChild(statDiv);
-            });
+            // No run differential section - replaced with statistics
         }
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
             generateParticipantCards();
-            generateTodaysGames();
-            generateRecentGames();
-            generateRunDifferentialStats();
         });
     </script>
 </body>
