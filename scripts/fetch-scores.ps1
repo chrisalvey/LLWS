@@ -131,7 +131,10 @@ for ($d = $start; $d -le $end; $d = $d.AddDays(1)) {
 $existing = @()
 if (Test-Path $gamesLogPath) {
     $raw = Get-Content $gamesLogPath -Raw
-    if ($raw.Trim()) { $existing = @(ConvertFrom-Json $raw) }
+    if ($raw.Trim()) {
+        $parsed = ConvertFrom-Json $raw
+        $existing = @($parsed)
+    }
 }
 $existingIds = $existing | ForEach-Object { $_.espnId }
 
