@@ -24,13 +24,13 @@ const TOURNAMENT = {
 
 // Each participant drafted one US region and one International region.
 const participants = [
-    { name: 'Chris',   usTeam: 'GREAT LAKES',   intlTeam: 'PUERTO RICO' },
+    { name: 'Trimbaths',   usTeam: 'GREAT LAKES',   intlTeam: 'PUERTO RICO' },
     { name: 'Ellie',   usTeam: 'SOUTHEAST',     intlTeam: 'LATIN AMERICA' },
     { name: 'Joe',     usTeam: 'NEW ENGLAND',   intlTeam: 'JAPAN' },
     { name: 'Judy',    usTeam: 'WEST',          intlTeam: 'EUROPE-AFRICA' },
     { name: 'Julie',   usTeam: 'METRO',         intlTeam: 'MEXICO' },
     { name: 'Kelly',   usTeam: 'NORTHWEST',     intlTeam: 'CANADA' },
-    { name: 'Lindsey', usTeam: 'SOUTHWEST',     intlTeam: 'ASIA-PACIFIC' },
+    { name: 'Alveys', usTeam: 'SOUTHWEST',     intlTeam: 'ASIA-PACIFIC' },
     { name: 'Lucy',    usTeam: 'MIDWEST',       intlTeam: 'CARIBBEAN' },
     { name: 'Randy',   usTeam: 'MID-ATLANTIC',  intlTeam: 'AUSTRALIA' },
     { name: 'Ryan',    usTeam: 'MOUNTAIN',      intlTeam: 'PANAMA' }
