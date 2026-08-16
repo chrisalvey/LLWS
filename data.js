@@ -72,6 +72,34 @@ const regionEmoji = {
     'JAPAN': '🗾', 'CANADA': '🍁'
 };
 
+// Each region's official brand color, scraped from littleleague.org's live
+// 2026 bracket page (bracket-matchup__team-name computed text color). Used as
+// the team-name pill's background when a team is Active; the pill switches to
+// the functional status colors (gray/yellow/gold) for elimination-risk,
+// championship, and winner states instead, since those convey game state.
+const regionColors = {
+    'GREAT LAKES':   { bg: '#2E3E7C', text: '#ffffff' },
+    'METRO':         { bg: '#000000', text: '#ffffff' },
+    'MID-ATLANTIC':  { bg: '#002D62', text: '#ffffff' },
+    'MIDWEST':       { bg: '#005039', text: '#ffffff' },
+    'MOUNTAIN':      { bg: '#B8AC82', text: '#212529' },
+    'NEW ENGLAND':   { bg: '#860038', text: '#ffffff' },
+    'NORTHWEST':     { bg: '#04703C', text: '#ffffff' },
+    'SOUTHEAST':     { bg: '#FFC628', text: '#212529' },
+    'SOUTHWEST':     { bg: '#EF4523', text: '#ffffff' },
+    'WEST':          { bg: '#79BDE8', text: '#212529' },
+    'ASIA-PACIFIC':  { bg: '#D3C89F', text: '#212529' },
+    'AUSTRALIA':     { bg: '#000000', text: '#ffffff' },
+    'CANADA':        { bg: '#DC1E35', text: '#ffffff' },
+    'CARIBBEAN':     { bg: '#0793CF', text: '#ffffff' },
+    'CURAÇAO':       { bg: '#2C3248', text: '#ffffff' },
+    'EUROPE-AFRICA': { bg: '#1D1160', text: '#ffffff' },
+    'JAPAN':         { bg: '#9493A2', text: '#212529' },
+    'LATIN AMERICA': { bg: '#008C99', text: '#ffffff' },
+    'MEXICO':        { bg: '#04703C', text: '#ffffff' },
+    'PANAMA':        { bg: '#79BDE8', text: '#212529' }
+};
+
 // The specific Little League team representing each region in the 2026 field
 // (city, state/country) - shown as a smaller secondary line under the region
 // name on the participant dashboard. Source: official 2026 regional/qualifier

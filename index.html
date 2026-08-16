@@ -396,6 +396,12 @@
             return cls;
         }
 
+        function regionPillStyle(region, bracket) {
+            if (bracket !== 'Active') return '';
+            const c = regionColors[region];
+            return c ? `background-color:${c.bg}; color:${c.text};` : '';
+        }
+
         function participantActiveTeamCount(p) {
             const us = teamStatus[p.usTeam];
             const intl = teamStatus[p.intlTeam];
@@ -520,7 +526,7 @@
                         <div class="team-assignment">
                             <span class="team-type">🇺🇸 US:</span>
                             <span class="team-info">
-                                <span class="${teamClass(usStatus.bracket)}">
+                                <span class="${teamClass(usStatus.bracket)}" style="${regionPillStyle(p.usTeam, usStatus.bracket)}">
                                     ${bracketIcon(usStatus.bracket)} ${p.usTeam} (${usStatus.record})
                                 </span>
                                 <span class="team-location">${regionTeamLocation[p.usTeam] || ''}</span>
@@ -529,7 +535,7 @@
                         <div class="team-assignment">
                             <span class="team-type">🌍 Intl:</span>
                             <span class="team-info">
-                                <span class="${teamClass(intlStatus.bracket)}">
+                                <span class="${teamClass(intlStatus.bracket)}" style="${regionPillStyle(p.intlTeam, intlStatus.bracket)}">
                                     ${bracketIcon(intlStatus.bracket)} ${p.intlTeam} (${intlStatus.record})
                                 </span>
                                 <span class="team-location">${regionTeamLocation[p.intlTeam] || ''}</span>
