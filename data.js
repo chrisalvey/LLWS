@@ -132,13 +132,15 @@ const regionTeamLocation = {
 // is easiest, but the page will not re-sort them for you).
 // gameType suggestions: 'Pool Play', 'US Elimination', 'International Elimination',
 // 'US Championship Game', 'International Championship Game', 'LLWS Championship'.
+// team*Hits/team*Errors come from ESPN's box-score line (R/H/E) - use null if
+// unavailable, e.g. for a game added/corrected by hand.
 const games = [
     // Example (delete once real games start):
     // {
     //     date: 'Wed, Aug 19 - 1:00 PM CT',
     //     game: 'Game 1',
-    //     team1: 'GREAT LAKES', team1Score: 5,
-    //     team2: 'MOUNTAIN', team2Score: 2,
+    //     team1: 'GREAT LAKES', team1Score: 5, team1Hits: 7, team1Errors: 0,
+    //     team2: 'MOUNTAIN', team2Score: 2, team2Hits: 4, team2Errors: 2,
     //     gameType: 'Pool Play',
     //     winner: 'GREAT LAKES'
     // },

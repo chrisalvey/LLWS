@@ -110,14 +110,34 @@ for ($d = $start; $d -le $end; $d = $d.AddDays(1)) {
 
         $winnerRegion = if ($t1.winner -eq $true) { $region1 } elseif ($t2.winner -eq $true) { $region2 } elseif ([int]$t1.runs -gt [int]$t2.runs) { $region1 } else { $region2 }
 
+        # ESPN's line score (evt.lnescrs) gives [R, H, E] per side, keyed by home/away -
+        # not by competitors[] index - so map it onto team1/team2 via isHome.
+        $t1Hits = $null; $t1Errors = $null; $t2Hits = $null; $t2Errors = $null
+        if ($evt.lnescrs -and $evt.lnescrs.lbls) {
+            $hIdx = [array]::IndexOf($evt.lnescrs.lbls, "H")
+            $eIdx = [array]::IndexOf($evt.lnescrs.lbls, "E")
+            if ($hIdx -ge 0 -and $eIdx -ge 0) {
+                $t1Line = if ($t1.isHome) { $evt.lnescrs.hme } else { $evt.lnescrs.awy }
+                $t2Line = if ($t2.isHome) { $evt.lnescrs.hme } else { $evt.lnescrs.awy }
+                if ($t1Line -and $t2Line) {
+                    $t1Hits = [int]$t1Line[$hIdx]; $t1Errors = [int]$t1Line[$eIdx]
+                    $t2Hits = [int]$t2Line[$hIdx]; $t2Errors = [int]$t2Line[$eIdx]
+                }
+            }
+        }
+
         $newGames += [PSCustomObject]@{
             espnId      = $evt.id
             date        = $dateLabel
             sortKey     = $ctDate.ToString("o")
             team1       = $region1
             team1Score  = [int]$t1.runs
+            team1Hits   = $t1Hits
+            team1Errors = $t1Errors
             team2       = $region2
             team2Score  = [int]$t2.runs
+            team2Hits   = $t2Hits
+            team2Errors = $t2Errors
             gameType    = $gameType
             winner      = $winnerRegion
         }
@@ -169,10 +189,10 @@ $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 $dataJs = [System.IO.File]::ReadAllText($dataJsPath, [System.Text.Encoding]::UTF8)
 
 $bracketByRegion = @{}
-foreach ($m in [regex]::Matches($dataJs, "'([A-Z\- ]+)':\s*\{\s*record:\s*'[^']*',\s*bracket:\s*'([^']*)'\s*\}")) {
+foreach ($m in [regex]::Matches($dataJs, "'([^']+)':\s*\{\s*record:\s*'[^']*',\s*bracket:\s*'([^']*)'\s*\}")) {
     $bracketByRegion[$m.Groups[1].Value] = $m.Groups[2].Value
 }
-$regionOrder = [regex]::Matches($dataJs, "'([A-Z\- ]+)':\s*\{\s*record:") | ForEach-Object { $_.Groups[1].Value }
+$regionOrder = [regex]::Matches($dataJs, "'([^']+)':\s*\{\s*record:") | ForEach-Object { $_.Groups[1].Value }
 
 $teamStatusLines = foreach ($region in $regionOrder) {
     $rec = if ($records.ContainsKey($region)) { "$($records[$region].w)-$($records[$region].l)" } else { "0-0" }
@@ -188,7 +208,11 @@ $dataJs = [regex]::Replace($dataJs, "const teamStatus = \{[\s\S]*?\n\};", { para
 $i = 0
 $gameLines = foreach ($g in $existing) {
     $i++
-    "    { date: '$($g.date)', game: 'Game $i', team1: '$($g.team1)', team1Score: $($g.team1Score), team2: '$($g.team2)', team2Score: $($g.team2Score), gameType: '$($g.gameType)', winner: '$($g.winner)', espnId: '$($g.espnId)' },"
+    $t1Hits = if ($null -ne $g.team1Hits) { $g.team1Hits } else { 'null' }
+    $t1Errors = if ($null -ne $g.team1Errors) { $g.team1Errors } else { 'null' }
+    $t2Hits = if ($null -ne $g.team2Hits) { $g.team2Hits } else { 'null' }
+    $t2Errors = if ($null -ne $g.team2Errors) { $g.team2Errors } else { 'null' }
+    "    { date: '$($g.date)', game: 'Game $i', team1: '$($g.team1)', team1Score: $($g.team1Score), team1Hits: $t1Hits, team1Errors: $t1Errors, team2: '$($g.team2)', team2Score: $($g.team2Score), team2Hits: $t2Hits, team2Errors: $t2Errors, gameType: '$($g.gameType)', winner: '$($g.winner)', espnId: '$($g.espnId)' },"
 }
 $gamesBlock = "const games = [`n" + ($gameLines -join "`n") + "`n];"
 $dataJs = [regex]::Replace($dataJs, "const games = \[[\s\S]*?\n\];", { param($m) $gamesBlock }, 1)

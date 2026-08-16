@@ -589,6 +589,44 @@
             games.forEach(g => { winCounts[g.winner] = (winCounts[g.winner] || 0) + 1; });
             const topTeam = Object.entries(winCounts).sort((a, b) => b[1] - a[1])[0];
 
+            const totalRuns = games.reduce((sum, g) => sum + g.team1Score + g.team2Score, 0);
+
+            // Current win streak per team, walked in the array's chronological order
+            // (the script writes games oldest-first; hand-added games should follow suit).
+            const streaks = {};
+            games.forEach(g => {
+                [g.team1, g.team2].forEach(team => {
+                    streaks[team] = (team === g.winner) ? (streaks[team] || 0) + 1 : 0;
+                });
+            });
+            const topStreak = Object.entries(streaks).sort((a, b) => b[1] - a[1])[0];
+
+            // Teams that have played at least one game and haven't lost yet.
+            const undefeated = Object.entries(teamStatus).filter(([, s]) => {
+                const [w, l] = s.record.split('-').map(Number);
+                return w > 0 && l === 0;
+            }).map(([region]) => region);
+
+            // Each participant's combined win-loss across both drafted regions.
+            const combinedRecords = participants.map(p => {
+                const [w1, l1] = teamStatus[p.usTeam].record.split('-').map(Number);
+                const [w2, l2] = teamStatus[p.intlTeam].record.split('-').map(Number);
+                const w = w1 + w2, l = l1 + l2;
+                return { name: p.name, w, l, pct: (w + l) ? w / (w + l) : 0 };
+            }).filter(r => r.w + r.l > 0);
+            const bestCombined = combinedRecords.sort((a, b) => b.pct - a.pct || b.w - a.w)[0];
+
+            // Hits/errors are only present on games the scraper pulled (it reads ESPN's
+            // box-score line); hand-added games may have these as null.
+            const withHits = games.filter(g => g.team1Hits != null && g.team2Hits != null);
+            const mostHitsGame = withHits.length
+                ? withHits.reduce((a, b) => Math.max(b.team1Hits, b.team2Hits) > Math.max(a.team1Hits, a.team2Hits) ? b : a)
+                : null;
+            const withErrors = games.filter(g => g.team1Errors != null && g.team2Errors != null);
+            const sloppiestGame = withErrors.length
+                ? withErrors.reduce((a, b) => (b.team1Errors + b.team2Errors) > (a.team1Errors + a.team2Errors) ? b : a)
+                : null;
+
             const stats = [
                 {
                     label: '🎮 Games Played',
@@ -596,7 +634,12 @@
                     value: games.length
                 },
                 {
-                    label: '⚾ Biggest Blowout',
+                    label: '⚾ Total Runs Scored',
+                    meta: `Across ${games.length} game${games.length === 1 ? '' : 's'}`,
+                    value: totalRuns
+                },
+                {
+                    label: '💣 Biggest Blowout',
                     meta: `${biggestBlowout.team1} ${biggestBlowout.team1Score}, ${biggestBlowout.team2} ${biggestBlowout.team2Score}`,
                     value: `${biggestBlowout.margin}-run margin`
                 },
@@ -618,6 +661,52 @@
                     meta: `${topTeam[0]} (${teamToParticipant[topTeam[0]] || '?'})`,
                     value: `${topTeam[1]} win${topTeam[1] === 1 ? '' : 's'}`
                 });
+            }
+
+            if (topStreak && topStreak[1] >= 2) {
+                stats.push({
+                    label: '⚡ Longest Active Win Streak',
+                    meta: `${topStreak[0]} (${teamToParticipant[topStreak[0]] || '?'})`,
+                    value: `${topStreak[1]} in a row`
+                });
+            }
+
+            if (undefeated.length) {
+                stats.push({
+                    label: '💯 Still Undefeated',
+                    meta: undefeated.map(t => `${t} (${teamToParticipant[t] || '?'})`).join(', '),
+                    value: `${undefeated.length} team${undefeated.length === 1 ? '' : 's'}`
+                });
+            }
+
+            if (bestCombined) {
+                stats.push({
+                    label: '🏅 Best Combined Record',
+                    meta: bestCombined.name,
+                    value: `${bestCombined.w}-${bestCombined.l}`
+                });
+            }
+
+            if (mostHitsGame) {
+                const hits = Math.max(mostHitsGame.team1Hits, mostHitsGame.team2Hits);
+                const top = mostHitsGame.team1Hits >= mostHitsGame.team2Hits ? mostHitsGame.team1 : mostHitsGame.team2;
+                const opp = top === mostHitsGame.team1 ? mostHitsGame.team2 : mostHitsGame.team1;
+                stats.push({
+                    label: '💪 Most Hits (Single Team, Single Game)',
+                    meta: `${top} vs ${opp}`,
+                    value: `${hits} hits`
+                });
+            }
+
+            if (sloppiestGame) {
+                const totalErrors = sloppiestGame.team1Errors + sloppiestGame.team2Errors;
+                if (totalErrors > 0) {
+                    stats.push({
+                        label: '🧤 Sloppiest Game (Combined Errors)',
+                        meta: `${sloppiestGame.team1} vs ${sloppiestGame.team2}`,
+                        value: `${totalErrors} error${totalErrors === 1 ? '' : 's'}`
+                    });
+                }
             }
 
             container.innerHTML = stats.map(s => `
