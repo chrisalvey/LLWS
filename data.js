@@ -68,7 +68,7 @@ const regionEmoji = {
     'MID-ATLANTIC': '🗽', 'METRO': '🏙️', 'SOUTHEAST': '🌴', 'GREAT LAKES': '🌊',
     'SOUTHWEST': '🌵', 'MOUNTAIN': '🏔️',
     'CARIBBEAN': '🏝️', 'PANAMA': '🚢', 'AUSTRALIA': '🦘', 'LATIN AMERICA': '🌎',
-    'MEXICO': '🇲🇽', 'ASIA-PACIFIC': '🌏', 'EUROPE-AFRICA': '🌍', 'CURAÇAO': '🇨🇼',
+    'MEXICO': '🌮', 'ASIA-PACIFIC': '🌏', 'EUROPE-AFRICA': '🌍', 'CURAÇAO': '🦩',
     'JAPAN': '🗾', 'CANADA': '🍁'
 };
 
