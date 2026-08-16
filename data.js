@@ -89,14 +89,14 @@ const regionTeamLocation = {
     'SOUTHWEST':     'Boerne, Texas',
     'WEST':          'Bonita, California',
     'JAPAN':         'Tokyo, Japan',
-    'MEXICO':        'Tijuana, Mexico',
-    'CANADA':        'Vancouver, Canada',
-    'AUSTRALIA':     'Sydney, Australia',
-    'PANAMA':        'David, Panama',
+    'MEXICO':        'Tijuana, Baja California',
+    'CANADA':        'Vancouver, British Columbia',
+    'AUSTRALIA':     'Sydney, New South Wales',
+    'PANAMA':        'Chiriquí, Panama',
     'CURAÇAO':       'Willemstad, Curaçao',
     'CARIBBEAN':     'Santiago, Dominican Republic',
     'LATIN AMERICA': 'León, Nicaragua',
-    'EUROPE-AFRICA': 'Brno, Czech Republic',
+    'EUROPE-AFRICA': 'Brno, Czechia',
     'ASIA-PACIFIC':  'Seoul, South Korea'
 };
 
