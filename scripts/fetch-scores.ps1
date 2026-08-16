@@ -56,12 +56,9 @@ $regionMap = @{}
 foreach ($prop in $regionMapRaw.PSObject.Properties) {
     if ($prop.Name -notlike "_*") { $regionMap[$prop.Name] = $prop.Value }
 }
-$sortedKeys = $regionMap.Keys | Sort-Object -Property Length -Descending
 
-function Resolve-Region([string]$location) {
-    foreach ($key in $sortedKeys) {
-        if ($location -like "*$key") { return $regionMap[$key] }
-    }
+function Resolve-Region([string]$abbrev) {
+    if ($regionMap.ContainsKey($abbrev)) { return $regionMap[$abbrev] }
     return $null
 }
 
@@ -97,11 +94,11 @@ for ($d = $start; $d -le $end; $d = $d.AddDays(1)) {
 
         $t1 = $evt.competitors[0]
         $t2 = $evt.competitors[1]
-        $region1 = Resolve-Region $t1.location
-        $region2 = Resolve-Region $t2.location
+        $region1 = Resolve-Region $t1.abbrev
+        $region2 = Resolve-Region $t2.abbrev
 
-        if (-not $region1) { $unresolvedSeen += $t1.location }
-        if (-not $region2) { $unresolvedSeen += $t2.location }
+        if (-not $region1) { $unresolvedSeen += "$($t1.location) [$($t1.abbrev)]" }
+        if (-not $region2) { $unresolvedSeen += "$($t2.location) [$($t2.abbrev)]" }
         if (-not $region1 -or -not $region2) { continue }
 
         $utcDate = [datetime]::Parse($evt.date, $null, [System.Globalization.DateTimeStyles]::AdjustToUniversal -bor [System.Globalization.DateTimeStyles]::AssumeUniversal)

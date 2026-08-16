@@ -11,6 +11,16 @@ team to our region labels via `region-map.json`, and updates `../data.js`:
 `games-log.json` is the script's own running log (source of truth for the `games[]`
 block it regenerates each run) - don't hand-edit it.
 
+## Region matching
+
+`region-map.json` maps ESPN's `abbrev` code for each team (a stable 2-letter US
+state postal code or 3-letter country code, e.g. `TX`, `JPN`, `VEN`) to our 20
+region labels. We match on `abbrev` rather than the human-readable `location`
+string because ESPN formats `location` inconsistently from game to game -
+sometimes the full name ("Clarendon Hills Illinois"), sometimes already
+abbreviated ("Las Vegas NV", "Tokyo JPN") - with no reliable pattern, while
+`abbrev` is always the short code.
+
 ## Before the tournament starts (~early-mid August)
 
 Four international regions - CARIBBEAN, LATIN AMERICA, EUROPE-AFRICA, ASIA-PACIFIC -
@@ -18,12 +28,12 @@ are multi-country pools whose actual qualifying country isn't known until region
 qualifiers finish. Once they are, add an entry to `region-map.json`, e.g.:
 
 ```json
-"Venezuela": "LATIN AMERICA",
+"VEN": "LATIN AMERICA",
 ```
 
 Until you do, any game involving that region gets skipped and the team's location
-(e.g. "Barquisimeto Venezuela") is printed as a warning and written to
-`unresolved-teams.json` so it's easy to spot.
+and abbrev code (e.g. "Barquisimeto Venezuela [VEN]") is printed as a warning and
+written to `unresolved-teams.json` so it's easy to spot.
 
 ## Running it
 
