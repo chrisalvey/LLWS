@@ -111,6 +111,20 @@
             background-color: #28a745;
         }
 
+        .team-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 4px;
+        }
+
+        .team-location {
+            font-size: 0.75em;
+            font-weight: normal;
+            color: #6c757d;
+            padding-right: 2px;
+        }
+
         .team-eliminated {
             background-color: #6c757d;
         }
@@ -481,7 +495,8 @@
 
         function renderParticipantCards() {
             const grid = document.getElementById('participantGrid');
-            grid.innerHTML = participants.map(p => {
+            const sortedParticipants = participants.slice().sort((a, b) => a.name.localeCompare(b.name));
+            grid.innerHTML = sortedParticipants.map(p => {
                 const usStatus = teamStatus[p.usTeam];
                 const intlStatus = teamStatus[p.intlTeam];
                 const activeTeams = participantActiveTeamCount(p);
@@ -504,14 +519,20 @@
                         <div class="participant-name">${p.name}</div>
                         <div class="team-assignment">
                             <span class="team-type">🇺🇸 US:</span>
-                            <span class="${teamClass(usStatus.bracket)}">
-                                ${bracketIcon(usStatus.bracket)} ${p.usTeam} (${usStatus.record})
+                            <span class="team-info">
+                                <span class="${teamClass(usStatus.bracket)}">
+                                    ${bracketIcon(usStatus.bracket)} ${p.usTeam} (${usStatus.record})
+                                </span>
+                                <span class="team-location">${regionTeamLocation[p.usTeam] || ''}</span>
                             </span>
                         </div>
                         <div class="team-assignment">
                             <span class="team-type">🌍 Intl:</span>
-                            <span class="${teamClass(intlStatus.bracket)}">
-                                ${bracketIcon(intlStatus.bracket)} ${p.intlTeam} (${intlStatus.record})
+                            <span class="team-info">
+                                <span class="${teamClass(intlStatus.bracket)}">
+                                    ${bracketIcon(intlStatus.bracket)} ${p.intlTeam} (${intlStatus.record})
+                                </span>
+                                <span class="team-location">${regionTeamLocation[p.intlTeam] || ''}</span>
                             </span>
                         </div>
                         <div class="${statusClass}">${statusText}</div>

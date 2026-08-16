@@ -24,7 +24,7 @@ const TOURNAMENT = {
 
 // Each participant drafted one US region and one International region.
 const participants = [
-    { name: 'Trimbaths',   usTeam: 'GREAT LAKES',   intlTeam: 'PUERTO RICO' },
+    { name: 'Trimbaths',   usTeam: 'GREAT LAKES',   intlTeam: 'CURAÇAO' },
     { name: 'Ellie',   usTeam: 'SOUTHEAST',     intlTeam: 'LATIN AMERICA' },
     { name: 'Joe',     usTeam: 'NEW ENGLAND',   intlTeam: 'JAPAN' },
     { name: 'Judy',    usTeam: 'WEST',          intlTeam: 'EUROPE-AFRICA' },
@@ -57,7 +57,7 @@ const teamStatus = {
     'MEXICO':        { record: '0-0', bracket: 'Active' },
     'ASIA-PACIFIC':  { record: '0-0', bracket: 'Active' },
     'EUROPE-AFRICA': { record: '0-0', bracket: 'Active' },
-    'PUERTO RICO':   { record: '0-0', bracket: 'Active' },
+    'CURAÇAO':       { record: '0-0', bracket: 'Active' },
     'JAPAN':         { record: '0-0', bracket: 'Active' },
     'CANADA':        { record: '0-0', bracket: 'Active' }
 };
@@ -68,8 +68,36 @@ const regionEmoji = {
     'MID-ATLANTIC': '🗽', 'METRO': '🏙️', 'SOUTHEAST': '🌴', 'GREAT LAKES': '🌊',
     'SOUTHWEST': '🌵', 'MOUNTAIN': '🏔️',
     'CARIBBEAN': '🏝️', 'PANAMA': '🚢', 'AUSTRALIA': '🦘', 'LATIN AMERICA': '🌎',
-    'MEXICO': '🇲🇽', 'ASIA-PACIFIC': '🌏', 'EUROPE-AFRICA': '🌍', 'PUERTO RICO': '🐸',
+    'MEXICO': '🇲🇽', 'ASIA-PACIFIC': '🌏', 'EUROPE-AFRICA': '🌍', 'CURAÇAO': '🇨🇼',
     'JAPAN': '🗾', 'CANADA': '🍁'
+};
+
+// The specific Little League team representing each region in the 2026 field
+// (city, state/country) - shown as a smaller secondary line under the region
+// name on the participant dashboard. Source: official 2026 regional/qualifier
+// results (littleleague.org, ESPN). Update if a region's actual qualifier
+// changes before the tournament starts.
+const regionTeamLocation = {
+    'GREAT LAKES':   'Hamilton, Ohio',
+    'METRO':         'Bayonne, New Jersey',
+    'MID-ATLANTIC':  'West Chester, Pennsylvania',
+    'MIDWEST':       'Davenport, Iowa',
+    'MOUNTAIN':      'Henderson, Nevada',
+    'NEW ENGLAND':   'Bridgewater, Massachusetts',
+    'NORTHWEST':     'Tacoma, Washington',
+    'SOUTHEAST':     'Phenix City, Alabama',
+    'SOUTHWEST':     'Boerne, Texas',
+    'WEST':          'Bonita, California',
+    'JAPAN':         'Tokyo, Japan',
+    'MEXICO':        'Tijuana, Mexico',
+    'CANADA':        'Vancouver, Canada',
+    'AUSTRALIA':     'Sydney, Australia',
+    'PANAMA':        'David, Panama',
+    'CURAÇAO':       'Willemstad, Curaçao',
+    'CARIBBEAN':     'Santiago, Dominican Republic',
+    'LATIN AMERICA': 'León, Nicaragua',
+    'EUROPE-AFRICA': 'Brno, Czech Republic',
+    'ASIA-PACIFIC':  'Seoul, South Korea'
 };
 
 // Completed games, in the order you want them to appear (most recent first
