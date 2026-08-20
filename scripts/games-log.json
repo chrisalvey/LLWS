@@ -1,1 +1,62 @@
-[]
+﻿[
+    {
+        "espnId":  "401896651",
+        "date":  "Wed, Aug 19 - 12:00 PM CT",
+        "sortKey":  "2026-08-19T12:00:00.0000000",
+        "team1":  "CARIBBEAN",
+        "team1Score":  1,
+        "team1Hits":  5,
+        "team1Errors":  0,
+        "team2":  "LATIN AMERICA",
+        "team2Score":  2,
+        "team2Hits":  4,
+        "team2Errors":  0,
+        "gameType":  "Opening Round",
+        "winner":  "LATIN AMERICA"
+    },
+    {
+        "espnId":  "401896652",
+        "date":  "Wed, Aug 19 - 2:00 PM CT",
+        "sortKey":  "2026-08-19T14:00:00.0000000",
+        "team1":  "SOUTHEAST",
+        "team1Score":  0,
+        "team1Hits":  1,
+        "team1Errors":  3,
+        "team2":  "NORTHWEST",
+        "team2Score":  2,
+        "team2Hits":  3,
+        "team2Errors":  1,
+        "gameType":  "Opening Round",
+        "winner":  "NORTHWEST"
+    },
+    {
+        "espnId":  "401896856",
+        "date":  "Wed, Aug 19 - 4:00 PM CT",
+        "sortKey":  "2026-08-19T16:00:00.0000000",
+        "team1":  "ASIA-PACIFIC",
+        "team1Score":  7,
+        "team1Hits":  9,
+        "team1Errors":  0,
+        "team2":  "CANADA",
+        "team2Score":  0,
+        "team2Hits":  3,
+        "team2Errors":  3,
+        "gameType":  "Opening Round",
+        "winner":  "ASIA-PACIFIC"
+    },
+    {
+        "espnId":  "401896857",
+        "date":  "Wed, Aug 19 - 6:00 PM CT",
+        "sortKey":  "2026-08-19T18:00:00.0000000",
+        "team1":  "METRO",
+        "team1Score":  2,
+        "team1Hits":  6,
+        "team1Errors":  0,
+        "team2":  "NEW ENGLAND",
+        "team2Score":  1,
+        "team2Hits":  4,
+        "team2Errors":  2,
+        "gameType":  "Opening Round",
+        "winner":  "METRO"
+    }
+]

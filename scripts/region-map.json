@@ -20,6 +20,10 @@
 
   "_curacaoNote": "Curaçao has direct entry to the 2026 LLWS in place of Puerto Rico (Little League rotates this slot among Caribbean nations year to year - see littleleague.org's 2026 announcement). Its ESPN `abbrev` code isn't confirmed yet, so it isn't mapped below - it'll show up as UNRESOLVED (team: Pariba LL, Willemstad, Curaçao) on the first run and needs an entry added, e.g. \"CUW\": \"CURAÇAO\", once you see the real code fetch-scores.ps1 reports.",
 
-  "_openSlots": "These 4 international regions are multi-country pools. The actual qualifying country isn't known until early-to-mid August, right before the LLWS starts. Once the 2026 qualifiers conclude, add an entry here mapping that country's ESPN `abbrev` code to the region label, e.g. \"VEN\": \"LATIN AMERICA\" (fetch-scores.ps1 prints the abbrev alongside the location for any UNRESOLVED team, so you don't have to guess it). Until then, any team from these regions will show up as UNRESOLVED when the script runs.",
-  "_openSlotRegions": ["CARIBBEAN", "LATIN AMERICA", "EUROPE-AFRICA", "ASIA-PACIFIC"]
+  "DOM": "CARIBBEAN",
+  "NCA": "LATIN AMERICA",
+  "KOR": "ASIA-PACIFIC",
+  "CZE": "EUROPE-AFRICA",
+
+  "_openSlotsNote": "2026's 4 open international pools are now resolved per Wikipedia's 2026 LLWS qualification page (checked 2026-08-20): Caribbean -> Dominican Republic (Santiago), Latin America -> Nicaragua (León), Asia-Pacific -> South Korea (Seoul), Europe-Africa -> Czech Republic (Brno)."
 }
