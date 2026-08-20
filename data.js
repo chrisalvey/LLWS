@@ -19,7 +19,7 @@ const TOURNAMENT = {
     year: 2026,
     location: 'Williamsport, PA',
     dates: 'August 19 - 30, 2026',
-    lastUpdated: 'Thursday, August 20, 2026 at 7:49 AM (script run)'
+    lastUpdated: 'Thursday, August 20, 2026 at 8:13 AM (script run)'
 };
 
 // Each participant drafted one US region and one International region.
