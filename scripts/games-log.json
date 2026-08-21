@@ -58,5 +58,20 @@
         "team2Errors":  2,
         "gameType":  "Opening Round",
         "winner":  "METRO"
+    },
+    {
+        "espnId":  "401896858",
+        "date":  "Fri, Aug 21 - 8:00 AM CT",
+        "sortKey":  "2026-08-21T08:00:00.0000000",
+        "team1":  "MEXICO",
+        "team1Score":  7,
+        "team1Hits":  3,
+        "team1Errors":  0,
+        "team2":  "AUSTRALIA",
+        "team2Score":  1,
+        "team2Hits":  5,
+        "team2Errors":  3,
+        "gameType":  "Opening Round",
+        "winner":  "MEXICO"
     }
 ]

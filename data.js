@@ -19,7 +19,7 @@ const TOURNAMENT = {
     year: 2026,
     location: 'Williamsport, PA',
     dates: 'August 19 - 30, 2026',
-    lastUpdated: 'Thursday, August 20, 2026 at 8:13 AM (script run)'
+    lastUpdated: 'Friday, August 21, 2026 at 10:30 AM (script run)'
 };
 
 // Each participant drafted one US region and one International region.
@@ -52,9 +52,9 @@ const teamStatus = {
     'MOUNTAIN': { record: '0-0', bracket: 'Active' },
     'CARIBBEAN': { record: '0-1', bracket: 'Active' },
     'PANAMA': { record: '0-0', bracket: 'Active' },
-    'AUSTRALIA': { record: '0-0', bracket: 'Active' },
+    'AUSTRALIA': { record: '0-1', bracket: 'Active' },
     'LATIN AMERICA': { record: '1-0', bracket: 'Active' },
-    'MEXICO': { record: '0-0', bracket: 'Active' },
+    'MEXICO': { record: '1-0', bracket: 'Active' },
     'ASIA-PACIFIC': { record: '1-0', bracket: 'Active' },
     'EUROPE-AFRICA': { record: '0-0', bracket: 'Active' },
     'CURAÇAO': { record: '0-0', bracket: 'Active' },
@@ -139,6 +139,7 @@ const games = [
     { date: 'Wed, Aug 19 - 2:00 PM CT', game: 'Game 2', team1: 'SOUTHEAST', team1Score: 0, team1Hits: 1, team1Errors: 3, team2: 'NORTHWEST', team2Score: 2, team2Hits: 3, team2Errors: 1, gameType: 'Opening Round', winner: 'NORTHWEST', espnId: '401896652' },
     { date: 'Wed, Aug 19 - 4:00 PM CT', game: 'Game 3', team1: 'ASIA-PACIFIC', team1Score: 7, team1Hits: 9, team1Errors: 0, team2: 'CANADA', team2Score: 0, team2Hits: 3, team2Errors: 3, gameType: 'Opening Round', winner: 'ASIA-PACIFIC', espnId: '401896856' },
     { date: 'Wed, Aug 19 - 6:00 PM CT', game: 'Game 4', team1: 'METRO', team1Score: 2, team1Hits: 6, team1Errors: 0, team2: 'NEW ENGLAND', team2Score: 1, team2Hits: 4, team2Errors: 2, gameType: 'Opening Round', winner: 'METRO', espnId: '401896857' },
+    { date: 'Fri, Aug 21 - 8:00 AM CT', game: 'Game 5', team1: 'MEXICO', team1Score: 7, team1Hits: 3, team1Errors: 0, team2: 'AUSTRALIA', team2Score: 1, team2Hits: 5, team2Errors: 3, gameType: 'Opening Round', winner: 'MEXICO', espnId: '401896858' },
 ];
 
 // Optional free-text callouts shown near the top of the page (e.g. big upsets,
