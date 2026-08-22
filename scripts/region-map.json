@@ -17,6 +17,7 @@
   "CAN": "CANADA",
   "AUS": "AUSTRALIA",
   "PAN": "PANAMA",
+  "CUW": "CURAÇAO",
 
   "_curacaoNote": "Curaçao has direct entry to the 2026 LLWS in place of Puerto Rico (Little League rotates this slot among Caribbean nations year to year - see littleleague.org's 2026 announcement). Its ESPN `abbrev` code isn't confirmed yet, so it isn't mapped below - it'll show up as UNRESOLVED (team: Pariba LL, Willemstad, Curaçao) on the first run and needs an entry added, e.g. \"CUW\": \"CURAÇAO\", once you see the real code fetch-scores.ps1 reports.",
 

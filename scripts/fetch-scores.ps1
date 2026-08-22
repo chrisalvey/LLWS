@@ -51,7 +51,7 @@ if ($Test) {
 }
 
 # ---- Load region map -------------------------------------------------------
-$regionMapRaw = Get-Content (Join-Path $scriptsDir "region-map.json") -Raw | ConvertFrom-Json
+$regionMapRaw = [System.IO.File]::ReadAllText((Join-Path $scriptsDir "region-map.json"), [System.Text.Encoding]::UTF8) | ConvertFrom-Json
 $regionMap = @{}
 foreach ($prop in $regionMapRaw.PSObject.Properties) {
     if ($prop.Name -notlike "_*") { $regionMap[$prop.Name] = $prop.Value }
@@ -147,7 +147,7 @@ for ($d = $start; $d -le $end; $d = $d.AddDays(1)) {
 # ---- Merge into games-log.json ---------------------------------------------
 $existing = @()
 if (Test-Path $gamesLogPath) {
-    $raw = Get-Content $gamesLogPath -Raw
+    $raw = [System.IO.File]::ReadAllText($gamesLogPath, [System.Text.Encoding]::UTF8)
     if ($raw.Trim()) {
         $parsed = ConvertFrom-Json $raw
         $existing = @($parsed)
@@ -225,8 +225,14 @@ $dataJs = [regex]::Replace($dataJs, "lastUpdated:\s*'[^']*'", { param($m) "lastU
 Write-Host "Updated $dataJsPath" -ForegroundColor Green
 
 # ---- Unresolved teams --------------------------------------------------------
+# Piping an empty array into ConvertTo-Json never invokes the cmdlet (no pipeline
+# input), which would leave a stale file from a previous run - write explicitly.
 $unresolvedUnique = @($unresolvedSeen | Select-Object -Unique)
-$unresolvedUnique | ConvertTo-Json | Set-Content -Path $unresolvedPath -Encoding utf8
+if ($unresolvedUnique.Count -gt 0) {
+    $unresolvedUnique | ConvertTo-Json | Set-Content -Path $unresolvedPath -Encoding utf8
+} else {
+    Set-Content -Path $unresolvedPath -Value "[]" -Encoding utf8
+}
 if ($unresolvedUnique.Count -gt 0) {
     Write-Warning "UNRESOLVED teams (not added to data.js - add these to region-map.json):"
     $unresolvedUnique | ForEach-Object { Write-Warning "  - $_" }

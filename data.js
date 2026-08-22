@@ -19,7 +19,7 @@ const TOURNAMENT = {
     year: 2026,
     location: 'Williamsport, PA',
     dates: 'August 19 - 30, 2026',
-    lastUpdated: 'Friday, August 21, 2026 at 10:30 AM (script run)'
+    lastUpdated: 'Friday, August 21, 2026 at 9:23 PM (script run)'
 };
 
 // Each participant drafted one US region and one International region.
@@ -40,25 +40,25 @@ const participants = [
 // 'Elimination' (one loss away from being out), 'Championship' (in the LLWS final),
 // 'Winner' (won it all), 'ELIMINATED' (done).
 const teamStatus = {
-    'WEST': { record: '0-0', bracket: 'Active' },
-    'NORTHWEST': { record: '1-0', bracket: 'Active' },
-    'MIDWEST': { record: '0-0', bracket: 'Active' },
+    'WEST': { record: '0-1', bracket: 'Active' },
+    'NORTHWEST': { record: '2-0', bracket: 'Active' },
+    'MIDWEST': { record: '1-0', bracket: 'Active' },
     'NEW ENGLAND': { record: '0-1', bracket: 'Active' },
-    'MID-ATLANTIC': { record: '0-0', bracket: 'Active' },
-    'METRO': { record: '1-0', bracket: 'Active' },
+    'MID-ATLANTIC': { record: '0-1', bracket: 'Elimination' },
+    'METRO': { record: '2-0', bracket: 'Active' },
     'SOUTHEAST': { record: '0-1', bracket: 'Active' },
-    'GREAT LAKES': { record: '0-0', bracket: 'Active' },
-    'SOUTHWEST': { record: '0-0', bracket: 'Active' },
-    'MOUNTAIN': { record: '0-0', bracket: 'Active' },
+    'GREAT LAKES': { record: '0-1', bracket: 'Active' },
+    'SOUTHWEST': { record: '0-1', bracket: 'Elimination' },
+    'MOUNTAIN': { record: '1-0', bracket: 'Active' },
     'CARIBBEAN': { record: '0-1', bracket: 'Active' },
-    'PANAMA': { record: '0-0', bracket: 'Active' },
+    'PANAMA': { record: '0-1', bracket: 'Elimination' },
     'AUSTRALIA': { record: '0-1', bracket: 'Active' },
-    'LATIN AMERICA': { record: '1-0', bracket: 'Active' },
+    'LATIN AMERICA': { record: '2-0', bracket: 'Active' },
     'MEXICO': { record: '1-0', bracket: 'Active' },
-    'ASIA-PACIFIC': { record: '1-0', bracket: 'Active' },
-    'EUROPE-AFRICA': { record: '0-0', bracket: 'Active' },
-    'CURAÇAO': { record: '0-0', bracket: 'Active' },
-    'JAPAN': { record: '0-0', bracket: 'Active' },
+    'ASIA-PACIFIC': { record: '2-0', bracket: 'Active' },
+    'EUROPE-AFRICA': { record: '0-1', bracket: 'Elimination' },
+    'CURAÇAO': { record: '1-0', bracket: 'Active' },
+    'JAPAN': { record: '0-1', bracket: 'Active' },
     'CANADA': { record: '0-1', bracket: 'Active' },
 };
 
@@ -139,7 +139,14 @@ const games = [
     { date: 'Wed, Aug 19 - 2:00 PM CT', game: 'Game 2', team1: 'SOUTHEAST', team1Score: 0, team1Hits: 1, team1Errors: 3, team2: 'NORTHWEST', team2Score: 2, team2Hits: 3, team2Errors: 1, gameType: 'Opening Round', winner: 'NORTHWEST', espnId: '401896652' },
     { date: 'Wed, Aug 19 - 4:00 PM CT', game: 'Game 3', team1: 'ASIA-PACIFIC', team1Score: 7, team1Hits: 9, team1Errors: 0, team2: 'CANADA', team2Score: 0, team2Hits: 3, team2Errors: 3, gameType: 'Opening Round', winner: 'ASIA-PACIFIC', espnId: '401896856' },
     { date: 'Wed, Aug 19 - 6:00 PM CT', game: 'Game 4', team1: 'METRO', team1Score: 2, team1Hits: 6, team1Errors: 0, team2: 'NEW ENGLAND', team2Score: 1, team2Hits: 4, team2Errors: 2, gameType: 'Opening Round', winner: 'METRO', espnId: '401896857' },
-    { date: 'Fri, Aug 21 - 8:00 AM CT', game: 'Game 5', team1: 'MEXICO', team1Score: 7, team1Hits: 3, team1Errors: 0, team2: 'AUSTRALIA', team2Score: 1, team2Hits: 5, team2Errors: 3, gameType: 'Opening Round', winner: 'MEXICO', espnId: '401896858' },
+    { date: 'Fri, Aug 21 - 8:00 AM CT', game: 'Game 5', team1: 'MOUNTAIN', team1Score: 6, team1Hits: 6, team1Errors: 1, team2: 'GREAT LAKES', team2Score: 5, team2Hits: 7, team2Errors: 0, gameType: 'Opening Round', winner: 'MOUNTAIN', espnId: '401896859' },
+    { date: 'Fri, Aug 21 - 8:00 AM CT', game: 'Game 6', team1: 'MEXICO', team1Score: 7, team1Hits: 3, team1Errors: 0, team2: 'AUSTRALIA', team2Score: 1, team2Hits: 5, team2Errors: 3, gameType: 'Opening Round', winner: 'MEXICO', espnId: '401896858' },
+    { date: 'Fri, Aug 21 - 11:00 AM CT', game: 'Game 7', team1: 'MIDWEST', team1Score: 1, team1Hits: 2, team1Errors: 0, team2: 'WEST', team2Score: 0, team2Hits: 0, team2Errors: 0, gameType: 'Opening Round', winner: 'MIDWEST', espnId: '401896861' },
+    { date: 'Fri, Aug 21 - 11:00 AM CT', game: 'Game 8', team1: 'CURAÇAO', team1Score: 6, team1Hits: 8, team1Errors: 1, team2: 'JAPAN', team2Score: 0, team2Hits: 0, team2Errors: 0, gameType: 'Opening Round', winner: 'CURAÇAO', espnId: '401896860' },
+    { date: 'Fri, Aug 21 - 2:00 PM CT', game: 'Game 9', team1: 'SOUTHWEST', team1Score: 3, team1Hits: 6, team1Errors: 1, team2: 'NORTHWEST', team2Score: 4, team2Hits: 7, team2Errors: 1, gameType: 'Double Elimination', winner: 'NORTHWEST', espnId: '401896863' },
+    { date: 'Fri, Aug 21 - 2:00 PM CT', game: 'Game 10', team1: 'PANAMA', team1Score: 4, team1Hits: 7, team1Errors: 1, team2: 'LATIN AMERICA', team2Score: 6, team2Hits: 1, team2Errors: 0, gameType: 'Double Elimination', winner: 'LATIN AMERICA', espnId: '401896862' },
+    { date: 'Fri, Aug 21 - 6:00 PM CT', game: 'Game 11', team1: 'EUROPE-AFRICA', team1Score: 0, team1Hits: 1, team1Errors: 2, team2: 'ASIA-PACIFIC', team2Score: 5, team2Hits: 8, team2Errors: 0, gameType: 'Double Elimination', winner: 'ASIA-PACIFIC', espnId: '401896864' },
+    { date: 'Fri, Aug 21 - 6:00 PM CT', game: 'Game 12', team1: 'METRO', team1Score: 3, team1Hits: 5, team1Errors: 1, team2: 'MID-ATLANTIC', team2Score: 1, team2Hits: 6, team2Errors: 0, gameType: 'Double Elimination', winner: 'METRO', espnId: '401896865' },
 ];
 
 // Optional free-text callouts shown near the top of the page (e.g. big upsets,
