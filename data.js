@@ -19,7 +19,7 @@ const TOURNAMENT = {
     year: 2026,
     location: 'Williamsport, PA',
     dates: 'August 19 - 30, 2026',
-    lastUpdated: 'Friday, August 21, 2026 at 9:23 PM (script run)'
+    lastUpdated: 'Sunday, August 23, 2026 at 9:39 AM (script run)'
 };
 
 // Each participant drafted one US region and one International region.
@@ -40,26 +40,26 @@ const participants = [
 // 'Elimination' (one loss away from being out), 'Championship' (in the LLWS final),
 // 'Winner' (won it all), 'ELIMINATED' (done).
 const teamStatus = {
-    'WEST': { record: '0-1', bracket: 'Active' },
+    'WEST': { record: '0-2', bracket: 'ELIMINATED' },
     'NORTHWEST': { record: '2-0', bracket: 'Active' },
     'MIDWEST': { record: '1-0', bracket: 'Active' },
-    'NEW ENGLAND': { record: '0-1', bracket: 'Active' },
+    'NEW ENGLAND': { record: '0-2', bracket: 'ELIMINATED' },
     'MID-ATLANTIC': { record: '0-1', bracket: 'Elimination' },
     'METRO': { record: '2-0', bracket: 'Active' },
-    'SOUTHEAST': { record: '0-1', bracket: 'Active' },
-    'GREAT LAKES': { record: '0-1', bracket: 'Active' },
+    'SOUTHEAST': { record: '1-1', bracket: 'Active' },
+    'GREAT LAKES': { record: '1-1', bracket: 'Active' },
     'SOUTHWEST': { record: '0-1', bracket: 'Elimination' },
     'MOUNTAIN': { record: '1-0', bracket: 'Active' },
-    'CARIBBEAN': { record: '0-1', bracket: 'Active' },
+    'CARIBBEAN': { record: '0-2', bracket: 'ELIMINATED' },
     'PANAMA': { record: '0-1', bracket: 'Elimination' },
-    'AUSTRALIA': { record: '0-1', bracket: 'Active' },
+    'AUSTRALIA': { record: '0-2', bracket: 'ELIMINATED' },
     'LATIN AMERICA': { record: '2-0', bracket: 'Active' },
     'MEXICO': { record: '1-0', bracket: 'Active' },
     'ASIA-PACIFIC': { record: '2-0', bracket: 'Active' },
     'EUROPE-AFRICA': { record: '0-1', bracket: 'Elimination' },
     'CURAÇAO': { record: '1-0', bracket: 'Active' },
-    'JAPAN': { record: '0-1', bracket: 'Active' },
-    'CANADA': { record: '0-1', bracket: 'Active' },
+    'JAPAN': { record: '1-1', bracket: 'Active' },
+    'CANADA': { record: '1-1', bracket: 'Active' },
 };
 
 // Purely decorative emoji per region, used on cards and the spotlight banner.
@@ -147,6 +147,10 @@ const games = [
     { date: 'Fri, Aug 21 - 2:00 PM CT', game: 'Game 10', team1: 'PANAMA', team1Score: 4, team1Hits: 7, team1Errors: 1, team2: 'LATIN AMERICA', team2Score: 6, team2Hits: 1, team2Errors: 0, gameType: 'Double Elimination', winner: 'LATIN AMERICA', espnId: '401896862' },
     { date: 'Fri, Aug 21 - 6:00 PM CT', game: 'Game 11', team1: 'EUROPE-AFRICA', team1Score: 0, team1Hits: 1, team1Errors: 2, team2: 'ASIA-PACIFIC', team2Score: 5, team2Hits: 8, team2Errors: 0, gameType: 'Double Elimination', winner: 'ASIA-PACIFIC', espnId: '401896864' },
     { date: 'Fri, Aug 21 - 6:00 PM CT', game: 'Game 12', team1: 'METRO', team1Score: 3, team1Hits: 5, team1Errors: 1, team2: 'MID-ATLANTIC', team2Score: 1, team2Hits: 6, team2Errors: 0, gameType: 'Double Elimination', winner: 'METRO', espnId: '401896865' },
+    { date: 'Sat, Aug 22 - 12:00 PM CT', game: 'Game 13', team1: 'AUSTRALIA', team1Score: 0, team1Hits: 2, team1Errors: 3, team2: 'CANADA', team2Score: 4, team2Hits: 9, team2Errors: 0, gameType: 'Elimination Game', winner: 'CANADA', espnId: '401896866' },
+    { date: 'Sat, Aug 22 - 2:00 PM CT', game: 'Game 14', team1: 'NEW ENGLAND', team1Score: 0, team1Hits: 0, team1Errors: 2, team2: 'GREAT LAKES', team2Score: 10, team2Hits: 5, team2Errors: 0, gameType: 'Elimination Game', winner: 'GREAT LAKES', espnId: '401896867' },
+    { date: 'Sat, Aug 22 - 4:00 PM CT', game: 'Game 15', team1: 'CARIBBEAN', team1Score: 1, team1Hits: 3, team1Errors: 5, team2: 'JAPAN', team2Score: 10, team2Hits: 10, team2Errors: 0, gameType: 'Elimination Game', winner: 'JAPAN', espnId: '401896868' },
+    { date: 'Sat, Aug 22 - 6:00 PM CT', game: 'Game 16', team1: 'SOUTHEAST', team1Score: 12, team1Hits: 8, team1Errors: 2, team2: 'WEST', team2Score: 2, team2Hits: 6, team2Errors: 4, gameType: 'Elimination Game', winner: 'SOUTHEAST', espnId: '401896869' },
 ];
 
 // Optional free-text callouts shown near the top of the page (e.g. big upsets,
