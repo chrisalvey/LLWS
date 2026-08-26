@@ -60,21 +60,6 @@
         "winner":  "METRO"
     },
     {
-        "espnId":  "401896858",
-        "date":  "Fri, Aug 21 - 8:00 AM CT",
-        "sortKey":  "2026-08-21T08:00:00.0000000",
-        "team1":  "MEXICO",
-        "team1Score":  7,
-        "team1Hits":  3,
-        "team1Errors":  0,
-        "team2":  "AUSTRALIA",
-        "team2Score":  1,
-        "team2Hits":  5,
-        "team2Errors":  3,
-        "gameType":  "Opening Round",
-        "winner":  "MEXICO"
-    },
-    {
         "espnId":  "401896859",
         "date":  "Fri, Aug 21 - 8:00 AM CT",
         "sortKey":  "2026-08-21T08:00:00.0000000",
@@ -90,19 +75,19 @@
         "winner":  "MOUNTAIN"
     },
     {
-        "espnId":  "401896860",
-        "date":  "Fri, Aug 21 - 11:00 AM CT",
-        "sortKey":  "2026-08-21T11:00:00.0000000",
-        "team1":  "CURAÇAO",
-        "team1Score":  6,
-        "team1Hits":  8,
-        "team1Errors":  1,
-        "team2":  "JAPAN",
-        "team2Score":  0,
-        "team2Hits":  0,
-        "team2Errors":  0,
+        "espnId":  "401896858",
+        "date":  "Fri, Aug 21 - 8:00 AM CT",
+        "sortKey":  "2026-08-21T08:00:00.0000000",
+        "team1":  "MEXICO",
+        "team1Score":  7,
+        "team1Hits":  3,
+        "team1Errors":  0,
+        "team2":  "AUSTRALIA",
+        "team2Score":  1,
+        "team2Hits":  5,
+        "team2Errors":  3,
         "gameType":  "Opening Round",
-        "winner":  "CURAÇAO"
+        "winner":  "MEXICO"
     },
     {
         "espnId":  "401896861",
@@ -120,19 +105,19 @@
         "winner":  "MIDWEST"
     },
     {
-        "espnId":  "401896862",
-        "date":  "Fri, Aug 21 - 2:00 PM CT",
-        "sortKey":  "2026-08-21T14:00:00.0000000",
-        "team1":  "PANAMA",
-        "team1Score":  4,
-        "team1Hits":  7,
+        "espnId":  "401896860",
+        "date":  "Fri, Aug 21 - 11:00 AM CT",
+        "sortKey":  "2026-08-21T11:00:00.0000000",
+        "team1":  "CURAÇAO",
+        "team1Score":  6,
+        "team1Hits":  8,
         "team1Errors":  1,
-        "team2":  "LATIN AMERICA",
-        "team2Score":  6,
-        "team2Hits":  1,
+        "team2":  "JAPAN",
+        "team2Score":  0,
+        "team2Hits":  0,
         "team2Errors":  0,
-        "gameType":  "Double Elimination",
-        "winner":  "LATIN AMERICA"
+        "gameType":  "Opening Round",
+        "winner":  "CURAÇAO"
     },
     {
         "espnId":  "401896863",
@@ -150,19 +135,19 @@
         "winner":  "NORTHWEST"
     },
     {
-        "espnId":  "401896865",
-        "date":  "Fri, Aug 21 - 6:00 PM CT",
-        "sortKey":  "2026-08-21T18:00:00.0000000",
-        "team1":  "METRO",
-        "team1Score":  3,
-        "team1Hits":  5,
+        "espnId":  "401896862",
+        "date":  "Fri, Aug 21 - 2:00 PM CT",
+        "sortKey":  "2026-08-21T14:00:00.0000000",
+        "team1":  "PANAMA",
+        "team1Score":  4,
+        "team1Hits":  7,
         "team1Errors":  1,
-        "team2":  "MID-ATLANTIC",
-        "team2Score":  1,
-        "team2Hits":  6,
+        "team2":  "LATIN AMERICA",
+        "team2Score":  6,
+        "team2Hits":  1,
         "team2Errors":  0,
         "gameType":  "Double Elimination",
-        "winner":  "METRO"
+        "winner":  "LATIN AMERICA"
     },
     {
         "espnId":  "401896864",
@@ -178,6 +163,21 @@
         "team2Errors":  0,
         "gameType":  "Double Elimination",
         "winner":  "ASIA-PACIFIC"
+    },
+    {
+        "espnId":  "401896865",
+        "date":  "Fri, Aug 21 - 6:00 PM CT",
+        "sortKey":  "2026-08-21T18:00:00.0000000",
+        "team1":  "METRO",
+        "team1Score":  3,
+        "team1Hits":  5,
+        "team1Errors":  1,
+        "team2":  "MID-ATLANTIC",
+        "team2Score":  1,
+        "team2Hits":  6,
+        "team2Errors":  0,
+        "gameType":  "Double Elimination",
+        "winner":  "METRO"
     },
     {
         "espnId":  "401896866",
@@ -358,5 +358,65 @@
         "team2Errors":  0,
         "gameType":  "Elimination Game",
         "winner":  "SOUTHEAST"
+    },
+    {
+        "espnId":  "401896834",
+        "date":  "Tue, Aug 25 - 12:00 PM CT",
+        "sortKey":  "2026-08-25T12:00:00.0000000",
+        "team1":  "MEXICO",
+        "team1Score":  1,
+        "team1Hits":  4,
+        "team1Errors":  2,
+        "team2":  "JAPAN",
+        "team2Score":  3,
+        "team2Hits":  8,
+        "team2Errors":  1,
+        "gameType":  "Elimination Game",
+        "winner":  "JAPAN"
+    },
+    {
+        "espnId":  "401896835",
+        "date":  "Tue, Aug 25 - 2:00 PM CT",
+        "sortKey":  "2026-08-25T14:00:00.0000000",
+        "team1":  "SOUTHEAST",
+        "team1Score":  4,
+        "team1Hits":  6,
+        "team1Errors":  0,
+        "team2":  "NORTHWEST",
+        "team2Score":  2,
+        "team2Hits":  5,
+        "team2Errors":  3,
+        "gameType":  "Elimination Game",
+        "winner":  "SOUTHEAST"
+    },
+    {
+        "espnId":  "401896836",
+        "date":  "Tue, Aug 25 - 4:00 PM CT",
+        "sortKey":  "2026-08-25T16:00:00.0000000",
+        "team1":  "ASIA-PACIFIC",
+        "team1Score":  1,
+        "team1Hits":  3,
+        "team1Errors":  3,
+        "team2":  "CANADA",
+        "team2Score":  5,
+        "team2Hits":  7,
+        "team2Errors":  1,
+        "gameType":  "Elimination Game",
+        "winner":  "CANADA"
+    },
+    {
+        "espnId":  "401896837",
+        "date":  "Tue, Aug 25 - 6:00 PM CT",
+        "sortKey":  "2026-08-25T18:00:00.0000000",
+        "team1":  "METRO",
+        "team1Score":  2,
+        "team1Hits":  6,
+        "team1Errors":  0,
+        "team2":  "GREAT LAKES",
+        "team2Score":  5,
+        "team2Hits":  7,
+        "team2Errors":  0,
+        "gameType":  "Elimination Game",
+        "winner":  "GREAT LAKES"
     }
 ]
