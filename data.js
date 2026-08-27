@@ -19,7 +19,7 @@ const TOURNAMENT = {
     year: 2026,
     location: 'Williamsport, PA',
     dates: 'August 19 - 30, 2026',
-    lastUpdated: 'Wednesday, August 26, 2026 at 8:41 AM (script run)'
+    lastUpdated: 'Thursday, August 27, 2026 at 11:33 AM (script run)'
 };
 
 // Each participant drafted one US region and one International region.
@@ -42,24 +42,24 @@ const participants = [
 const teamStatus = {
     'WEST': { record: '0-2', bracket: 'ELIMINATED' },
     'NORTHWEST': { record: '2-2', bracket: 'ELIMINATED' },
-    'MIDWEST': { record: '2-0', bracket: 'Active' },
+    'MIDWEST': { record: '2-2', bracket: 'ELIMINATED' },
     'NEW ENGLAND': { record: '0-2', bracket: 'ELIMINATED' },
     'MID-ATLANTIC': { record: '0-2', bracket: 'ELIMINATED' },
     'METRO': { record: '2-2', bracket: 'ELIMINATED' },
-    'SOUTHEAST': { record: '3-1', bracket: 'Active' },
-    'GREAT LAKES': { record: '3-1', bracket: 'Active' },
+    'SOUTHEAST': { record: '3-2', bracket: 'ELIMINATED' },
+    'GREAT LAKES': { record: '5-1', bracket: 'Active' },
     'SOUTHWEST': { record: '0-2', bracket: 'ELIMINATED' },
-    'MOUNTAIN': { record: '2-0', bracket: 'Active' },
+    'MOUNTAIN': { record: '3-0', bracket: 'Active' },
     'CARIBBEAN': { record: '0-2', bracket: 'ELIMINATED' },
     'PANAMA': { record: '0-2', bracket: 'ELIMINATED' },
     'AUSTRALIA': { record: '0-2', bracket: 'ELIMINATED' },
-    'LATIN AMERICA': { record: '3-0', bracket: 'Active' },
+    'LATIN AMERICA': { record: '3-2', bracket: 'ELIMINATED' },
     'MEXICO': { record: '1-2', bracket: 'ELIMINATED' },
     'ASIA-PACIFIC': { record: '2-2', bracket: 'ELIMINATED' },
     'EUROPE-AFRICA': { record: '0-2', bracket: 'ELIMINATED' },
-    'CURAÇAO': { record: '2-0', bracket: 'Active' },
-    'JAPAN': { record: '3-1', bracket: 'Active' },
-    'CANADA': { record: '3-1', bracket: 'Active' },
+    'CURAÇAO': { record: '3-0', bracket: 'Active' },
+    'JAPAN': { record: '5-1', bracket: 'Active' },
+    'CANADA': { record: '3-2', bracket: 'ELIMINATED' },
 };
 
 // Purely decorative emoji per region, used on cards and the spotlight banner.
@@ -139,14 +139,14 @@ const games = [
     { date: 'Wed, Aug 19 - 2:00 PM CT', game: 'Game 2', team1: 'SOUTHEAST', team1Score: 0, team1Hits: 1, team1Errors: 3, team2: 'NORTHWEST', team2Score: 2, team2Hits: 3, team2Errors: 1, gameType: 'Opening Round', winner: 'NORTHWEST', espnId: '401896652' },
     { date: 'Wed, Aug 19 - 4:00 PM CT', game: 'Game 3', team1: 'ASIA-PACIFIC', team1Score: 7, team1Hits: 9, team1Errors: 0, team2: 'CANADA', team2Score: 0, team2Hits: 3, team2Errors: 3, gameType: 'Opening Round', winner: 'ASIA-PACIFIC', espnId: '401896856' },
     { date: 'Wed, Aug 19 - 6:00 PM CT', game: 'Game 4', team1: 'METRO', team1Score: 2, team1Hits: 6, team1Errors: 0, team2: 'NEW ENGLAND', team2Score: 1, team2Hits: 4, team2Errors: 2, gameType: 'Opening Round', winner: 'METRO', espnId: '401896857' },
-    { date: 'Fri, Aug 21 - 8:00 AM CT', game: 'Game 5', team1: 'MOUNTAIN', team1Score: 6, team1Hits: 6, team1Errors: 1, team2: 'GREAT LAKES', team2Score: 5, team2Hits: 7, team2Errors: 0, gameType: 'Opening Round', winner: 'MOUNTAIN', espnId: '401896859' },
-    { date: 'Fri, Aug 21 - 8:00 AM CT', game: 'Game 6', team1: 'MEXICO', team1Score: 7, team1Hits: 3, team1Errors: 0, team2: 'AUSTRALIA', team2Score: 1, team2Hits: 5, team2Errors: 3, gameType: 'Opening Round', winner: 'MEXICO', espnId: '401896858' },
-    { date: 'Fri, Aug 21 - 11:00 AM CT', game: 'Game 7', team1: 'MIDWEST', team1Score: 1, team1Hits: 2, team1Errors: 0, team2: 'WEST', team2Score: 0, team2Hits: 0, team2Errors: 0, gameType: 'Opening Round', winner: 'MIDWEST', espnId: '401896861' },
-    { date: 'Fri, Aug 21 - 11:00 AM CT', game: 'Game 8', team1: 'CURAÇAO', team1Score: 6, team1Hits: 8, team1Errors: 1, team2: 'JAPAN', team2Score: 0, team2Hits: 0, team2Errors: 0, gameType: 'Opening Round', winner: 'CURAÇAO', espnId: '401896860' },
-    { date: 'Fri, Aug 21 - 2:00 PM CT', game: 'Game 9', team1: 'SOUTHWEST', team1Score: 3, team1Hits: 6, team1Errors: 1, team2: 'NORTHWEST', team2Score: 4, team2Hits: 7, team2Errors: 1, gameType: 'Double Elimination', winner: 'NORTHWEST', espnId: '401896863' },
-    { date: 'Fri, Aug 21 - 2:00 PM CT', game: 'Game 10', team1: 'PANAMA', team1Score: 4, team1Hits: 7, team1Errors: 1, team2: 'LATIN AMERICA', team2Score: 6, team2Hits: 1, team2Errors: 0, gameType: 'Double Elimination', winner: 'LATIN AMERICA', espnId: '401896862' },
-    { date: 'Fri, Aug 21 - 6:00 PM CT', game: 'Game 11', team1: 'EUROPE-AFRICA', team1Score: 0, team1Hits: 1, team1Errors: 2, team2: 'ASIA-PACIFIC', team2Score: 5, team2Hits: 8, team2Errors: 0, gameType: 'Double Elimination', winner: 'ASIA-PACIFIC', espnId: '401896864' },
-    { date: 'Fri, Aug 21 - 6:00 PM CT', game: 'Game 12', team1: 'METRO', team1Score: 3, team1Hits: 5, team1Errors: 1, team2: 'MID-ATLANTIC', team2Score: 1, team2Hits: 6, team2Errors: 0, gameType: 'Double Elimination', winner: 'METRO', espnId: '401896865' },
+    { date: 'Fri, Aug 21 - 8:00 AM CT', game: 'Game 5', team1: 'MEXICO', team1Score: 7, team1Hits: 3, team1Errors: 0, team2: 'AUSTRALIA', team2Score: 1, team2Hits: 5, team2Errors: 3, gameType: 'Opening Round', winner: 'MEXICO', espnId: '401896858' },
+    { date: 'Fri, Aug 21 - 8:00 AM CT', game: 'Game 6', team1: 'MOUNTAIN', team1Score: 6, team1Hits: 6, team1Errors: 1, team2: 'GREAT LAKES', team2Score: 5, team2Hits: 7, team2Errors: 0, gameType: 'Opening Round', winner: 'MOUNTAIN', espnId: '401896859' },
+    { date: 'Fri, Aug 21 - 11:00 AM CT', game: 'Game 7', team1: 'CURAÇAO', team1Score: 6, team1Hits: 8, team1Errors: 1, team2: 'JAPAN', team2Score: 0, team2Hits: 0, team2Errors: 0, gameType: 'Opening Round', winner: 'CURAÇAO', espnId: '401896860' },
+    { date: 'Fri, Aug 21 - 11:00 AM CT', game: 'Game 8', team1: 'MIDWEST', team1Score: 1, team1Hits: 2, team1Errors: 0, team2: 'WEST', team2Score: 0, team2Hits: 0, team2Errors: 0, gameType: 'Opening Round', winner: 'MIDWEST', espnId: '401896861' },
+    { date: 'Fri, Aug 21 - 2:00 PM CT', game: 'Game 9', team1: 'PANAMA', team1Score: 4, team1Hits: 7, team1Errors: 1, team2: 'LATIN AMERICA', team2Score: 6, team2Hits: 1, team2Errors: 0, gameType: 'Double Elimination', winner: 'LATIN AMERICA', espnId: '401896862' },
+    { date: 'Fri, Aug 21 - 2:00 PM CT', game: 'Game 10', team1: 'SOUTHWEST', team1Score: 3, team1Hits: 6, team1Errors: 1, team2: 'NORTHWEST', team2Score: 4, team2Hits: 7, team2Errors: 1, gameType: 'Double Elimination', winner: 'NORTHWEST', espnId: '401896863' },
+    { date: 'Fri, Aug 21 - 6:00 PM CT', game: 'Game 11', team1: 'METRO', team1Score: 3, team1Hits: 5, team1Errors: 1, team2: 'MID-ATLANTIC', team2Score: 1, team2Hits: 6, team2Errors: 0, gameType: 'Double Elimination', winner: 'METRO', espnId: '401896865' },
+    { date: 'Fri, Aug 21 - 6:00 PM CT', game: 'Game 12', team1: 'EUROPE-AFRICA', team1Score: 0, team1Hits: 1, team1Errors: 2, team2: 'ASIA-PACIFIC', team2Score: 5, team2Hits: 8, team2Errors: 0, gameType: 'Double Elimination', winner: 'ASIA-PACIFIC', espnId: '401896864' },
     { date: 'Sat, Aug 22 - 12:00 PM CT', game: 'Game 13', team1: 'AUSTRALIA', team1Score: 0, team1Hits: 2, team1Errors: 3, team2: 'CANADA', team2Score: 4, team2Hits: 9, team2Errors: 0, gameType: 'Elimination Game', winner: 'CANADA', espnId: '401896866' },
     { date: 'Sat, Aug 22 - 2:00 PM CT', game: 'Game 14', team1: 'NEW ENGLAND', team1Score: 0, team1Hits: 0, team1Errors: 2, team2: 'GREAT LAKES', team2Score: 10, team2Hits: 5, team2Errors: 0, gameType: 'Elimination Game', winner: 'GREAT LAKES', espnId: '401896867' },
     { date: 'Sat, Aug 22 - 4:00 PM CT', game: 'Game 15', team1: 'CARIBBEAN', team1Score: 1, team1Hits: 3, team1Errors: 5, team2: 'JAPAN', team2Score: 10, team2Hits: 10, team2Errors: 0, gameType: 'Elimination Game', winner: 'JAPAN', espnId: '401896868' },
@@ -163,6 +163,12 @@ const games = [
     { date: 'Tue, Aug 25 - 2:00 PM CT', game: 'Game 26', team1: 'SOUTHEAST', team1Score: 4, team1Hits: 6, team1Errors: 0, team2: 'NORTHWEST', team2Score: 2, team2Hits: 5, team2Errors: 3, gameType: 'Elimination Game', winner: 'SOUTHEAST', espnId: '401896835' },
     { date: 'Tue, Aug 25 - 4:00 PM CT', game: 'Game 27', team1: 'ASIA-PACIFIC', team1Score: 1, team1Hits: 3, team1Errors: 3, team2: 'CANADA', team2Score: 5, team2Hits: 7, team2Errors: 1, gameType: 'Elimination Game', winner: 'CANADA', espnId: '401896836' },
     { date: 'Tue, Aug 25 - 6:00 PM CT', game: 'Game 28', team1: 'METRO', team1Score: 2, team1Hits: 6, team1Errors: 0, team2: 'GREAT LAKES', team2Score: 5, team2Hits: 7, team2Errors: 0, gameType: 'Elimination Game', winner: 'GREAT LAKES', espnId: '401896837' },
+    { date: 'Wed, Aug 26 - 12:00 PM CT', game: 'Game 29', team1: 'LATIN AMERICA', team1Score: 3, team1Hits: 2, team1Errors: 4, team2: 'CURAÇAO', team2Score: 12, team2Hits: 11, team2Errors: 2, gameType: 'Double Elimination', winner: 'CURAÇAO', espnId: '401896838' },
+    { date: 'Wed, Aug 26 - 2:00 PM CT', game: 'Game 30', team1: 'MIDWEST', team1Score: 6, team1Hits: 8, team1Errors: 0, team2: 'MOUNTAIN', team2Score: 14, team2Hits: 10, team2Errors: 2, gameType: 'Double Elimination', winner: 'MOUNTAIN', espnId: '401896839' },
+    { date: 'Wed, Aug 26 - 4:00 PM CT', game: 'Game 31', team1: 'JAPAN', team1Score: 7, team1Hits: 10, team1Errors: 2, team2: 'CANADA', team2Score: 3, team2Hits: 5, team2Errors: 1, gameType: 'Elimination Game', winner: 'JAPAN', espnId: '401896840' },
+    { date: 'Wed, Aug 26 - 6:00 PM CT', game: 'Game 32', team1: 'SOUTHEAST', team1Score: 2, team1Hits: 5, team1Errors: 1, team2: 'GREAT LAKES', team2Score: 11, team2Hits: 12, team2Errors: 0, gameType: 'Elimination Game', winner: 'GREAT LAKES', espnId: '401896841' },
+    { date: 'Thu, Aug 27 - 8:00 AM CT', game: 'Game 33', team1: 'MIDWEST', team1Score: 1, team1Hits: 4, team1Errors: 1, team2: 'GREAT LAKES', team2Score: 7, team2Hits: 12, team2Errors: 0, gameType: 'Elimination Game', winner: 'GREAT LAKES', espnId: '401896843' },
+    { date: 'Thu, Aug 27 - 8:00 AM CT', game: 'Game 34', team1: 'JAPAN', team1Score: 4, team1Hits: 8, team1Errors: 0, team2: 'LATIN AMERICA', team2Score: 1, team2Hits: 4, team2Errors: 1, gameType: 'Elimination Game', winner: 'JAPAN', espnId: '401896842' },
 ];
 
 // Optional free-text callouts shown near the top of the page (e.g. big upsets,
